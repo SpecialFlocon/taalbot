@@ -1,3 +1,3 @@
 # taaltool
 
-A piece of software that aims to make language learning easier.
+A software collection that aims to make language learning easier.
