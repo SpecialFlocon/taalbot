@@ -40,11 +40,10 @@ async def search_word(ctx, word):
     for obj in words:
         articles = obj['lidwoord_name']
         both_articles = len(articles) == 2
-        result_suffix = ""
+        result_suffix = "🤔" if not obj['accurate'] else ""
 
         if both_articles:
             article_output = "**{}**/**{}**".format(*articles)
-            result_suffix = "⚠"
         else:
             article_output = "**{}**".format(*articles)
 
