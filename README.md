@@ -1,3 +1,3 @@
-# taaltool
+# taalbot
 
-A software collection that aims to make language learning easier.
+A Discord bot that interacts with the HTTP API provided by [taalapi](https://github.com/ThePib/taalapi)
