@@ -1,0 +1,21 @@
+name: taalbot development Docker images
+on:
+  push:
+    branches:
+    - master
+jobs:
+  build:
+    name: Build and publish taalbot Docker image
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build and tag Docker image
+      run: |
+        docker build -t taalbot .
+        docker tag taalbot thepib/taalbot:latest
+    - name: Push Docker image
+      env:
+        REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      run: |
+        echo $REGISTRY_PASSWORD | docker login -u thepib --password-stdin
+        docker push thepib/taalbot:latest

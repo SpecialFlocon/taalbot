@@ -1,0 +1,27 @@
+name: taalbot release Docker images
+on:
+  push:
+    tags:
+    - releases/*
+jobs:
+  build:
+    name: Build and publish taalbot Docker image
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set environment variables
+      run: echo "::set-env name=TAALBOT_VERSION::$(echo ${GITHUB_REF##*/})"
+    - name: Build and tag Docker image
+      run: |
+        docker build -t taalbot .
+        docker tag taalbot thepib/taalbot:${TAALBOT_VERSION}
+        docker tag taalbot thepib/taalbot:${TAALBOT_VERSION%.*}
+        docker tag taalbot thepib/taalbot:${TAALBOT_VERSION%%.*}
+    - name: Push Docker image
+      env:
+        REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      run: |
+        echo $REGISTRY_PASSWORD | docker login -u thepib --password-stdin
+        docker push thepib/taalbot:${TAALBOT_VERSION}
+        docker push thepib/taalbot:${TAALBOT_VERSION%.*}
+        docker push thepib/taalbot:${TAALBOT_VERSION%%.*}
