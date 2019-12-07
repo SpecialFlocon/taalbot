@@ -24,7 +24,7 @@ RUN groupadd -g 500 taalbot && \
 USER taalbot
 WORKDIR /srv/taalbot
 
-COPY --chown=taalbot:taalbot . .
+COPY --chown=taalbot:taalbot src/ .
 COPY --chown=taalbot:taalbot run.sh /
 COPY --from=0 /home/taalbot/venv /home/taalbot/venv
 
