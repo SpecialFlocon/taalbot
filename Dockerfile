@@ -18,8 +18,8 @@ FROM python:3-slim
 
 RUN groupadd -g 500 taalbot && \
     useradd -d /home/taalbot -g taalbot -m -N -u 500 taalbot && \
-    mkdir -p /srv/taalbot && \
-    chown taalbot:taalbot /srv/taalbot
+    mkdir -p /etc/taalbot /srv/taalbot && \
+    chown taalbot:taalbot /etc/taalbot /srv/taalbot
 
 USER taalbot
 WORKDIR /srv/taalbot
