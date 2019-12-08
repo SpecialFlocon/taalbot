@@ -16,7 +16,7 @@ class Lidwoord(commands.Cog):
     async def search_word(ctx, word):
         output_buf = StringIO()
 
-        response = requests.get("http://localhost:8000/api/v1/woorden/search/{}".format(word))
+        response = requests.get("{}/api/{}/woorden/search/{}".format(self.bot.api_url, self.bot.api_version, word))
         # HTTP 500: couldn't extract info from sources
         # TODO(thepib): notify developer so that he can get on with fixing his code
         if response.status_code == 500:
