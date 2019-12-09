@@ -14,7 +14,7 @@ class LidwoordCog(commands.Cog):
         if not ctx.invoked_subcommand:
             await ctx.send("Usage: !dehet woord")
 
-    @lidwoord.command()
+    @lidwoord.command(name='dehet')
     async def search_word(self, ctx, word: str):
         output_buf = StringIO()
 
