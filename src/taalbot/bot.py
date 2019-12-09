@@ -1,7 +1,6 @@
 from discord.ext import commands
 
 from . import const
-from .cogs.lidwoord import Lidwoord
 
 import argparse
 import os
