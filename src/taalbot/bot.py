@@ -3,6 +3,7 @@ from discord.ext import commands
 from . import const
 
 import argparse
+import logging
 import os
 import sys
 import yaml
@@ -35,6 +36,9 @@ if __name__ == '__main__':
     config = yaml.safe_load(config_file)
     if not config:
         raise ValueError("Configuration file is empty.")
+
+    # Turn on logging
+    logging.basicConfig(level=logging.INFO)
 
     taalbot = Taalbot(config)
 
