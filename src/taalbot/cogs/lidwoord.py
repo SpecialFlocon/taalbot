@@ -47,7 +47,7 @@ class LidwoordCog(commands.Cog):
     @commands.command()
     async def dehet(self, ctx, *args):
         if len(args) == 1:
-            await ctx.send(self.search_word(word))
+            await ctx.send(self.search_word(args[0]))
         else:
             await ctx.send_help('LidwoordCog')
 
