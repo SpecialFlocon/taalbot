@@ -13,7 +13,7 @@ class Lidwoord(commands.Cog):
         bot.add_command(search_word)
 
     @commands.command(name='dehet')
-    async def search_word(ctx, word):
+    async def search_word(self, ctx, word):
         output_buf = StringIO()
 
         response = requests.get("{}/api/{}/woorden/search/{}".format(self.bot.api_url, self.bot.api_version, word))
