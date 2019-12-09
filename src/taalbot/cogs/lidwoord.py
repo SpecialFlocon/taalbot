@@ -5,12 +5,9 @@ import json
 import requests
 
 
-class Lidwoord(commands.Cog):
+class LidwoordCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
-    def setup(bot):
-        bot.add_command(search_word)
 
     @commands.command(name='dehet')
     async def search_word(self, ctx, word):
@@ -49,3 +46,6 @@ class Lidwoord(commands.Cog):
             output_buf.write("{}{} {} {}\n".format(result_prefix, article_output, word, result_suffix))
 
         await ctx.send(output_buf.getvalue())
+
+def setup(bot):
+    bot.add_cog(LidwoordCog(bot))
