@@ -38,7 +38,7 @@ if __name__ == '__main__':
         raise ValueError("Configuration file is empty.")
 
     # Turn on logging
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig()
 
     taalbot = Taalbot(config)
 
