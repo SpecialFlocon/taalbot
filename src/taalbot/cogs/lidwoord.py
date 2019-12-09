@@ -10,10 +10,6 @@ class LidwoordCog(commands.Cog):
         self.bot = bot
 
     @commands.command(name='dehet')
-    async def lidwoord(self, ctx):
-        await ctx.send("Usage: !dehet woord")
-
-    @commands.command(name='dehet')
     async def search_word(self, ctx, word: str):
         output_buf = StringIO()
 
