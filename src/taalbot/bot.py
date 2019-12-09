@@ -39,6 +39,6 @@ if __name__ == '__main__':
     taalbot = Taalbot(config)
 
     # Register extensions
-    taalbot.load_extension('cogs.lidwoord')
+    taalbot.load_extension('taalbot.cogs.lidwoord')
 
     taalbot.run(token)
