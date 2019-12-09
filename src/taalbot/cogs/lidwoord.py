@@ -9,7 +9,7 @@ class LidwoordCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @command.group(name='dehet')
+    @commands.group(name='dehet')
     async def lidwoord(self, ctx):
         if not ctx.invoked_subcommand:
             await ctx.send("Usage: !dehet woord")
