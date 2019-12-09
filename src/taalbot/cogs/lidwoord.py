@@ -9,8 +9,13 @@ class LidwoordCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='dehet')
-    async def search_word(self, ctx, word):
+    @command.group(name='dehet')
+    async def lidwoord(self, ctx):
+        if not ctx.invoked_subcommand:
+            await ctx.send("Usage: !dehet woord")
+
+    @lidwoord.command()
+    async def search_word(self, ctx, word: str):
         output_buf = StringIO()
 
         response = requests.get("{}/api/{}/woorden/search/{}".format(self.bot.api_url, self.bot.api_version, word))
