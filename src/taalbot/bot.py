@@ -1,6 +1,7 @@
 from discord.ext import commands
 
 from . import const
+from .help import TaalbotHelpCommand
 
 import argparse
 import logging
@@ -40,7 +41,11 @@ if __name__ == '__main__':
     # Enable logging
     logging.basicConfig()
 
-    taalbot = Taalbot(config)
+    taalbot = Taalbot(
+        config,
+        help_command=TaalbotHelpCommand(),
+        description="A sensible bot that helps you practicing languages"
+    )
 
     # Register extensions
     taalbot.load_extension('taalbot.cogs.lidwoord')
