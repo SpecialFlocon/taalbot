@@ -9,10 +9,10 @@ class LidwoordCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    def search_word(self, word):
+    def get_or_learn_word(self, word):
         output_buf = StringIO()
 
-        response = requests.get("{}/api/{}/woorden/search/{}".format(self.bot.api_url, self.bot.api_version, word))
+        response = requests.get("{}/api/{}/woorden/learn/{}".format(self.bot.api_url, self.bot.api_version, word))
         # HTTP 500: couldn't extract info from sources
         # TODO(thepib): notify developer so that he can get on with fixing his code
         if response.status_code == 500:
@@ -47,7 +47,7 @@ class LidwoordCog(commands.Cog):
     @commands.command()
     async def dehet(self, ctx, *args):
         if len(args) == 1:
-            await ctx.send(self.search_word(args[0]))
+            await ctx.send(self.get_or_learn_word(args[0]))
         else:
             await ctx.send_help('LidwoordCog')
 
