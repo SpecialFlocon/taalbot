@@ -22,25 +22,18 @@ class LidwoordCog(commands.Cog):
         if response.status_code == 404:
             return "The word you're looking for was not found.\nIs it a *zelfstandig naamwoord*? Is it even a word?"
 
-        words = json.loads(response.text)
+        obj = json.loads(response.text)
+        articles = obj['lidwoord_name']
+        both_articles = len(articles) == 2
+        result_suffix = "🤔" if not obj['accurate'] else ""
 
-        result_prefix = ""
-        if len(words) > 1:
-            output_buf.write("I found multiple words! 🔎\nHere are the first few ones:\n")
-            result_prefix = "- "
+        if both_articles:
+            article_output = "**{}**/**{}**".format(*articles)
+        else:
+            article_output = "**{}**".format(*articles)
 
-        for obj in words:
-            articles = obj['lidwoord_name']
-            both_articles = len(articles) == 2
-            result_suffix = "🤔" if not obj['accurate'] else ""
-
-            if both_articles:
-                article_output = "**{}**/**{}**".format(*articles)
-            else:
-                article_output = "**{}**".format(*articles)
-
-            word = obj['woord']
-            output_buf.write("{}{} {} {}\n".format(result_prefix, article_output, word, result_suffix))
+        word = obj['woord']
+        output_buf.write("{} {} {}\n".format(article_output, word, result_suffix))
 
         return output_buf.getvalue()
 
