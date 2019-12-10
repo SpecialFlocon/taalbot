@@ -88,8 +88,16 @@ class LidwoordCog(commands.Cog):
 
     @commands.command()
     async def dehet(self, ctx, *args):
+        # One argument: the user is asking for the article
         if len(args) == 1:
             await ctx.send(self.get_or_learn_word(args[0]))
+        # Two arguments: the user is setting the article of a word
+        elif len(args) == 2:
+            if not args[1] in ['de', 'het', 'both']:
+                await ctx.send_help('LidwoordCog')
+                return
+
+            await ctx.send(self.set_word(*args))
         else:
             await ctx.send_help('LidwoordCog')
 
