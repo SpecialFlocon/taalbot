@@ -30,7 +30,6 @@ class LidwoordCog(commands.Cog):
         obj = json.loads(response.text)
         articles = obj['lidwoord_name']
         both_articles = len(articles) == 2
-        result_suffix = "🤔" if not obj['accurate'] else ""
 
         if both_articles:
             article_output = "**{}**/**{}**".format(*articles)
@@ -38,7 +37,14 @@ class LidwoordCog(commands.Cog):
             article_output = "**{}**".format(*articles)
 
         word = obj['woord']
-        output_buf.write("{} {} {}\n".format(article_output, word, result_suffix))
+        if obj['accurate']:
+            output_buf.write("{} {}\n".format(article_output, word))
+        else:
+            output_buf.write("""
+{0}... {1}? 🤔
+Something's off... Am I wrong here? If so, you can correct me: `!dehet {1} article`
+Don't forget that all plural nouns in Dutch are *de-words*!
+""".format(article_output, word))
 
         return output_buf.getvalue()
 
