@@ -26,7 +26,7 @@ class TaalbotHelpCommand(HelpCommand):
         for c in filtered:
             self.embed.add_field(
                 name='{}{}'.format(bot.command_prefix, c.name),
-                value=c.brief or 'No info',
+                value=c.brief or 'No description',
                 inline=False,
             )
 
