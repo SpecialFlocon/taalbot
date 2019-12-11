@@ -77,7 +77,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             if response.status_code != requests.codes.ok:
                 return "I couldn't replace the article of this word. Not because I don't believe you, but because of a technical (or human) deficiency."
 
-            return "Article for word {} has been set to **{}**. Thank you for your valuable contribution!".format(word, new_article)
+            return "Article for word {} has been replaced by **{}**. Thank you for your valuable contribution!".format(word, new_article)
         else:
             new_word = dict()
             new_word['woord'] = word
