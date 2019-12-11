@@ -15,7 +15,7 @@ class Taalbot(commands.Bot):
         self.api_url = config['apiUrl']
         self.api_version = const.API_VERSION
 
-        super().__init__(command_prefix=config['cmdPrefix'], **kwargs)
+        super().__init__(command_prefix='!', **kwargs)
 
 if __name__ == '__main__':
     try:
