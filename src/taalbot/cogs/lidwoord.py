@@ -100,12 +100,12 @@ Don't forget that all plural nouns in Dutch are *de-words*!
         # Two arguments: the user is setting the article of a word
         elif len(args) == 2:
             if not args[1] in ['de', 'het', 'both']:
-                await ctx.send_help('LidwoordCog')
+                await ctx.send_help('dehet')
                 return
 
             await ctx.send(self.set_word(*args))
         else:
-            await ctx.send_help('LidwoordCog')
+            await ctx.send_help('dehet')
 
 def setup(bot):
     bot.add_cog(LidwoordCog(bot))
