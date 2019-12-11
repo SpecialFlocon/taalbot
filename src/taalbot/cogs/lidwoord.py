@@ -100,8 +100,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
         # Two arguments: the user is setting the article of a word
         elif len(args) == 2:
             if not args[1] in ['de', 'het', 'both']:
-                await ctx.send_help('dehet')
-                return
+                return await ctx.send_help('dehet')
 
             await ctx.send(self.set_word(*args))
         else:
