@@ -7,7 +7,10 @@ API_VERSION = 'v1'
 TAALBOT_CMD_BLUEPRINT = {
     'dehet': {
         'title': "\"De\"-word or \"het\"-word?",
-        'description': "Which article does this word need? You could try to guess, or you could ask me!",
+        'description': """
+Which article does this noun need? You could try to guess, or you could ask me!
+Unless the noun is in plural, in which case it's **always** \"de\".
+""",
         'color': 3447003, # 0x3498db, blue
         'fields': [
             {
