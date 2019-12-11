@@ -27,8 +27,11 @@ class TaalbotHelpCommand(HelpCommand):
 
         filtered = await self.filter_commands(bot.commands, sort=True)
         for c in filtered:
+            cmd_names = [c.name] + c.aliases
+            field_title = ', '.join((lambda x: '{}{}'.format(bot.command_prefix, x))(a) for a in cmd_names).strip()
+
             self.embed.add_field(
-                name='{}{}'.format(bot.command_prefix, c.name),
+                name=field_title,
                 value=c.brief or 'No description',
                 inline=False,
             )
