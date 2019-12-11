@@ -11,6 +11,9 @@ class TaalbotHelpCommand(HelpCommand):
 
         super().__init__(**options)
 
+    def command_not_found(self, string):
+        return "I don't have a command called `{}`, but I have a `help` command!".format(string)
+
     async def send_bot_help(self, mapping):
         ctx = self.context
         bot = ctx.bot
@@ -33,11 +36,7 @@ class TaalbotHelpCommand(HelpCommand):
         await self.get_destination().send(embed=self.embed)
 
     async def send_command_help(self, command):
-        try:
-            self.embed = discord.Embed.from_dict(TAALBOT_CMD_BLUEPRINT[command.name])
-        except KeyError:
-            return await self.send_error_message("I don't have a command called {}!".format(command.name))
-
+        self.embed = discord.Embed.from_dict(TAALBOT_CMD_BLUEPRINT[command.name])
         await self.get_destination().send(embed=self.embed)
 
     async def prepare_help_command(self, ctx, command=None):
