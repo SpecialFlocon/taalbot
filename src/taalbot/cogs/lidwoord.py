@@ -104,7 +104,11 @@ Don't forget that all plural nouns in Dutch are *de-words*!
 
             await ctx.send(self.set_word(*args))
         else:
-            await ctx.send_help('dehet')
+            await ctx.send("""
+To get the article of a noun: `{0}{1} {2}`
+To set the article of a noun: `{0}{1} {2} {3}`
+More info: `{0}help {1}`
+""".format(ctx.bot.command_prefix, ctx.invoked_with, "word", "article"))
 
 def setup(bot):
     bot.add_cog(LidwoordCog(bot))
