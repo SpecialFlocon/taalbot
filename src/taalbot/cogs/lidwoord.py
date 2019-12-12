@@ -92,7 +92,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
 
             return _("Word {} with article **{}** has been added to my record. Thank you for your valuable contribution!").format(word, new_article)
 
-    @commands.command(brief=_("De or het? Use this command to find out!"))
+    @commands.command(aliases=['hetde'], brief=_("De or het? Use this command to find out!"))
     async def dehet(self, ctx, *args):
         # One argument: the user is asking for the article
         if len(args) == 1:
