@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec python3 -m taalbot.bot
+exec python3 -m taalbot
