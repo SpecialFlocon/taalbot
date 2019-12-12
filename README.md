@@ -24,4 +24,13 @@ msginit --input=taalbot.pot --locale=<language> --output=locales/<language>/LC_M
 msgfmt --output-file=locales/<language>/LC_MESSAGES/taalbot.mo locales/<language>/LC_MESSAGES/taalbot.po
 ```
 
-All PRs are welcome.
+To update existing `.po` files:
+
+```console
+cd <repo>
+xgettext --from-code="UTF-8" --keyword=_ --language=Python -o taalbot.pot src/taalbot/*.py src/taalbot/cogs/*.py
+msgmerge --update locales/<language>/LC_MESSAGES/taalbot.po taalbot.pot
+msgfmt --output-file=locales/<language>/LC_MESSAGES/taalbot.mo locales/<language>/LC_MESSAGES/taalbot.po
+```
+
+All PRs are welcome!
