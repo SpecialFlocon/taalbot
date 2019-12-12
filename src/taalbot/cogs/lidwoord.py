@@ -25,7 +25,7 @@ class LidwoordCog(commands.Cog):
             return _("Oops, the rocket blew up in-flight. I just harassed whoever wrote me about it, so you don't have to do it.")
         # HTTP 404: word doesn't exist
         if response.status_code == 404:
-            return _("The word you're looking for was not found.\nIs it a *zelfstandig naamwoord*? Is it even a word?")
+            return _("The word you're looking for was not found.\nIs it a noun? Is it even a word?")
 
         obj = json.loads(response.text)
         articles = obj['lidwoord_name']

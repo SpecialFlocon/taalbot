@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-12 02:17+0100\n"
+"POT-Creation-Date: 2019-12-12 18:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgstr ""
 #: src/taalbot/cogs/lidwoord.py:28
 msgid ""
 "The word you're looking for was not found.\n"
-"Is it a *zelfstandig naamwoord*? Is it even a word?"
+"Is it a noun? Is it even a word?"
 msgstr ""
 
 #: src/taalbot/cogs/lidwoord.py:43
