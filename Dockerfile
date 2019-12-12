@@ -24,11 +24,13 @@ RUN groupadd -g 500 taalbot && \
 USER taalbot
 WORKDIR /srv/taalbot
 
+COPY --chown=taalbot:taalbot locales ./locales/
 COPY --chown=taalbot:taalbot src/ .
 COPY --chown=taalbot:taalbot run.sh /
 COPY --from=0 /home/taalbot/venv /home/taalbot/venv
 
-ENV PATH="/home/taalbot/venv/bin:$PATH" \
+ENV LANGUAGE=nl_NL.UTF-8 \
+    PATH="/home/taalbot/venv/bin:$PATH" \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     VIRTUAL_ENV=/home/taalbot/venv

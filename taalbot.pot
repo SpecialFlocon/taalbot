@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-12 01:06+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/taalbot/bot.py:51
+msgid "A sensible bot that helps you practicing languages"
+msgstr ""
+
+#: src/taalbot/help.py:15
+msgid "I don't have a command called `{}`, but I have a `help` command!"
+msgstr ""
+
+#: src/taalbot/help.py:21
+msgid "Commands"
+msgstr ""
+
+#: src/taalbot/help.py:22
+msgid ""
+"\n"
+"Here's a list of the commands you can run, and their purpose.\n"
+"Type `!help command` to get detailed help for given command.\n"
+msgstr ""
+
+#: src/taalbot/help.py:35
+msgid "No description"
+msgstr ""
+
+#: src/taalbot/utils.py:8
+msgid "\"De\"-word or \"het\"-word?"
+msgstr ""
+
+#: src/taalbot/utils.py:9
+msgid ""
+"\n"
+"Which article does this noun need? You could try to guess, or you could ask "
+"me!\n"
+"Unless the noun is in plural, in which case it's **always** \"de\"."
+msgstr ""
+
+#: src/taalbot/utils.py:15
+msgid "Which article?"
+msgstr ""
+
+#: src/taalbot/utils.py:23
+msgid "Set or replace article"
+msgstr ""
+
+#: src/taalbot/utils.py:28
+msgid "both"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:25
+msgid ""
+"Oops, the rocket blew up in-flight. I just harassed whoever wrote me about "
+"it, so you don't have to do it."
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:28
+msgid ""
+"The word you're looking for was not found.\n"
+"Is it a *zelfstandig naamwoord*? Is it even a word?"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:43
+#, python-brace-format
+msgid ""
+"\n"
+"{0}... {1}? 🤔\n"
+"Something's off... Am I wrong here? If so, you can correct me: `!dehet {1} "
+"article`\n"
+"Don't forget that all plural nouns in Dutch are *de-words*!\n"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:78
+msgid ""
+"I couldn't replace the article of this word. Not because I don't believe "
+"you, but because of a technical (or human) deficiency."
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:80
+msgid ""
+"Article for word {} has been replaced by **{}**. Thank you for your valuable "
+"contribution!"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:91
+msgid ""
+"I couldn't add this word/article combination to my record. Not because I "
+"don't believe you, but because of a technical (or human) deficiency."
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:93
+msgid ""
+"Word {} with article **{}** has been added to my record. Thank you for your "
+"valuable contribution!"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:95
+msgid "De or het? Use this command to find out!"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:107
+#, python-brace-format
+msgid ""
+"\n"
+"To get the article of a noun: `{0}{1} {2}`\n"
+"To set the article of a noun: `{0}{1} {2} {3}`\n"
+"More info: `{0}help {1}`\n"
+msgstr ""

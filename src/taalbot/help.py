@@ -1,6 +1,6 @@
 from discord.ext.commands import HelpCommand
 
-from .const import TAALBOT_CMD_BLUEPRINT
+from .utils import TAALBOT_CMD_BLUEPRINT
 
 import discord
 
@@ -12,17 +12,17 @@ class TaalbotHelpCommand(HelpCommand):
         super().__init__(**options)
 
     def command_not_found(self, string):
-        return "I don't have a command called `{}`, but I have a `help` command!".format(string)
+        return _("I don't have a command called `{}`, but I have a `help` command!").format(string)
 
     async def send_bot_help(self, mapping):
         ctx = self.context
         bot = ctx.bot
 
-        self.embed.title = 'Commands'
-        self.embed.description = """
-            Here's a list of the commands you can run, and their purpose.
-            Type `!help command` to get detailed help for given command.
-        """
+        self.embed.title = _('Commands')
+        self.embed.description = _("""
+Here's a list of the commands you can run, and their purpose.
+Type `!help command` to get detailed help for given command.
+""")
         self.embed.colour = discord.Colour.blue()
 
         filtered = await self.filter_commands(bot.commands, sort=True)
@@ -32,7 +32,7 @@ class TaalbotHelpCommand(HelpCommand):
 
             self.embed.add_field(
                 name=field_title,
-                value=c.brief or 'No description',
+                value=c.brief or _('No description'),
                 inline=False,
             )
 

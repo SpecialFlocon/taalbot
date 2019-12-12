@@ -44,7 +44,7 @@ if __name__ == '__main__':
     taalbot = Taalbot(
         config,
         help_command=TaalbotHelpCommand(),
-        description="A sensible bot that helps you practicing languages"
+        description=_("A sensible bot that helps you practicing languages")
     )
 
     # Register extensions
