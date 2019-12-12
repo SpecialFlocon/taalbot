@@ -86,7 +86,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             else:
                 new_word['lidwoord'] = [a['id'] for a in articles if a['lidwoord'] == new_article]
 
-            response = requests.post("{}/api/{}/woorden/{}/".format(self.bot.api_url, self.bot.api_version), data=new_word)
+            response = requests.post("{}/api/{}/woorden/".format(self.bot.api_url, self.bot.api_version), data=new_word)
             if response.status_code != requests.codes.ok:
                 return _("I couldn't add this word/article combination to my record. Not because I don't believe you, but because of a technical (or human) deficiency.")
 
