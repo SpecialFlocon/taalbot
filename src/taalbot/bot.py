@@ -17,6 +17,21 @@ class Taalbot(commands.Bot):
 
         super().__init__(command_prefix='!', **kwargs)
 
+    async def on_command_error(self, context, exception):
+        if self.extra_events.get('on_command_error', None):
+            return
+
+        if hasattr(context.command, 'on_error'):
+            return
+
+        cog = context.cog
+        if cog:
+            if commands.Cog._get_overridden_method(cog.cog_command_error) is not None:
+                return
+
+        logging.error(exception)
+        logging.debug(exception.__traceback__)
+
 if __name__ == '__main__':
     try:
         token = os.environ['TAALTOOL_BOT_TOKEN']
