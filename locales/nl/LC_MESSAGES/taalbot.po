@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-12 01:06+0100\n"
+"POT-Creation-Date: 2019-12-12 02:17+0100\n"
 "PO-Revision-Date: 2019-12-12 00:13+0100\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/taalbot/bot.py:51
+#: src/taalbot/bot.py:47
 msgid "A sensible bot that helps you practicing languages"
 msgstr ""
 
@@ -60,7 +60,8 @@ msgstr "Welk lidwoord?"
 msgid "Set or replace article"
 msgstr ""
 
-#: src/taalbot/utils.py:28
+#: src/taalbot/utils.py:28 src/taalbot/cogs/lidwoord.py:67
+#: src/taalbot/cogs/lidwoord.py:84 src/taalbot/cogs/lidwoord.py:102
 msgid "both"
 msgstr "allebei"
 
@@ -122,3 +123,11 @@ msgid ""
 "To set the article of a noun: `{0}{1} {2} {3}`\n"
 "More info: `{0}help {1}`\n"
 msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:111
+msgid "word"
+msgstr "woord"
+
+#: src/taalbot/cogs/lidwoord.py:111
+msgid "article"
+msgstr "lidwoord"

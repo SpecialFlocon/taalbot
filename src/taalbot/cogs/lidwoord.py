@@ -64,7 +64,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
         articles = self.get_articles()
         if word_exists:
             obj = json.loads(response.text)
-            if new_article == 'both':
+            if new_article == _('both'):
                 obj['lidwoord'] = [a['id'] for a in articles]
             else:
                 obj['lidwoord'] = [a['id'] for a in articles if a['lidwoord'] == new_article]
@@ -81,7 +81,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
         else:
             new_word = dict()
             new_word['woord'] = word
-            if new_article == 'both':
+            if new_article == _('both'):
                 new_word['lidwoord'] = [a['id'] for a in articles]
             else:
                 new_word['lidwoord'] = [a['id'] for a in articles if a['lidwoord'] == new_article]
@@ -99,7 +99,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             await ctx.send(self.get_or_learn_word(args[0]))
         # Two arguments: the user is setting the article of a word
         elif len(args) == 2:
-            if not args[1] in ['de', 'het', 'both']:
+            if not args[1] in ['de', 'het', _('both')]:
                 return await ctx.send_help('dehet')
 
             await ctx.send(self.set_word(*args))
@@ -108,7 +108,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
 To get the article of a noun: `{0}{1} {2}`
 To set the article of a noun: `{0}{1} {2} {3}`
 More info: `{0}help {1}`
-""").format(ctx.bot.command_prefix, ctx.invoked_with, "word", "article"))
+""").format(ctx.bot.command_prefix, ctx.invoked_with, _("word"), _("article")))
 
 def setup(bot):
     bot.add_cog(LidwoordCog(bot))

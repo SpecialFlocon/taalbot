@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the taalbot package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-12 01:06+0100\n"
+"POT-Creation-Date: 2019-12-12 02:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/taalbot/bot.py:51
+#: src/taalbot/bot.py:47
 msgid "A sensible bot that helps you practicing languages"
 msgstr ""
 
@@ -60,7 +60,8 @@ msgstr ""
 msgid "Set or replace article"
 msgstr ""
 
-#: src/taalbot/utils.py:28
+#: src/taalbot/utils.py:28 src/taalbot/cogs/lidwoord.py:67
+#: src/taalbot/cogs/lidwoord.py:84 src/taalbot/cogs/lidwoord.py:102
 msgid "both"
 msgstr ""
 
@@ -121,4 +122,12 @@ msgid ""
 "To get the article of a noun: `{0}{1} {2}`\n"
 "To set the article of a noun: `{0}{1} {2} {3}`\n"
 "More info: `{0}help {1}`\n"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:111
+msgid "word"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:111
+msgid "article"
 msgstr ""
