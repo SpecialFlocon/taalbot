@@ -28,23 +28,17 @@ class LidwoordCog(commands.Cog):
             return _("The word you're looking for was not found.\nIs it a noun? Is it even a word?")
 
         obj = json.loads(response.text)
-        articles = obj['lidwoord_name']
-        both_articles = len(articles) == 2
-
-        if both_articles:
-            article_output = "**{}**/**{}**".format(*articles)
-        else:
-            article_output = "**{}**".format(*articles)
+        display_article = '/'.join((lambda x: '**{}**'.format(x))(a) for a in obj['lidwoord_name'])
 
         word = obj['woord']
         if obj['accurate']:
-            output_buf.write("{} {}\n".format(article_output, word))
+            output_buf.write("{} {}\n".format(display_article, word))
         else:
             output_buf.write(_("""
 {0}... {1}? 🤔
 Something's off... Am I wrong here? If so, you can correct me: `!dehet {1} article`
 Don't forget that all plural nouns in Dutch are *de-words*!
-""").format(article_output, word))
+""").format(display_article, word))
 
         return output_buf.getvalue()
 
@@ -77,7 +71,10 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             if response.status_code != requests.codes.ok:
                 return _("I couldn't replace the article of this word. Not because I don't believe you, but because of a technical (or human) deficiency.")
 
-            return _("Article for word {} has been replaced by **{}**. Thank you for your valuable contribution!").format(word, new_article)
+            obj = json.loads(response.text)
+            display_article = '/'.join((lambda x: '**{}**'.format(x))(a) for a in obj['lidwoord_name'])
+
+            return _("Article for word {} has been replaced by {}. Thank you for your valuable contribution!").format(word, display_article)
         else:
             new_word = dict()
             new_word['woord'] = word
@@ -90,7 +87,10 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             if response.status_code != requests.codes.ok:
                 return _("I couldn't add this word/article combination to my record. Not because I don't believe you, but because of a technical (or human) deficiency.")
 
-            return _("Word {} with article **{}** has been added to my record. Thank you for your valuable contribution!").format(word, new_article)
+            obj = json.loads(response.text)
+            display_article = '/'.join((lambda x: '**{}**'.format(x))(a) for a in obj['lidwoord_name'])
+
+            return _("Word {} with article **{}** has been added to my record. Thank you for your valuable contribution!").format(word, display_article)
 
     @commands.command(aliases=['hetde'], brief=_("De or het? Use this command to find out!"))
     async def dehet(self, ctx, *args):
