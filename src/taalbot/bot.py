@@ -71,4 +71,4 @@ I ran into an error while running command {}:
 """).format(context.command.name, exception.original))
 
         logging.error(exception.original)
-        logging.debug(exception.original.__traceback__)
+        logging.debug(traceback.format_tb(exception.original.__traceback__))
