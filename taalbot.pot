@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-12 18:43+0100\n"
+"POT-Creation-Date: 2019-12-13 01:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,44 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/taalbot/bot.py:47
+#: src/taalbot/__init__.py:51
 msgid "A sensible bot that helps you practicing languages"
+msgstr ""
+
+#: src/taalbot/bot.py:19
+msgid ""
+"Running the bot without correct 'guildId' value in the configuration file is "
+"not supported. Set it with the your server's guild ID, or expect undefined "
+"behavior from the bot."
+msgstr ""
+
+#: src/taalbot/bot.py:26
+msgid ""
+"No channel name was given in the configuration, disabling in-channel logs."
+msgstr ""
+
+#: src/taalbot/bot.py:40
+msgid ""
+"Bot does not have the permission to send messages to #{}. Logs will only be "
+"available on stderr."
+msgstr ""
+
+#: src/taalbot/bot.py:45
+msgid ""
+"Channel #{} was not found anywhere. Logs will only be available on stderr."
+msgstr ""
+
+#: src/taalbot/bot.py:50
+msgid "taalbot has joined the chat!"
+msgstr ""
+
+#: src/taalbot/bot.py:65
+msgid ""
+"\n"
+"**Error report**\n"
+"\n"
+"I ran into an error while running command {}: {}\n"
+"{}\n"
 msgstr ""
 
 #: src/taalbot/help.py:15
@@ -60,8 +96,8 @@ msgstr ""
 msgid "Set or replace article"
 msgstr ""
 
-#: src/taalbot/utils.py:28 src/taalbot/cogs/lidwoord.py:67
-#: src/taalbot/cogs/lidwoord.py:84 src/taalbot/cogs/lidwoord.py:102
+#: src/taalbot/utils.py:28 src/taalbot/cogs/lidwoord.py:61
+#: src/taalbot/cogs/lidwoord.py:81 src/taalbot/cogs/lidwoord.py:102
 msgid "both"
 msgstr ""
 
@@ -77,7 +113,7 @@ msgid ""
 "Is it a noun? Is it even a word?"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:43
+#: src/taalbot/cogs/lidwoord.py:37
 #, python-brace-format
 msgid ""
 "\n"
@@ -87,19 +123,19 @@ msgid ""
 "Don't forget that all plural nouns in Dutch are *de-words*!\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:78
+#: src/taalbot/cogs/lidwoord.py:72
 msgid ""
 "I couldn't replace the article of this word. Not because I don't believe "
 "you, but because of a technical (or human) deficiency."
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:80
+#: src/taalbot/cogs/lidwoord.py:77
 msgid ""
-"Article for word {} has been replaced by **{}**. Thank you for your valuable "
+"Article for word {} has been replaced by {}. Thank you for your valuable "
 "contribution!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:91
+#: src/taalbot/cogs/lidwoord.py:88
 msgid ""
 "I couldn't add this word/article combination to my record. Not because I "
 "don't believe you, but because of a technical (or human) deficiency."
