@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-13 12:51+0100\n"
+"POT-Creation-Date: 2019-12-13 23:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/taalbot/__init__.py:51
+#: src/taalbot/__init__.py:60
 msgid "A sensible bot that helps you practicing languages"
 msgstr ""
 
@@ -97,62 +97,31 @@ msgstr ""
 msgid "Set or replace article"
 msgstr ""
 
-#: src/taalbot/utils.py:28 src/taalbot/cogs/lidwoord.py:61
-#: src/taalbot/cogs/lidwoord.py:81 src/taalbot/cogs/lidwoord.py:102
+#: src/taalbot/utils.py:28 src/taalbot/cogs/lidwoord.py:41
+#: src/taalbot/cogs/lidwoord.py:56 src/taalbot/cogs/lidwoord.py:79
+#: src/taalbot/cogs/lidwoord.py:84
 msgid "both"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:25
-msgid ""
-"Oops, the rocket blew up in-flight. I just harassed whoever wrote me about "
-"it, so you don't have to do it."
+#: src/taalbot/cogs/lidwoord.py:65
+msgid "De or het? Use this command to find out!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:28
-msgid ""
-"The word you're looking for was not found.\n"
-"Is it a noun? Is it even a word?"
-msgstr ""
-
-#: src/taalbot/cogs/lidwoord.py:37
+#: src/taalbot/cogs/lidwoord.py:75
 #, python-brace-format
 msgid ""
 "\n"
 "{0}... {1}? 🤔\n"
-"Something's off... Am I wrong here? If so, you can correct me: `!dehet {1} "
-"article`\n"
+"Something's off... If I'm wrong, you can correct me: `{2}{3} {1} de/het/{4}"
+"`\n"
 "Don't forget that all plural nouns in Dutch are *de-words*!\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:72
-msgid ""
-"I couldn't replace the article of this word. Not because I don't believe "
-"you, but because of a technical (or human) deficiency."
+#: src/taalbot/cogs/lidwoord.py:90
+msgid "So, it's {} {}. Noted!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:77
-msgid ""
-"Article for word {} has been replaced by {}. Thank you for your valuable "
-"contribution!"
-msgstr ""
-
-#: src/taalbot/cogs/lidwoord.py:88
-msgid ""
-"I couldn't add this word/article combination to my record. Not because I "
-"don't believe you, but because of a technical (or human) deficiency."
-msgstr ""
-
-#: src/taalbot/cogs/lidwoord.py:93
-msgid ""
-"Word {} with article **{}** has been added to my record. Thank you for your "
-"valuable contribution!"
-msgstr ""
-
-#: src/taalbot/cogs/lidwoord.py:95
-msgid "De or het? Use this command to find out!"
-msgstr ""
-
-#: src/taalbot/cogs/lidwoord.py:107
+#: src/taalbot/cogs/lidwoord.py:94
 #, python-brace-format
 msgid ""
 "\n"
@@ -161,10 +130,10 @@ msgid ""
 "More info: `{0}help {1}`\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:111
+#: src/taalbot/cogs/lidwoord.py:98
 msgid "word"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:111
+#: src/taalbot/cogs/lidwoord.py:98
 msgid "article"
 msgstr ""
