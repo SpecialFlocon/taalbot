@@ -1,6 +1,8 @@
 from discord.ext import commands
 from io import StringIO
 
+from . import const
+
 import json
 import requests
 
@@ -11,13 +13,13 @@ class LidwoordCog(commands.Cog):
 
     # TODO(thepib): articles are not expected to change anytime soon, preload them somewhere global scope?
     def get_articles(self):
-        response = requests.get("{}/api/{}/lidwoorden".format(self.bot.api_url, self.bot.api_version))
+        response = requests.get("{}/api/{}/lidwoorden".format(self.bot.api_url, self.bot.api_version), timeout=const.API_REQUEST_TIMEOUT)
         return json.loads(response.text)
 
     def get_or_learn_word(self, word):
         output_buf = StringIO()
 
-        response = requests.get("{}/api/{}/woorden/learn/{}".format(self.bot.api_url, self.bot.api_version, word))
+        response = requests.get("{}/api/{}/woorden/learn/{}".format(self.bot.api_url, self.bot.api_version, word), timeout=const.API_REQUEST_TIMEOUT)
         # HTTP 500: couldn't extract info from sources
         # TODO(thepib): notify developer so that he can get on with fixing his code
         if response.status_code == 500:
@@ -51,7 +53,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
         - step 1: the word of the user who ran the command is final.
         """
 
-        response = requests.get("{}/api/{}/woorden/search/{}".format(self.bot.api_url, self.bot.api_version, word))
+        response = requests.get("{}/api/{}/woorden/search/{}".format(self.bot.api_url, self.bot.api_version, word), timeout=const.API_REQUEST_TIMEOUT)
         # HTTP 404: word doesn't exist in taalapi's database, we'll create it later.
         word_exists = response.status_code != 404
 
@@ -67,7 +69,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             obj['accurate'] = True
 
             # Update word/article combination
-            response = requests.put("{}/api/{}/woorden/{}/".format(self.bot.api_url, self.bot.api_version, obj['id']), data=obj)
+            response = requests.put("{}/api/{}/woorden/{}/".format(self.bot.api_url, self.bot.api_version, obj['id']), data=obj, timeout=const.API_REQUEST_TIMEOUT)
             if response.status_code != requests.codes.ok:
                 return _("I couldn't replace the article of this word. Not because I don't believe you, but because of a technical (or human) deficiency.")
 
@@ -83,7 +85,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             else:
                 new_word['lidwoord'] = [a['id'] for a in articles if a['lidwoord'] == new_article]
 
-            response = requests.post("{}/api/{}/woorden/".format(self.bot.api_url, self.bot.api_version), data=new_word)
+            response = requests.post("{}/api/{}/woorden/".format(self.bot.api_url, self.bot.api_version), data=new_word, timeout=const.API_REQUEST_TIMEOUT)
             if response.status_code != requests.codes.ok:
                 return _("I couldn't add this word/article combination to my record. Not because I don't believe you, but because of a technical (or human) deficiency.")
 
