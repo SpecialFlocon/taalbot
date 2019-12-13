@@ -64,10 +64,11 @@ class Taalbot(commands.Bot):
         if self.log_channel:
             await self.log_channel.send(_("""
 **Error report**
-
-I ran into an error while running command {}: {}
+I ran into an error while running command {}:
+```
 {}
-""").format(context.command.name, type(exception.original), exception.original.__traceback__))
+```
+""").format(context.command.name, exception.original))
 
         logging.error(exception.original)
         logging.debug(exception.original.__traceback__)
