@@ -29,7 +29,7 @@ if not config:
     raise ValueError("Configuration file is empty.")
 
 # Enable logging
-logging.basicConfig()
+logging.basicConfig(level=logging.INFO)
 
 # Initialize localization
 try:

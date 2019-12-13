@@ -2,15 +2,52 @@ from discord.ext import commands
 
 from . import const
 
+import discord
 import logging
+import traceback
 
 
 class Taalbot(commands.Bot):
     def __init__(self, config, **kwargs):
-        self.api_url = config['apiUrl']
+        self.api_url = config.get('apiUrl') # For convenience
         self.api_version = const.API_VERSION
+        self.config = config
+        self.log_channel = None
+
+        guild_id = self.config.get('guildId')
+        if not guild_id or guild_id == 0:
+            logging.warning(_("Running the bot without correct 'guildId' value in the configuration file is not supported. Set it with the your server's guild ID, or expect undefined behavior from the bot."))
 
         super().__init__(command_prefix='!', **kwargs)
+
+    def get_log_channel(self):
+        log_channel_name = self.config.get('logChannel')
+        if not log_channel_name:
+            logging.info(_("No channel name was given in the configuration, disabling in-channel logs."))
+            return None
+
+        for c in self.get_all_channels():
+            # Skip guilds that are not the current one
+            if c.guild.id != self.config.get('guildId'):
+                continue
+
+            # Skip non-text channels, and text channels whose name don't match
+            if c.type != discord.ChannelType.text or c.name != log_channel_name:
+                continue
+
+            # Log then bail out if bot doesn't have enough permissions to send messages
+            if not c.permissions_for(c.guild.me).send_messages:
+                logging.warning(_("Bot does not have the permission to send messages to #{}. Logs will only be available on stderr.".format(log_channel_name)))
+                return None
+
+            return c
+
+        logging.warning(_("Channel #{} was not found anywhere. Logs will only be available on stderr.").format(log_channel_name))
+        return None
+
+    async def on_ready(self):
+        self.log_channel = self.get_log_channel()
+        logging.info(_("taalbot has joined the chat!"))
 
     async def on_command_error(self, context, exception):
         if self.extra_events.get('on_command_error', None):
@@ -24,5 +61,13 @@ class Taalbot(commands.Bot):
             if commands.Cog._get_overridden_method(cog.cog_command_error) is not None:
                 return
 
-        logging.error(exception)
-        logging.debug(exception.__traceback__)
+        if self.log_channel:
+            await self.log_channel.send(_("""
+**Error report**
+
+I ran into an error while running command {}: {}
+{}
+""").format(context.command.name, type(exception.original), exception.original.__traceback__))
+
+        logging.error(exception.original)
+        logging.debug(exception.original.__traceback__)
