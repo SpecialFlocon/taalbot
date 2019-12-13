@@ -16,6 +16,7 @@ except KeyError:
 
 a = argparse.ArgumentParser(description='taalbot')
 a.add_argument('-c', '--config', help='taalbot configuration file', default='/etc/taalbot/config.yaml')
+a.add_argument('-v', '--verbose', help='Control verbosity level', action='count', default=0)
 args = a.parse_args()
 
 try:
@@ -29,7 +30,15 @@ if not config:
     raise ValueError("Configuration file is empty.")
 
 # Enable logging
-logging.basicConfig(level=logging.INFO)
+if args.verbose == 0:
+    log_level = logging.WARNING
+elif args.verbose == 1:
+    log_level = logging.INFO
+elif args_verbose >= 2:
+    log_level = logging.DEBUG
+else:
+    log_level = logging.NOTSET
+logging.basicConfig(level=log_level)
 
 # Initialize localization
 try:
