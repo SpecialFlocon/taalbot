@@ -14,11 +14,7 @@ class Taalbot(commands.Bot):
         self.config = config
         self.log_channel = None
 
-        guild_id = self.config.get('guildId')
-        if not guild_id or guild_id == 0:
-            logging.warning(_("Running the bot without correct 'guildId' value in the configuration file is not supported. Set it with the your server's guild ID, or expect undefined behavior from the bot."))
-
-        super().__init__(command_prefix='!', **kwargs)
+        super().__init__(command_prefix=self.config.get('commandPrefix'), **kwargs)
 
     def get_log_channel(self):
         log_channel_name = self.config.get('logChannel')

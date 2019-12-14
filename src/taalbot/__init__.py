@@ -1,4 +1,5 @@
 from .bot import Taalbot
+from .exceptions import MissingConfigKeyError
 
 import argparse
 import gettext
@@ -28,6 +29,11 @@ except OSError as e:
 config = yaml.safe_load(config_file)
 if not config:
     raise ValueError("Configuration file is empty.")
+
+REQUIRED_CONFIG_PARAMS = ['apiUrl', 'commandPrefix', 'guildId']
+for p in REQUIRED_CONFIG_PARAMS:
+    if not config.get(p):
+        raise MissingConfigKeyError(p)
 
 # Enable logging
 if args.verbose == 0:
