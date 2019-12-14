@@ -45,7 +45,7 @@ Type `{}help command` to get detailed help for given command.
         try:
             d = TAALBOT_CMD_BLUEPRINT[command.name]
         except KeyError:
-            logging.warning(_("Failed to load help data for command `{}`".format(command.name)))
+            logging.warning("Failed to load help data for command `{}`".format(command.name))
             return
 
         cmd_blueprint = copy.deepcopy(d)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-14 03:55+0100\n"
+"POT-Creation-Date: 2019-12-14 18:35+0100\n"
 "PO-Revision-Date: 2019-12-12 00:13+0100\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -17,37 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/taalbot/__init__.py:66
+#: src/taalbot/__init__.py:70
 msgid "A sensible bot that helps you practicing languages"
-msgstr ""
-
-#: src/taalbot/bot.py:22
-msgid ""
-"No channel name was given in the configuration, disabling in-channel logs."
-msgstr ""
-
-#: src/taalbot/bot.py:36
-msgid ""
-"Bot does not have the permission to send messages to #{}. Logs will only be "
-"available on stderr."
-msgstr ""
-
-#: src/taalbot/bot.py:41
-msgid ""
-"Channel #{} was not found anywhere. Logs will only be available on stderr."
-msgstr ""
-
-#: src/taalbot/bot.py:46
-msgid "taalbot has joined the chat!"
-msgstr ""
-
-#: src/taalbot/bot.py:64
-msgid ""
-"\n"
-"**Error report**\n"
-"```\n"
-"{}\n"
-"```\n"
 msgstr ""
 
 #: src/taalbot/help.py:18
@@ -68,10 +39,6 @@ msgstr ""
 #: src/taalbot/help.py:38
 msgid "No description"
 msgstr "Geen beschrijving"
-
-#: src/taalbot/help.py:48
-msgid "Failed to load help data for command `{}`"
-msgstr ""
 
 #: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:41
 #: src/taalbot/cogs/lidwoord.py:56 src/taalbot/cogs/lidwoord.py:79

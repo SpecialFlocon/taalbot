@@ -19,7 +19,7 @@ class Taalbot(commands.Bot):
     def get_log_channel(self):
         log_channel_name = self.config.get('logChannel')
         if not log_channel_name:
-            logging.info(_("No channel name was given in the configuration, disabling in-channel logs."))
+            logging.info("No channel name was given in the configuration, disabling in-channel logs.")
             return None
 
         for c in self.get_all_channels():
@@ -33,17 +33,17 @@ class Taalbot(commands.Bot):
 
             # Log then bail out if bot doesn't have enough permissions to send messages
             if not c.permissions_for(c.guild.me).send_messages:
-                logging.warning(_("Bot does not have the permission to send messages to #{}. Logs will only be available on stderr.".format(log_channel_name)))
+                logging.warning("Bot does not have the permission to send messages to #{}. Logs will only be available on stderr.".format(log_channel_name))
                 return None
 
             return c
 
-        logging.warning(_("Channel #{} was not found anywhere. Logs will only be available on stderr.").format(log_channel_name))
+        logging.warning("Channel #{} was not found anywhere. Logs will only be available on stderr.".format(log_channel_name))
         return None
 
     async def on_ready(self):
         self.log_channel = self.get_log_channel()
-        logging.info(_("taalbot has joined the chat!"))
+        logging.info("taalbot has joined the chat!")
 
     async def on_command_error(self, context, exception):
         if self.extra_events.get('on_command_error', None):
@@ -61,11 +61,11 @@ class Taalbot(commands.Bot):
             return
 
         if self.log_channel:
-            await self.log_channel.send(_("""
+            await self.log_channel.send("""
 **Error report**
 ```
 {}
 ```
-""").format(exception))
+""".format(exception))
 
         logging.error(traceback.format_exception(type(exception), exception, exception.__traceback__))
