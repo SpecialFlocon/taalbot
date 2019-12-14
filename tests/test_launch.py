@@ -8,9 +8,11 @@ class TestLaunch:
         with pytest.raises(SystemExit):
             taalbot.main([])
 
-    def test_value_error_on_empty_config(self, monkeypatch):
+    def test_value_error_on_empty_config(self, monkeypatch, tmp_path):
         monkeypatch.setenv("TAALTOOL_BOT_TOKEN", "test")
-        args = ['-c', '/tmp/test']
+        f = tmp_path / "empty.yaml"
+        f.touch()
+        args = ['-c', str(f)]
         with pytest.raises(ValueError):
             taalbot.main(args)
 
