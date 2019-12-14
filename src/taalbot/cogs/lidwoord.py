@@ -32,8 +32,8 @@ class LidwoordCog(commands.Cog):
         """
 
         response = requests.get("{}/api/{}/woorden/search/{}".format(self.bot.api_url, self.bot.api_version, word), timeout=const.API_REQUEST_TIMEOUT)
-        # HTTP 404: word doesn't exist in taalapi's database, we'll create it later.
-        word_exists = response.status_code != 404
+        # HTTP 200: word exists in taalapi's database
+        word_exists = response.status_code == requests.codes.ok
 
         articles = self.get_articles()
         if word_exists:
