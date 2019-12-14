@@ -56,10 +56,10 @@ def main(argv=None, test=False):
     finally:
         t.install()
 
-    # If in test mode, the buck stops here.
     # Bot<->Discord server actions cannot be easily tested.
+    # If in test mode, the buck stops here, with a positive result.
     if test:
-        return
+        return True
 
     # TaalbotHelpCommand depends on _() (gettext()) being present in __builtins__
     from .help import TaalbotHelpCommand
