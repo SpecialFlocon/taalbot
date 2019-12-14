@@ -10,7 +10,7 @@ commandPrefix: ""
 ## ID of the Discord guild (server) this bot instance runs on
 ## This is used at various points in the code, to make sure that
 ## messages get delivered to the right destination.
-guildId: "0"
+guildId: ""
 
 ## Channel to send log messages to. Must be a text channel.
 ## Leave empty to disable the feature.
