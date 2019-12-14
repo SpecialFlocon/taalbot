@@ -26,7 +26,8 @@ WORKDIR /srv/taalbot
 
 COPY --chown=taalbot:taalbot locales ./locales/
 COPY --chown=taalbot:taalbot src/ .
-COPY --chown=taalbot:taalbot run.sh /
+COPY --chown=taalbot:taalbot tests /home/taalbot/tests/
+COPY --chown=taalbot:taalbot run.sh test.sh /
 COPY --from=0 /home/taalbot/venv /home/taalbot/venv
 
 ENV LANGUAGE=nl_NL.UTF-8 \
