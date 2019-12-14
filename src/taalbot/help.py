@@ -15,7 +15,7 @@ class TaalbotHelpCommand(HelpCommand):
         super().__init__(**options)
 
     def command_not_found(self, string):
-        return _("I don't have a command called `{}`, but I have a `help` command!").format(string)
+        return _("I don't have a command called `{}`. Type `{}help` for my commands list.").format(string, self.context.bot.command_prefix)
 
     async def send_bot_help(self, mapping):
         ctx = self.context
