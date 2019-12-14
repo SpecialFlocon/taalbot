@@ -57,14 +57,15 @@ class Taalbot(commands.Bot):
             if commands.Cog._get_overridden_method(cog.cog_command_error) is not None:
                 return
 
+        if isinstance(exception, commands.errors.CommandNotFound):
+            return
+
         if self.log_channel:
             await self.log_channel.send(_("""
 **Error report**
-I ran into an error while running command {}:
 ```
 {}
 ```
-""").format(context.command.name, exception.original))
+""").format(exception))
 
-        logging.error(exception.original)
-        logging.debug(traceback.format_tb(exception.original.__traceback__))
+        logging.error(traceback.format_exception(type(exception), exception, exception.__traceback__))
