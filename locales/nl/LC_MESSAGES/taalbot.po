@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-13 23:55+0100\n"
+"POT-Creation-Date: 2019-12-14 03:55+0100\n"
 "PO-Revision-Date: 2019-12-12 00:13+0100\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -17,65 +17,67 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/taalbot/__init__.py:60
+#: src/taalbot/__init__.py:66
 msgid "A sensible bot that helps you practicing languages"
 msgstr ""
 
-#: src/taalbot/bot.py:19
-msgid ""
-"Running the bot without correct 'guildId' value in the configuration file is "
-"not supported. Set it with the your server's guild ID, or expect undefined "
-"behavior from the bot."
-msgstr ""
-
-#: src/taalbot/bot.py:26
+#: src/taalbot/bot.py:22
 msgid ""
 "No channel name was given in the configuration, disabling in-channel logs."
 msgstr ""
 
-#: src/taalbot/bot.py:40
+#: src/taalbot/bot.py:36
 msgid ""
 "Bot does not have the permission to send messages to #{}. Logs will only be "
 "available on stderr."
 msgstr ""
 
-#: src/taalbot/bot.py:45
+#: src/taalbot/bot.py:41
 msgid ""
 "Channel #{} was not found anywhere. Logs will only be available on stderr."
 msgstr ""
 
-#: src/taalbot/bot.py:50
+#: src/taalbot/bot.py:46
 msgid "taalbot has joined the chat!"
 msgstr ""
 
-#: src/taalbot/bot.py:65
+#: src/taalbot/bot.py:64
 msgid ""
 "\n"
 "**Error report**\n"
-"I ran into an error while running command {}:\n"
 "```\n"
 "{}\n"
 "```\n"
 msgstr ""
 
-#: src/taalbot/help.py:15
-msgid "I don't have a command called `{}`, but I have a `help` command!"
+#: src/taalbot/help.py:18
+msgid "I don't have a command called `{}`. Type `{}help` for my commands list."
 msgstr ""
 
-#: src/taalbot/help.py:21
+#: src/taalbot/help.py:24
 msgid "Commands"
 msgstr ""
 
-#: src/taalbot/help.py:22
+#: src/taalbot/help.py:25
 msgid ""
 "\n"
 "Here's a list of the commands you can run, and their purpose.\n"
-"Type `!help command` to get detailed help for given command.\n"
+"Type `{}help command` to get detailed help for given command.\n"
 msgstr ""
 
-#: src/taalbot/help.py:35
+#: src/taalbot/help.py:38
 msgid "No description"
 msgstr "Geen beschrijving"
+
+#: src/taalbot/help.py:48
+msgid "Failed to load help data for command `{}`"
+msgstr ""
+
+#: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:41
+#: src/taalbot/cogs/lidwoord.py:56 src/taalbot/cogs/lidwoord.py:79
+#: src/taalbot/cogs/lidwoord.py:84
+msgid "both"
+msgstr "allebei"
 
 #: src/taalbot/utils.py:8
 msgid "\"De\"-word or \"het\"-word?"
@@ -96,12 +98,6 @@ msgstr "Welk lidwoord?"
 #: src/taalbot/utils.py:23
 msgid "Set or replace article"
 msgstr ""
-
-#: src/taalbot/utils.py:28 src/taalbot/cogs/lidwoord.py:41
-#: src/taalbot/cogs/lidwoord.py:56 src/taalbot/cogs/lidwoord.py:79
-#: src/taalbot/cogs/lidwoord.py:84
-msgid "both"
-msgstr "allebei"
 
 #: src/taalbot/cogs/lidwoord.py:65
 msgid "De or het? Use this command to find out!"
