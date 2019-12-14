@@ -1,7 +1,7 @@
 from discord.ext import commands
 from io import StringIO
 
-from taalbot import const
+from .. import const
 
 import json
 import requests
