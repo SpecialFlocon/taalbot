@@ -1,8 +1,11 @@
 from discord.ext.commands import HelpCommand
+from string import Template
 
 from .utils import TAALBOT_CMD_BLUEPRINT
 
+import copy
 import discord
+import logging
 
 
 class TaalbotHelpCommand(HelpCommand):
@@ -21,8 +24,8 @@ class TaalbotHelpCommand(HelpCommand):
         self.embed.title = _('Commands')
         self.embed.description = _("""
 Here's a list of the commands you can run, and their purpose.
-Type `!help command` to get detailed help for given command.
-""")
+Type `{}help command` to get detailed help for given command.
+""".format(bot.command_prefix))
         self.embed.colour = discord.Colour.blue()
 
         filtered = await self.filter_commands(bot.commands, sort=True)
@@ -39,7 +42,23 @@ Type `!help command` to get detailed help for given command.
         await self.get_destination().send(embed=self.embed)
 
     async def send_command_help(self, command):
-        self.embed = discord.Embed.from_dict(TAALBOT_CMD_BLUEPRINT[command.name])
+        try:
+            d = TAALBOT_CMD_BLUEPRINT[command.name]
+        except KeyError:
+            logging.warning(_("Failed to load help data for command `{}`".format(command.name)))
+            return
+
+        cmd_blueprint = copy.deepcopy(d)
+        for f in cmd_blueprint.get('fields', []):
+            v = f.get('value', None)
+            if v:
+                f['value'] = Template(v).safe_substitute(
+                    both_articles=_('both'),
+                    cmd=command.name,
+                    prefix=self.context.bot.command_prefix
+                )
+
+        self.embed = discord.Embed.from_dict(cmd_blueprint)
         await self.get_destination().send(embed=self.embed)
 
     async def prepare_help_command(self, ctx, command=None):

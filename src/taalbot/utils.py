@@ -14,18 +14,18 @@ Unless the noun is in plural, in which case it's **always** \"de\"."""),
             {
                 'name': _("Which article?"),
                 'value': """
-                    `!dehet taal`
-                    `!dehet brood`
+                    `${prefix}${cmd} taal`
+                    `${prefix}${cmd} brood`
                 """,
                 'inline': False,
             },
             {
                 'name': _("Set or replace article"),
                 'value': """
-                    `!dehet jaar het`
-                    `!dehet thee de`
-                    `!dehet pad {}`
-                """.format(_('both')),
+                    `${prefix}${cmd} jaar het`
+                    `${prefix}${cmd} thee de`
+                    `${prefix}${cmd} pad ${both_articles}`
+                """,
                 'inline': False,
             }
         ]
