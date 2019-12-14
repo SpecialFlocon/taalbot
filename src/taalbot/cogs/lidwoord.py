@@ -15,12 +15,12 @@ class LidwoordCog(commands.Cog):
     def get_articles(self):
         response = requests.get("{}/api/{}/lidwoorden".format(self.bot.api_url, self.bot.api_version), timeout=const.API_REQUEST_TIMEOUT)
         response.raise_for_status()
-        return json.loads(response.text)
+        return response.json()
 
     def get_or_learn_word(self, word):
         response = requests.get("{}/api/{}/woorden/learn/{}".format(self.bot.api_url, self.bot.api_version, word), timeout=const.API_REQUEST_TIMEOUT)
         response.raise_for_status()
-        return json.loads(response.text)
+        return response.json()
 
     def set_word(self, word, new_article):
         """
@@ -37,7 +37,7 @@ class LidwoordCog(commands.Cog):
 
         articles = self.get_articles()
         if word_exists:
-            obj = json.loads(response.text)
+            obj = response.json()
             if new_article == _('both'):
                 obj['lidwoord'] = [a['id'] for a in articles]
             else:
@@ -49,7 +49,7 @@ class LidwoordCog(commands.Cog):
             # Update word/article combination
             response = requests.put("{}/api/{}/woorden/{}/".format(self.bot.api_url, self.bot.api_version, obj['id']), data=obj, timeout=const.API_REQUEST_TIMEOUT)
             response.raise_for_status()
-            return json.loads(response.text)
+            return response.json()
         else:
             new_word = dict()
             new_word['woord'] = word
@@ -60,7 +60,7 @@ class LidwoordCog(commands.Cog):
 
             response = requests.post("{}/api/{}/woorden/".format(self.bot.api_url, self.bot.api_version), data=new_word, timeout=const.API_REQUEST_TIMEOUT)
             response.raise_for_status()
-            return json.loads(response.text)
+            return response.json()
 
     @commands.command(aliases=['hetde'], brief=_("De or het? Use this command to find out!"))
     async def dehet(self, ctx, *args):
