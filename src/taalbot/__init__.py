@@ -9,7 +9,7 @@ import sys
 import yaml
 
 
-def main(argv=None):
+def main(argv=None, test=False):
     try:
         token = os.environ['TAALTOOL_BOT_TOKEN']
     except KeyError:
@@ -55,6 +55,11 @@ def main(argv=None):
         t = gettext.NullTranslations()
     finally:
         t.install()
+
+    # If in test mode, the buck stops here.
+    # Bot<->Discord server actions cannot be easily tested.
+    if test:
+        return
 
     # TaalbotHelpCommand depends on _() (gettext()) being present in __builtins__
     from .help import TaalbotHelpCommand
