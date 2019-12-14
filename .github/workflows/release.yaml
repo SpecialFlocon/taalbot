@@ -1,11 +1,10 @@
-name: taalbot release Docker images
+name: release
 on:
   push:
     tags:
     - releases/*
 jobs:
   build:
-    name: Build and publish taalbot Docker image
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -17,6 +16,8 @@ jobs:
         docker tag taalbot thepib/taalbot:${TAALBOT_VERSION}
         docker tag taalbot thepib/taalbot:${TAALBOT_VERSION%.*}
         docker tag taalbot thepib/taalbot:${TAALBOT_VERSION%%.*}
+    - name: Run tests
+      run: docker run --rm thepib/taalbot:${TAALBOT_VERSION} /test.sh
     - name: Push Docker image
       env:
         REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
