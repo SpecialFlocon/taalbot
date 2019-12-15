@@ -26,7 +26,7 @@ class Onboarding(commands.Cog):
         await self.greet(member)
         await self.dm_instructions(member)
 
-    @commands.command()
+    @commands.command(hidden=True)
     @commands.has_permissions(manage_roles=True)
     async def onboard(self, ctx, *, member: discord.Member=None):
         member = member or ctx.author
