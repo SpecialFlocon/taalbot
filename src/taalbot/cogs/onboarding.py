@@ -21,7 +21,7 @@ class Onboarding(commands.Cog):
     @commands.has_permissions(manage_roles=True)
     async def onboard(self, ctx, *, member: discord.Member=None):
         member = member or ctx.author
-        logging.info("Onboarding for user {} has been requested.".format(member))
+        logging.info("Onboarding for user {} has been requested by {}.".format(member, ctx.author))
         await self.dm_instructions(member)
 
     @onboard.error
@@ -30,7 +30,12 @@ class Onboarding(commands.Cog):
         if isinstance(error, commands.MissingPermissions) or isinstance(error, commands.MissingAnyRole):
             await ctx.send(_("{}, you are not allowed to run this command. If you'd like to go through on-boarding process again, ask someone with enough permissions to initiate it for you.").format(author.mention))
             if ctx.bot.log_channel:
-                await ctx.bot.log_channel.send("User {}, with insufficient permissions, just attempted to manually trigger the on-boarding process.".format(author.mention))
+                await ctx.bot.log_channel.send("""
+User {} without sufficient permissions tried to start the on-boarding process by running:
+```
+{}
+```
+""".format(author.mention, ctx.message.content))
 
             logging.info("Onboarding command invoked by user {} with insufficient permissions".format(author.name))
             logging.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
