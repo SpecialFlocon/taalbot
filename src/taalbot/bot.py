@@ -61,11 +61,6 @@ class Taalbot(commands.Bot):
             return
 
         if self.log_channel:
-            await self.log_channel.send("""
-**Error report**
-```
-{}
-```
-""".format(exception))
+            await self.log_channel.send(const.LOG_CHANNEL_MSG.format(exception))
 
         logging.error(traceback.format_exception(type(exception), exception, exception.__traceback__))

@@ -1,5 +1,7 @@
 from discord.ext import commands
 
+from .. import const
+
 import discord
 import logging
 
@@ -35,12 +37,7 @@ class Onboarding(commands.Cog):
             logging.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
         else:
             if ctx.bot.log_channel:
-                await self.log_channel.send("""
-**Error report**
-```
-{}
-```
-""".format(error))
+                await self.log_channel.send(const.LOG_CHANNEL_MSG.format(error))
             logging.error(traceback.format_exception(type(error), error, error.__traceback__))
 
 def setup(bot):
