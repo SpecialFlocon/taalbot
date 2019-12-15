@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-14 18:35+0100\n"
+"POT-Creation-Date: 2019-12-15 01:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,9 +40,9 @@ msgstr ""
 msgid "No description"
 msgstr ""
 
-#: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:41
-#: src/taalbot/cogs/lidwoord.py:56 src/taalbot/cogs/lidwoord.py:79
-#: src/taalbot/cogs/lidwoord.py:84
+#: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:40
+#: src/taalbot/cogs/lidwoord.py:55 src/taalbot/cogs/lidwoord.py:78
+#: src/taalbot/cogs/lidwoord.py:83
 msgid "both"
 msgstr ""
 
@@ -66,11 +66,11 @@ msgstr ""
 msgid "Set or replace article"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:65
+#: src/taalbot/cogs/lidwoord.py:64
 msgid "De or het? Use this command to find out!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:75
+#: src/taalbot/cogs/lidwoord.py:74
 #, python-brace-format
 msgid ""
 "\n"
@@ -80,11 +80,11 @@ msgid ""
 "Don't forget that all plural nouns in Dutch are *de-words*!\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:90
+#: src/taalbot/cogs/lidwoord.py:89
 msgid "So, it's {} {}. Noted!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:94
+#: src/taalbot/cogs/lidwoord.py:93
 #, python-brace-format
 msgid ""
 "\n"
@@ -93,10 +93,17 @@ msgid ""
 "More info: `{0}help {1}`\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:98
+#: src/taalbot/cogs/lidwoord.py:97
 msgid "word"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:98
+#: src/taalbot/cogs/lidwoord.py:97
 msgid "article"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:32
+msgid ""
+"{}, you are not allowed to run this command. If you'd like to go through on-"
+"boarding process again, ask someone with enough permissions to initiate it "
+"for you."
 msgstr ""
