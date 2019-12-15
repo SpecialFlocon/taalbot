@@ -72,5 +72,6 @@ def main(argv=None, test=False):
 
     # Register extensions
     taalbot.load_extension('taalbot.cogs.lidwoord')
+    taalbot.load_extension('taalbot.cogs.onboarding')
 
     taalbot.run(token)
