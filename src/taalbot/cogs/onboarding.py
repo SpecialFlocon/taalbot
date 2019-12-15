@@ -18,8 +18,7 @@ class Onboarding(commands.Cog):
         await self.dm_instructions(member)
 
     @commands.command()
-    @commands.has_any_role('Onboarder')
-    @commands.has_permissions(administrator=True)
+    @commands.has_permissions(manage_roles=True)
     async def onboard(self, ctx, *, member: discord.Member=None):
         member = member or ctx.author
         logging.info("Onboarding for user {} has been requested.".format(member))
