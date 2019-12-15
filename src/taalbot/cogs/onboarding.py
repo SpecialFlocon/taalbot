@@ -10,11 +10,20 @@ class Onboarding(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    async def greet(self, member):
+        system_channel = member.guild.system_channel
+        greet_msg = self.bot.config.get('greetMessage')
+        logging.debug("Greet message template: {}".format(greet_msg))
+
+        if system_channel and greet_msg:
+            await system_channel.send(greet_msg.format(name=member.mention))
+
     async def dm_instructions(self, member):
         await member.send("Onboarding process start! And done.")
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
+        await self.greet(member)
         await self.dm_instructions(member)
 
     @commands.command()
