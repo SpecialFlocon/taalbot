@@ -19,3 +19,17 @@ class MissingConfigKeyError(Error):
 
     def __str__(self):
         return "Missing required configuration parameter: {}".format(self.parameter)
+
+class RoleDoesNotExist(Error):
+    """
+    Exception raised when trying to work with a role that does not exist
+
+    Attributes:
+      name -- name of the role that was attempted access
+    """
+
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return "Role does not exist on the server: {}".format(self.parameter)
