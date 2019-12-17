@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-15 01:50+0100\n"
+"POT-Creation-Date: 2019-12-17 22:33+0100\n"
 "PO-Revision-Date: 2019-12-12 00:13+0100\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -18,12 +18,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/taalbot/__init__.py:70
-msgid "A sensible bot that helps you practicing languages"
+#, fuzzy
+msgid "A bot that helps you practicing languages"
+msgstr "Een bot die je helpt met het oefenen van talen"
+
+#: src/taalbot/const.py:10
+msgid ""
+"\n"
+"You took so long to answer, I gave up waiting and interrupted the process.\n"
+"Your profile is still incomplete, ask a team member in one of the server "
+"channels to re-kick the process for you:\n"
+"`@Admin`, `@Moderator`, `@Mentor`, `@Developer`\n"
 msgstr ""
 
 #: src/taalbot/help.py:18
 msgid "I don't have a command called `{}`. Type `{}help` for my commands list."
-msgstr ""
+msgstr "Ik heb geen command genaamd `{}`. Typ {}help voor mijn commandlijst."
 
 #: src/taalbot/help.py:24
 msgid "Commands"
@@ -35,6 +45,10 @@ msgid ""
 "Here's a list of the commands you can run, and their purpose.\n"
 "Type `{}help command` to get detailed help for given command.\n"
 msgstr ""
+"\n"
+"Hier is een lijst van commands die je kunt gebruiken en hun bedoeling\n"
+"Typ `{}help command` om gedetailleerde hulp te krijgen voor de gegeven "
+"command\n"
 
 #: src/taalbot/help.py:38
 msgid "No description"
@@ -57,6 +71,11 @@ msgid ""
 "me!\n"
 "Unless the noun is in plural, in which case it's **always** \"de\"."
 msgstr ""
+"\n"
+"Welk lidwoord heeft dit zelfstandig naamwoord nodig? Je kunt het proberen te "
+"raden, of je kunt het aan mij vragen!\n"
+"Tenzij het zelfstandig naamwoord meervoud is. In dat geval, is het "
+"**altijd** \"de\"."
 
 #: src/taalbot/utils.py:15
 msgid "Which article?"
@@ -64,11 +83,11 @@ msgstr "Welk lidwoord?"
 
 #: src/taalbot/utils.py:23
 msgid "Set or replace article"
-msgstr ""
+msgstr "Lidwoord plaatsen of vervangen"
 
 #: src/taalbot/cogs/lidwoord.py:64
 msgid "De or het? Use this command to find out!"
-msgstr ""
+msgstr "De of het? Gebruik deze command om het uit te vinden!"
 
 #: src/taalbot/cogs/lidwoord.py:74
 #, python-brace-format
@@ -79,10 +98,16 @@ msgid ""
 "`\n"
 "Don't forget that all plural nouns in Dutch are *de-words*!\n"
 msgstr ""
+"\n"
+"{0}... {1}? 🤔\n"
+"Er klopt iets niet... Als ik me vergis, kun je mij verbeteren: `{2}{3} {1} "
+"de/het/{4}`\n"
+"Niet vergeten: De meervoudsvormen van de zelfstandig naamwoorden zijn altijd "
+"*de-woorden*!\n"
 
 #: src/taalbot/cogs/lidwoord.py:89
 msgid "So, it's {} {}. Noted!"
-msgstr ""
+msgstr "Het is {} {} dan. Genoteerd!"
 
 #: src/taalbot/cogs/lidwoord.py:93
 #, python-brace-format
@@ -92,6 +117,10 @@ msgid ""
 "To set the article of a noun: `{0}{1} {2} {3}`\n"
 "More info: `{0}help {1}`\n"
 msgstr ""
+"\n"
+"Om het lidwoord van een zelfstandig naamwoord te krijgen: `{0}{1} {2}`\n"
+"Om het lidwoord van een zelfstandig naamwoord te plaatsen: `{0}{1} {2} {3}`\n"
+"Meer informatie: `{0}help {1}`\n"
 
 #: src/taalbot/cogs/lidwoord.py:97
 msgid "word"
@@ -101,9 +130,136 @@ msgstr "woord"
 msgid "article"
 msgstr "lidwoord"
 
-#: src/taalbot/cogs/onboarding.py:32
+#: src/taalbot/cogs/onboarding.py:23
+msgid ""
+"\n"
+"Beep boop derp, looks like I'm trying to assign a role that doesn't exist.\n"
+"Don't worry, it's not your fault, it's the server team's, and I've already "
+"blamed them.\n"
+"One of them will probably re-initiate the process for you.\n"
+msgstr ""
+"\n"
+"Beep boop derp, het lijkt erop dat ik je een rol probeer te geven die niet "
+"bestaat.\n"
+"Geen zorgen, het is niet jouw schuld, maar wel van het serverteam, dus ik "
+"heb ze al de schuld gegeven.\n"
+"Één van hen zal waarschijnlijk wel het proces opnieuw starten voor je.\n"
+
+#: src/taalbot/cogs/onboarding.py:63
+msgid ""
+"\n"
+"Hello, and welcome to **Nederlands Leren**! Let me introduce myself: I am "
+"taalbot, a bot that does things. I primarily live on this server.\n"
+"I would like to walk you through our introduction process, so that you can "
+"experience the server to its fullest in no time!\n"
+"\n"
+"For now, you only have access to a few channels, but there are many more!\n"
+"In order for you to get the most out of your journey on this server, we "
+"first need to assign yourself some roles.\n"
+"They will automatically give you access to currently hidden channels, and "
+"also let fellow members know about your Dutch proficiency level, so that "
+"they can adapt themselves!\n"
+"\n"
+"Shall we get started? React to this message with ▶️, like I just did! This "
+"will be our main interaction method during the process.\n"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:96
+msgid ""
+"\n"
+"Right, first things first, let's talk about your proficiency.\n"
+"Are you a **native Dutch speaker**?\n"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:119
+msgid "Nice, I've assigned you the **{}** role!"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:134
+msgid ""
+"\n"
+"OK! Which Dutch do you speak?\n"
+"\n"
+"🇳🇱 The Netherlands\n"
+"🇧🇪 Belgium (Flanders)\n"
+"🇸🇷 Suriname, Sint-Maarten, Sint-Eustatius, Saba + ABC Islands\n"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:166 src/taalbot/cogs/onboarding.py:213
+msgid "Okay. I've assigned you the **{}** role."
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:177
+msgid ""
+"\n"
+"OK! What is your current Dutch level?\n"
+"Are you unsure, or need more info? Check https://en.wikipedia.org/wiki/"
+"Common_European_Framework_of_Reference_for_Languages#Common_reference_levels.\n"
+"\n"
+"🇴: **Onbekend** (unknown), total beginner\n"
+"🇦: **Basic user**, corresponds to CEFR A1 (breakthrough) and A2 (waystage)\n"
+"🇧: **Independent user**, corresponds to CEFR B1 (threshold) and B2 "
+"(vantage)\n"
+"🇨: **Proficient user**, corresponds to CEFR C1 (advanced) and C2 (mastery)\n"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:223
+msgid ""
+"\n"
+"We're making progress! Now, if you want, you can tell me the name of the "
+"**country you live in**.\n"
+"\n"
+"I said earlier that we'd communicate via reactions, but there are far too "
+"many different options!\n"
+"For this time only, I am asking you to *type* the country name (in Dutch!)\n"
+"Send ⏩ to skip this step.\n"
+"\n"
+"Example: **Nederland**\n"
+"\n"
+"If you don't know what yours is, here is a list of country names in Dutch:\n"
+"https://www.101languages.net/dutch/country-names-dutch/\n"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:252
+msgid "🌍 Great! I added the **{}** role to your profile!"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:264
+msgid ""
+"\n"
+"Awesome, you're *almost* set! 🥳\n"
+"There are still a few optional roles you can decide to add to your profile.\n"
+"\n"
+"🇧🇪 **BN**: if you are interested in Belgian Dutch! Gives access to the "
+"#belgië channel. You won't see this option if you obtained `BE` or `België` "
+"role earlier, as people with those roles are automatically given access.\n"
+"📗 **Woord**: get a notification when a new *woord van de dag* (word of the "
+"day) is posted in #woord-vd-dag.\n"
+"🏫 **Sessies**: get a notification when members of this server organize "
+"impromptu / planned (voice) Dutch sessions.\n"
+"💪 **Verbeter mij**: this tag lets natives (or everyone) know that you'd like "
+"your mistakes to be corrected.\n"
+"\n"
+"You can \"subscribe\" to any of those roles, or just click ✅ if none of them "
+"interest you, or when you are done.\n"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:307
+msgid "👍 Gave you the **{}** role!"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:317
+msgid ""
+"\n"
+"Phew, finally done!\n"
+"Take a look at #nederlands-leren, as I believe people there just gave you, "
+"or will give you, a warm welcome! (Let me know if they don't, though!)\n"
+"Make sure to read the rules in #informatie, too!\n"
+"Veel plezier!\n"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:354
 msgid ""
 "{}, you are not allowed to run this command. If you'd like to go through on-"
-"boarding process again, ask someone with enough permissions to initiate it "
-"for you."
+"boarding process again, ask a team member to initiate it for you."
 msgstr ""
