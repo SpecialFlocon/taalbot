@@ -324,12 +324,12 @@ Veel plezier!
         await self.greet(member)
 
     async def greet(self, member):
-        system_channel = member.guild.system_channel
+        greet_channel = get(member.guild.channels, name=self.bot.config.get('greetChannel')) or member.guild.system_channel
         greet_msg = self.bot.config.get('greetMessage')
         logging.debug("Greet message template: {}".format(greet_msg))
 
-        if system_channel and greet_msg:
-            await system_channel.send(greet_msg.format(name=member.mention))
+        if greet_channel and greet_msg:
+            await greet_channel.send(greet_msg.format(name=member.mention))
 
     async def dm_instructions(self, member):
         await member.send("Onboarding process start! And done.")
