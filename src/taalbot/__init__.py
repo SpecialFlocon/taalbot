@@ -67,7 +67,7 @@ def main(argv=None, test=False):
     taalbot = Taalbot(
         config,
         help_command=TaalbotHelpCommand(),
-        description=_("A sensible bot that helps you practicing languages")
+        description=_("A bot that helps you practicing languages")
     )
 
     # Register extensions
