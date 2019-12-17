@@ -331,26 +331,27 @@ Veel plezier!
         if greet_channel and greet_msg:
             await greet_channel.send(greet_msg.format(name=member.mention))
 
-    async def dm_instructions(self, member):
-        await member.send("Onboarding process start! And done.")
+class Onboarding(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+        self.process = OnboardProcess(bot)
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        await self.greet(member)
-        await self.dm_instructions(member)
+        await self.process.introduction(member)
 
     @commands.command(hidden=True)
     @commands.has_permissions(manage_roles=True)
     async def onboard(self, ctx, *, member: discord.Member=None):
         member = member or ctx.author
         logging.info("Onboarding for user {} has been requested by {}.".format(member, ctx.author))
-        await self.dm_instructions(member)
+        await self.process.introduction(member)
 
     @onboard.error
     async def onboard_error(self, ctx, error):
         author = ctx.message.author
         if isinstance(error, commands.MissingPermissions) or isinstance(error, commands.MissingAnyRole):
-            await ctx.send(_("{}, you are not allowed to run this command. If you'd like to go through on-boarding process again, ask someone with enough permissions to initiate it for you.").format(author.mention))
+            await ctx.send(_("{}, you are not allowed to run this command. If you'd like to go through on-boarding process again, ask a team member to initiate it for you.").format(author.mention))
             if ctx.bot.log_channel:
                 await ctx.bot.log_channel.send("""
 User {} without sufficient permissions tried to start the on-boarding process by running:
@@ -363,7 +364,7 @@ User {} without sufficient permissions tried to start the on-boarding process by
             logging.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
         else:
             if ctx.bot.log_channel:
-                await self.log_channel.send(const.LOG_CHANNEL_MSG.format(error))
+                await ctx.bot.log_channel.send(const.LOG_CHANNEL_MSG.format(error))
             logging.error(traceback.format_exception(type(error), error, error.__traceback__))
 
 def setup(bot):
