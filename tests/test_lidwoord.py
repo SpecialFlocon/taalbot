@@ -1,8 +1,12 @@
-from src import taalbot
-from src.taalbot.cogs.lidwoord import LidwoordCog
-
+import gettext
 import pytest
 import requests
+
+t = gettext.NullTranslations()
+t.install()
+
+from src.taalbot import bot
+from src.taalbot.cogs.lidwoord import LidwoordCog
 
 
 class TestLidwoord:
@@ -24,7 +28,7 @@ class TestLidwoord:
             return MockResponse()
 
         cfg = {'apiUrl': "http://api.url", 'commandPrefix': "?", 'guildId': 1}
-        t = taalbot.Taalbot(cfg)
+        t = bot.Taalbot(cfg)
 
         monkeypatch.setattr(requests, "get", mock_get)
         result = LidwoordCog(t).get_articles()
@@ -44,7 +48,7 @@ class TestLidwoord:
             return MockResponse()
 
         cfg = {'apiUrl': "http://api.url", 'commandPrefix': "?", 'guildId': 1}
-        t = taalbot.Taalbot(cfg)
+        t = bot.Taalbot(cfg)
 
         monkeypatch.setattr(requests, "get", mock_get)
         with pytest.raises(requests.HTTPError):
@@ -64,7 +68,7 @@ class TestLidwoord:
             return MockResponse()
 
         cfg = {'apiUrl': "http://api.url", 'commandPrefix': "?", 'guildId': 1}
-        t = taalbot.Taalbot(cfg)
+        t = bot.Taalbot(cfg)
 
         monkeypatch.setattr(requests, "get", mock_get)
         result = LidwoordCog(t).get_or_learn_word('word')
@@ -84,7 +88,7 @@ class TestLidwoord:
             return MockResponse()
 
         cfg = {'apiUrl': "http://api.url", 'commandPrefix': "?", 'guildId': 1}
-        t = taalbot.Taalbot(cfg)
+        t = bot.Taalbot(cfg)
 
         monkeypatch.setattr(requests, "get", mock_get)
         with pytest.raises(requests.HTTPError):
