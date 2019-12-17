@@ -1,4 +1,3 @@
-from .bot import Taalbot
 from .exceptions import MissingConfigKeyError
 
 import argparse
@@ -61,7 +60,8 @@ def main(argv=None, test=False):
     if test:
         return True
 
-    # TaalbotHelpCommand depends on _() (gettext()) being present in __builtins__
+    # Taalbot and TaalbotHelpCommand depends on _() (gettext()) being present in __builtins__
+    from .bot import Taalbot
     from .help import TaalbotHelpCommand
 
     taalbot = Taalbot(
