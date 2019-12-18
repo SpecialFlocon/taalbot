@@ -63,7 +63,7 @@ class LidwoordCog(commands.Cog):
             response.raise_for_status()
             return response.json()
 
-    @commands.command(aliases=['hetde', 'l'], brief=_("De or het? Use this command to find out!"))
+    @commands.command(aliases=['hetde'], brief=_("De or het? Use this command to find out!"))
     async def dehet(self, ctx, *args):
         # One argument: the user is asking for the article
         if len(args) == 1:
