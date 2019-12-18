@@ -65,7 +65,17 @@ class LidwoordCog(commands.Cog):
     async def dehet(self, ctx, *args):
         # One argument: the user is asking for the article
         if len(args) == 1:
-            obj = self.get_or_learn_word(args[0])
+            try:
+                obj = self.get_or_learn_word(args[0])
+            except requests.HTTPError as e:
+                if e.response.status_code == requests.codes.not_found:
+                    return await ctx.send(_("""
+I couldn't find this word... 🙁
+You can set the article yourself, though! (cf. `{}help {}`)
+""").format(ctx.bot.command_prefix, ctx.invoked_with))
+                else:
+                    raise e
+
             display_article = '/'.join((lambda x: '**{}**'.format(x))(a) for a in obj['lidwoord_name'])
 
             if obj['accurate']:
