@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 22:33+0100\n"
+"POT-Creation-Date: 2019-12-18 14:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,8 +50,8 @@ msgid "No description"
 msgstr ""
 
 #: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:40
-#: src/taalbot/cogs/lidwoord.py:55 src/taalbot/cogs/lidwoord.py:78
-#: src/taalbot/cogs/lidwoord.py:83
+#: src/taalbot/cogs/lidwoord.py:55 src/taalbot/cogs/lidwoord.py:88
+#: src/taalbot/cogs/lidwoord.py:93
 msgid "both"
 msgstr ""
 
@@ -79,7 +79,14 @@ msgstr ""
 msgid "De or het? Use this command to find out!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:74
+#: src/taalbot/cogs/lidwoord.py:72
+msgid ""
+"\n"
+"I couldn't find this word... 🙁\n"
+"You can set the article yourself, though! (cf. `{}help {}`)\n"
+msgstr ""
+
+#: src/taalbot/cogs/lidwoord.py:84
 #, python-brace-format
 msgid ""
 "\n"
@@ -89,11 +96,11 @@ msgid ""
 "Don't forget that all plural nouns in Dutch are *de-words*!\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:89
+#: src/taalbot/cogs/lidwoord.py:99
 msgid "So, it's {} {}. Noted!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:93
+#: src/taalbot/cogs/lidwoord.py:103
 #, python-brace-format
 msgid ""
 "\n"
@@ -102,11 +109,11 @@ msgid ""
 "More info: `{0}help {1}`\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:97
+#: src/taalbot/cogs/lidwoord.py:107
 msgid "word"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:97
+#: src/taalbot/cogs/lidwoord.py:107
 msgid "article"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 22:33+0100\n"
+"POT-Creation-Date: 2019-12-18 14:16+0100\n"
 "PO-Revision-Date: 2019-12-12 00:13+0100\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -55,8 +55,8 @@ msgid "No description"
 msgstr "Geen beschrijving"
 
 #: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:40
-#: src/taalbot/cogs/lidwoord.py:55 src/taalbot/cogs/lidwoord.py:78
-#: src/taalbot/cogs/lidwoord.py:83
+#: src/taalbot/cogs/lidwoord.py:55 src/taalbot/cogs/lidwoord.py:88
+#: src/taalbot/cogs/lidwoord.py:93
 msgid "both"
 msgstr "allebei"
 
@@ -89,7 +89,17 @@ msgstr "Lidwoord plaatsen of vervangen"
 msgid "De or het? Use this command to find out!"
 msgstr "De of het? Gebruik deze command om het uit te vinden!"
 
-#: src/taalbot/cogs/lidwoord.py:74
+#: src/taalbot/cogs/lidwoord.py:72
+msgid ""
+"\n"
+"I couldn't find this word... 🙁\n"
+"You can set the article yourself, though! (cf. `{}help {}`)\n"
+msgstr ""
+"\n"
+"Ik kon dit woord niet vinden... 🙁\n"
+"Je kunt wel zelf het lidwoord plaatsen! (cf. `{}help {}`)\n"
+
+#: src/taalbot/cogs/lidwoord.py:84
 #, python-brace-format
 msgid ""
 "\n"
@@ -105,11 +115,11 @@ msgstr ""
 "Niet vergeten: De meervoudsvormen van de zelfstandig naamwoorden zijn altijd "
 "*de-woorden*!\n"
 
-#: src/taalbot/cogs/lidwoord.py:89
+#: src/taalbot/cogs/lidwoord.py:99
 msgid "So, it's {} {}. Noted!"
 msgstr "Het is {} {} dan. Genoteerd!"
 
-#: src/taalbot/cogs/lidwoord.py:93
+#: src/taalbot/cogs/lidwoord.py:103
 #, python-brace-format
 msgid ""
 "\n"
@@ -122,11 +132,11 @@ msgstr ""
 "Om het lidwoord van een zelfstandig naamwoord te plaatsen: `{0}{1} {2} {3}`\n"
 "Meer informatie: `{0}help {1}`\n"
 
-#: src/taalbot/cogs/lidwoord.py:97
+#: src/taalbot/cogs/lidwoord.py:107
 msgid "word"
 msgstr "woord"
 
-#: src/taalbot/cogs/lidwoord.py:97
+#: src/taalbot/cogs/lidwoord.py:107
 msgid "article"
 msgstr "lidwoord"
 
