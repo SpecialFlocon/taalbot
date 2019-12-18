@@ -86,7 +86,7 @@ You can set the article yourself, though! (cf. `{}help {}`)
 {0}... {1}? 🤔
 Something's off... If I'm wrong, you can correct me: `{2}{3} {1} de/het/{4}`
 Don't forget that all plural nouns in Dutch are *de-words*!
-""").format(display_article, word, ctx.bot.command_prefix, ctx.invoked_with, _('both'))
+""").format(display_article, obj['woord'], ctx.bot.command_prefix, ctx.invoked_with, _('both'))
 
             await ctx.send(output)
         # Two arguments: the user is setting the article of a word
