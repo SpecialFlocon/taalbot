@@ -3,6 +3,7 @@ from discord.ext import commands
 from .. import const
 
 import json
+import logging
 import requests
 
 
@@ -90,6 +91,12 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             await ctx.send(output)
         # Two arguments: the user is setting the article of a word
         elif len(args) == 2:
+            author = ctx.message.author
+            if all(r not in author.roles for r in ['Admin', 'Moderator', 'Mentor']):
+                logging.info("User {} with insufficient permissions tried to change an article".format(author.name))
+                logging.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
+                return await ctx.send(_("Only admins, mods and mentors can change articles."))
+
             if not args[1] in ['de', 'het', _('both')]:
                 return await ctx.send_help('dehet')
 
