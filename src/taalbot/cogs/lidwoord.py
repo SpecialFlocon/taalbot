@@ -1,4 +1,5 @@
 from discord.ext import commands
+from discord.utils import get
 
 from .. import const
 
@@ -92,7 +93,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
         # Two arguments: the user is setting the article of a word
         elif len(args) == 2:
             author = ctx.message.author
-            if all(r not in author.roles for r in ['Admin', 'Moderator', 'Mentor']):
+            if all(not get(author.roles, name=r) for r in ['Admin', 'Moderator', 'Mentor']):
                 logging.info("User {} with insufficient permissions tried to change an article".format(author.name))
                 logging.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
                 return await ctx.send(_("Only admins, mods and mentors can change articles."))
