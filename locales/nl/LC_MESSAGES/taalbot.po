@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-18 14:16+0100\n"
+"POT-Creation-Date: 2019-12-20 00:19+0100\n"
 "PO-Revision-Date: 2019-12-12 00:13+0100\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -54,9 +54,9 @@ msgstr ""
 msgid "No description"
 msgstr "Geen beschrijving"
 
-#: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:40
-#: src/taalbot/cogs/lidwoord.py:55 src/taalbot/cogs/lidwoord.py:88
-#: src/taalbot/cogs/lidwoord.py:93
+#: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:42
+#: src/taalbot/cogs/lidwoord.py:57 src/taalbot/cogs/lidwoord.py:90
+#: src/taalbot/cogs/lidwoord.py:101
 msgid "both"
 msgstr "allebei"
 
@@ -85,11 +85,11 @@ msgstr "Welk lidwoord?"
 msgid "Set or replace article"
 msgstr "Lidwoord plaatsen of vervangen"
 
-#: src/taalbot/cogs/lidwoord.py:64
+#: src/taalbot/cogs/lidwoord.py:66
 msgid "De or het? Use this command to find out!"
 msgstr "De of het? Gebruik deze command om het uit te vinden!"
 
-#: src/taalbot/cogs/lidwoord.py:72
+#: src/taalbot/cogs/lidwoord.py:74
 msgid ""
 "\n"
 "I couldn't find this word... 🙁\n"
@@ -99,7 +99,7 @@ msgstr ""
 "Ik kon dit woord niet vinden... 🙁\n"
 "Je kunt wel zelf het lidwoord plaatsen! (cf. `{}help {}`)\n"
 
-#: src/taalbot/cogs/lidwoord.py:84
+#: src/taalbot/cogs/lidwoord.py:86
 #, python-brace-format
 msgid ""
 "\n"
@@ -116,10 +116,14 @@ msgstr ""
 "*de-woorden*!\n"
 
 #: src/taalbot/cogs/lidwoord.py:99
+msgid "Only admins, mods and mentors can change articles."
+msgstr "Alleen admins, mods en mentors kunnen lidwoorden veranderen"
+
+#: src/taalbot/cogs/lidwoord.py:107
 msgid "So, it's {} {}. Noted!"
 msgstr "Het is {} {} dan. Genoteerd!"
 
-#: src/taalbot/cogs/lidwoord.py:103
+#: src/taalbot/cogs/lidwoord.py:111
 #, python-brace-format
 msgid ""
 "\n"
@@ -132,11 +136,11 @@ msgstr ""
 "Om het lidwoord van een zelfstandig naamwoord te plaatsen: `{0}{1} {2} {3}`\n"
 "Meer informatie: `{0}help {1}`\n"
 
-#: src/taalbot/cogs/lidwoord.py:107
+#: src/taalbot/cogs/lidwoord.py:115
 msgid "word"
 msgstr "woord"
 
-#: src/taalbot/cogs/lidwoord.py:107
+#: src/taalbot/cogs/lidwoord.py:115
 msgid "article"
 msgstr "lidwoord"
 
@@ -225,16 +229,18 @@ msgid ""
 "Send ⏩ to skip this step.\n"
 "\n"
 "Example: **Nederland**\n"
+"Note: you must use **VK** for Verenigd Koninkrijk, and **VS** for Verenigde "
+"Staten!\n"
 "\n"
 "If you don't know what yours is, here is a list of country names in Dutch:\n"
 "https://www.101languages.net/dutch/country-names-dutch/\n"
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:252
+#: src/taalbot/cogs/onboarding.py:253
 msgid "🌍 Great! I added the **{}** role to your profile!"
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:264
+#: src/taalbot/cogs/onboarding.py:265
 msgid ""
 "\n"
 "Awesome, you're *almost* set! 🥳\n"
@@ -254,11 +260,11 @@ msgid ""
 "interest you, or when you are done.\n"
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:307
+#: src/taalbot/cogs/onboarding.py:308
 msgid "👍 Gave you the **{}** role!"
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:317
+#: src/taalbot/cogs/onboarding.py:318
 msgid ""
 "\n"
 "Phew, finally done!\n"
@@ -268,7 +274,11 @@ msgid ""
 "Veel plezier!\n"
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:354
+#: src/taalbot/cogs/onboarding.py:349
+msgid "Started onboarding for user {}, as requested by {}"
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:356
 msgid ""
 "{}, you are not allowed to run this command. If you'd like to go through on-"
 "boarding process again, ask a team member to initiate it for you."
