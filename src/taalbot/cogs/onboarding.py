@@ -345,6 +345,7 @@ class Onboarding(commands.Cog):
     async def onboard(self, ctx, *, member: discord.Member=None):
         member = member or ctx.author
         logging.info("Onboarding for user {} has been requested by {}.".format(member, ctx.author))
+        await ctx.bot.log_channel.send(_("Started onboarding for user {}, as requested by {}").format(member, ctx.author))
         await self.process.introduction(member)
 
     @onboard.error
