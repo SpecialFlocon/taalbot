@@ -44,7 +44,7 @@ def main(argv=None, test=False):
         log_level = logging.DEBUG
     else:
         log_level = logging.NOTSET
-    logging.basicConfig(level=log_level)
+    logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', level=log_level)
 
     # Initialize localization
     try:
