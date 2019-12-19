@@ -228,6 +228,7 @@ For this time only, I am asking you to *type* the country name (in Dutch!)
 Send ⏩ to skip this step.
 
 Example: **Nederland**
+Note: you must use **VK** for Verenigd Koninkrijk, and **VS** for Verenigde Staten!
 
 If you don't know what yours is, here is a list of country names in Dutch:
 https://www.101languages.net/dutch/country-names-dutch/
