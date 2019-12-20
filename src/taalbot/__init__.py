@@ -37,10 +37,8 @@ def main(argv=None, test=False):
 
     # Enable logging
     if args.verbose == 0:
-        log_level = logging.WARNING
-    elif args.verbose == 1:
         log_level = logging.INFO
-    elif args.verbose >= 2:
+    elif args.verbose >= 1:
         log_level = logging.DEBUG
     else:
         log_level = logging.NOTSET
