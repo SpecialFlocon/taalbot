@@ -220,7 +220,7 @@ class OnboardProcess:
 
         [StepClass] = self.steps['root']
         while StepClass is not None:
-            logging.debug("Current onboarding step class: {}".format(StepClass))
+            logging.debug("Onboarding user {}, current step class: {}".format(self.member, StepClass))
             current_step = StepClass(self.bot, self.member)
             try:
                 await current_step.run()
