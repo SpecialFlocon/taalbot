@@ -42,13 +42,7 @@ One of them will probably re-initiate the process for you.
             # user: the user who reacted to the message, member: the user we sent the DM to
             return user == self.member and reaction.message.id == message.id and str(reaction.emoji) in choices_emojis
 
-        try:
-            reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
-        except asyncio.TimeoutError:
-            logging.info("Onboarding process for user {} timed out.".format(self.member))
-            await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-            return
-
+        reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
         for c in self.choices:
             if str(reaction.emoji) == c[0]:
                 break
@@ -115,13 +109,7 @@ class Country(OnboardStep):
             return message.author == self.member and (message.content == '⏩' or \
                 find(lambda r: r.lower() == message.content.lower(), const.COUNTRIES))
 
-        try:
-            country_name_message = await self.bot.wait_for('message', check=user_replied, timeout=const.EVENT_WAIT_TIMEOUT)
-        except asyncio.TimeoutError:
-            logging.info("Onboarding process for user {} timed out.".format(self.member))
-            await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-            return
-
+        country_name_message = await self.bot.wait_for('message', check=user_replied, timeout=const.EVENT_WAIT_TIMEOUT)
         if country_name_message.content == '⏩':
             return
 
@@ -151,13 +139,7 @@ class AdditionalRoles(OnboardStep):
             return user == self.member and reaction.message.id == message.id and str(reaction.emoji) in choices_emojis
 
         while True:
-            try:
-                reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
-            except asyncio.TimeoutError:
-                logging.info("Onboarding process for user {} timed out.".format(self.member))
-                await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-                return
-
+            reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
             if str(reaction.emoji) == '✅':
                 return
 
@@ -240,7 +222,12 @@ class OnboardProcess:
         while StepClass is not None:
             logging.debug("Current onboarding step class: {}".format(StepClass))
             current_step = StepClass(self.bot, self.member)
-            await current_step.run()
+            try:
+                await current_step.run()
+            except asyncio.TimeoutError:
+                logging.info("Onboarding process for user {} timed out.".format(self.member))
+                await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
+                return
 
             next_step_classes = self.steps[StepClass]
             # After the "native speaker?" step, there are two possible paths.
