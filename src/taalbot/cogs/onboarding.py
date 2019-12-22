@@ -252,7 +252,7 @@ class Onboarding(commands.Cog):
     async def on_member_join(self, member):
         logging.info("Onboarding for user {} started upon server join.".format(member))
         if self.bot.log_channel:
-            await self.bot.log_channel.send(_("Onboarding for user {} started upon server join.").format(member))
+            await self.bot.log_channel.send(_("Onboarding for user {} started upon server join.").format(member.mention))
         await OnboardProcess(self.bot, member).run()
 
     @commands.command(hidden=True)
