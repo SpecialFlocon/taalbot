@@ -250,6 +250,9 @@ class Onboarding(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
+        logging.info("Onboarding for user {} started upon server join.".format(member))
+        if self.bot.log_channel:
+            await self.bot.log_channel.send(_("Onboarding for user {} started upon server join.").format(member))
         await OnboardProcess(self.bot, member).run()
 
     @commands.command(hidden=True)
@@ -257,7 +260,8 @@ class Onboarding(commands.Cog):
     async def onboard(self, ctx, *, member: discord.Member=None):
         member = member or ctx.author
         logging.info("Onboarding for user {} has been requested by {}.".format(member, ctx.author))
-        await ctx.bot.log_channel.send(_("Started onboarding for user {}, as requested by {}").format(member.mention, ctx.author.mention))
+        if ctx.bot.log_channel:
+            await ctx.bot.log_channel.send(_("Started onboarding for user {}, as requested by {}").format(member.mention, ctx.author.mention))
         await OnboardProcess(self.bot, member).run()
 
     @onboard.error
