@@ -113,7 +113,7 @@ class Country(OnboardStep):
 
         def user_replied(message):
             return message.author == self.member and (message.content == '⏩' or \
-                find(lambda r: r.name.lower() == message.content.lower(), self.member.guild.roles))
+                find(lambda r: r.lower() == message.content.lower(), const.COUNTRIES))
 
         try:
             country_name_message = await self.bot.wait_for('message', check=user_replied, timeout=const.EVENT_WAIT_TIMEOUT)
