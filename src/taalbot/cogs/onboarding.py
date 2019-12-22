@@ -1,3 +1,4 @@
+from collections import defaultdict
 from discord.ext import commands
 from discord.utils import find, get
 
@@ -5,21 +6,25 @@ from .. import const, exceptions
 
 import asyncio
 import discord
+import functools
 import logging
 
 
-# TODO(thepib): this monstrosity of a class is stack overflow bound, at the very least.
-# Make it less of a horror-show!
-class OnboardProcess:
+class OnboardStep:
     """
-    A class which methods represent a step of the onboarding process.
-    Used to temporarily keep track of user choices.
+    A class that represents a step in the onboarding process.
+    Can be subclassed to override message to send and possible choices.
     """
 
-    def __init__(self, bot):
+    def __init__(self, bot, member, choices=[], instructions_text=None, role_assignation_text=None):
         self.bot = bot
+        self.member = member
+        self.choices = choices
+        self.instructions_text = instructions_text
+        self.role_assignation_text = role_assignation_text
 
-    async def warn_missing_role(self, member, name):
+    @staticmethod
+    async def warn_missing_role(member, name):
         await member.send(_("""
 Beep boop derp, looks like I'm trying to assign a role that doesn't exist.
 Don't worry, it's not your fault, it's the server team's, and I've already blamed them.
@@ -27,7 +32,174 @@ One of them will probably re-initiate the process for you.
 """))
         raise exceptions.RoleDoesNotExist(name)
 
-    async def reset_roles(self, member):
+    async def run(self):
+        choices_emojis = [c[0] for c in self.choices]
+        message = await self.member.send(self.instructions_text)
+        for e in choices_emojis:
+            await message.add_reaction(e)
+
+        def user_reacted_to_message(reaction, user):
+            # user: the user who reacted to the message, member: the user we sent the DM to
+            return user == self.member and reaction.message.id == message.id and str(reaction.emoji) in choices_emojis
+
+        try:
+            reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
+        except asyncio.TimeoutError:
+            logging.info("Onboarding process for user {} timed out.".format(self.member))
+            await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
+            return
+
+        for c in self.choices:
+            if str(reaction.emoji) == c[0]:
+                break
+
+        # If there is a role to assign, assign it.
+        if c[1] is not None:
+            role = get(self.member.guild.roles, name=c[1])
+            if not role:
+                self.warn_missing_role(self.member, c[1])
+
+            await self.member.add_roles(role)
+            await self.member.send(self.role_assignation_text.format(role.name))
+
+class Introduction(OnboardStep):
+    """
+    On-boarding process, step 0: introduction
+    Give a (not-so-)short explanation about how the server works,
+    and what the user needs to do.
+    """
+
+    def __init__(self, bot, member):
+        super().__init__(bot, member, const.ONBOARDING_INTRO_CHOICES, const.ONBOARDING_INTRO_INSTRUCTIONS)
+
+class NativeSpeaker(OnboardStep):
+    """
+    On-boarding process, step 1: native speaker?
+    Ask the user if he's a native Dutch speaker or not.
+    """
+
+    def __init__(self, bot, member):
+        super().__init__(bot, member, const.ONBOARDING_NATIVE_SPEAKER_CHOICES, const.ONBOARDING_NATIVE_SPEAKER_INSTRUCTIONS, const.ONBOARDING_NATIVE_SPEAKER_ASSIGNED_ROLE)
+
+class NativeDialect(OnboardStep):
+    """
+    On-boarding process, step 2, native speaker branch: which Dutch dialect/variant?
+    Ask user which "dialect" of Dutch he speaks.
+    """
+
+    def __init__(self, bot, member):
+        super().__init__(bot, member, const.ONBOARDING_NATIVE_DIALECT_CHOICES, const.ONBOARDING_NATIVE_DIALECT_INSTRUCTIONS, const.ONBOARDING_NATIVE_DIALECT_ASSIGNED_ROLE)
+
+class NonNativeLevel(OnboardStep):
+    """
+    On-boarding process, step 2, non-native speaker branch: which Dutch level?
+    Ask user what his Dutch level is.
+    """
+
+    def __init__(self, bot, member):
+        super().__init__(bot, member, const.ONBOARDING_NON_NATIVE_LEVEL_CHOICES, const.ONBOARDING_NON_NATIVE_LEVEL_INSTRUCTIONS, const.ONBOARDING_NON_NATIVE_LEVEL_ASSIGNED_ROLE)
+
+class Country(OnboardStep):
+    """
+    On-boarding process, step 3, optional: which country?
+    Ask user which country he lives in.
+    """
+
+    def __init__(self, bot, member):
+        super().__init__(bot, member, instructions_text=const.ONBOARDING_COUNTRY_INSTRUCTIONS, role_assignation_text=const.ONBOARDING_COUNTRY_ASSIGNED_ROLE)
+
+    async def run(self):
+        message = await self.member.send(self.instructions_text)
+
+        def user_replied(message):
+            return message.author == self.member and (message.content == '⏩' or \
+                find(lambda r: r.name.lower() == message.content.lower(), self.member.guild.roles))
+
+        try:
+            country_name_message = await self.bot.wait_for('message', check=user_replied, timeout=const.EVENT_WAIT_TIMEOUT)
+        except asyncio.TimeoutError:
+            logging.info("Onboarding process for user {} timed out.".format(self.member))
+            await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
+            return
+
+        if country_name_message.content == '⏩':
+            return
+
+        country_role = get(self.member.guild.roles, name=country_name_message.content.lower().capitalize())
+        await self.member.add_roles(country_role)
+        await self.member.send(self.role_assignation_text.format(country_role.name))
+
+class AdditionalRoles(OnboardStep):
+    """
+    On-boarding process, step 4, optional: additional roles.
+    Let user know about additional and optional tags, and prompt him to add some.
+    User can also say when he's done, with or without additional roles.
+    """
+
+    def __init__(self, bot, member):
+        be_role = get(member.roles, name=const.ROLE_NAME_BE)
+        choices = ([('🇧🇪', const.ROLE_NAME_BE)] if not be_role else []) + const.ONBOARDING_ADDITIONAL_ROLES_MANDATORY_CHOICES
+        super().__init__(bot, member, choices, const.ONBOARDING_ADDITIONAL_ROLES_INSTRUCTIONS, const.ONBOARDING_ADDITIONAL_ROLES_ASSIGNED_ROLE)
+
+    async def run(self):
+        choices_emojis = [c[0] for c in self.choices]
+        message = await self.member.send(self.instructions_text)
+        for e in choices_emojis:
+            await message.add_reaction(e)
+
+        def user_reacted_to_message(reaction, user):
+            return user == self.member and reaction.message.id == message.id and str(reaction.emoji) in choices_emojis
+
+        while True:
+            try:
+                reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
+            except asyncio.TimeoutError:
+                logging.info("Onboarding process for user {} timed out.".format(self.member))
+                await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
+                return
+
+            if str(reaction.emoji) == '✅':
+                return
+
+            for c in self.choices:
+                if str(reaction.emoji) == c[0]:
+                    break
+
+            # If there is a role to assign, assign it.
+            if c[1] is not None:
+                role = get(self.member.guild.roles, name=c[1])
+                if not role:
+                    self.warn_missing_role(self.member, c[1])
+
+                await self.member.add_roles(role)
+                await self.member.send(self.role_assignation_text.format(role.name))
+
+class OnboardProcess:
+    """
+    A class which represents different steps of the onboarding process as a graph.
+    """
+
+    def __init__(self, bot, member):
+        # Construct graph
+        adjacency_list = [
+            ('root', Introduction),
+            (Introduction, NativeSpeaker),
+            (NativeSpeaker, NativeDialect),
+            (NativeSpeaker, NonNativeLevel),
+            (NativeDialect, Country),
+            (NonNativeLevel, Country),
+            (Country, AdditionalRoles),
+            (AdditionalRoles, None)
+        ]
+        steps_graph = defaultdict(list)
+        for k, v in adjacency_list:
+            steps_graph[k].append(v)
+
+        self.bot = bot
+        self.member = member
+        self.steps = steps_graph
+
+    async def reset_roles(self):
         """
         Reset all applicable roles prior to onboarding process.
         """
@@ -47,299 +219,51 @@ One of them will probably re-initiate the process for you.
             const.ROLE_NAME_BN,
         ]
 
-        resettable_roles = [r for rn in resettable_role_names for r in member.guild.roles if r.name == rn and r in member.roles]
-        await member.remove_roles(*resettable_roles)
+        resettable_roles = [r for rn in resettable_role_names for r in self.member.guild.roles if r.name == rn and r in self.member.roles]
+        await self.member.remove_roles(*resettable_roles)
 
-    async def introduction(self, member):
-        """
-        On-boarding process, step 0: introduction
-        Give a (not-so-)short explanation about how the server works,
-        and what the user needs to do.
-        """
-
-        # Reset all applicable roles of the member
-        await self.reset_roles(member)
-
-        text = _("""
-Hello, and welcome to **Nederlands Leren**! Let me introduce myself: I am taalbot, a bot that does things. I primarily live on this server.
-I would like to walk you through our introduction process, so that you can experience the server to its fullest in no time!
-
-For now, you only have access to a few channels, but there are many more!
-In order for you to get the most out of your journey on this server, we first need to assign yourself some roles.
-They will automatically give you access to currently hidden channels, and also let fellow members know about your Dutch proficiency level, so that they can adapt themselves!
-
-Shall we get started? React to this message with ▶️, like I just did! This will be our main interaction method during the process.
-""")
-        message = await member.send(text)
-        await message.add_reaction('▶️')
-
-        def user_reacted_to_message(reaction, user):
-            # user: the user who reacted to the message, member: the user we sent the DM to
-            return user == member and reaction.message.id == message.id and str(reaction.emoji) == '▶️'
-
-        try:
-            reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
-        except asyncio.TimeoutError:
-            logging.info("Onboarding process for user {} timed out.".format(member))
-            return await member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-
-        # Got a 👍, proceed to next step
-        await self.native_speaker(member)
-
-    async def native_speaker(self, member):
-        """
-        On-boarding process, step 1: native speaker?
-        Ask the user if he's a native Dutch speaker or not.
-        """
-
-        choices = ['👍', '👎']
-        text = _("""
-Right, first things first, let's talk about your proficiency.
-Are you a **native Dutch speaker**?
-""")
-        message = await member.send(text)
-        for c in choices:
-            await message.add_reaction(c)
-
-        def user_reacted_to_message(reaction, user):
-            return user == member and reaction.message.id == message.id and str(reaction.emoji) in choices
-
-        try:
-            reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
-        except asyncio.TimeoutError:
-            logging.info("Onboarding process for user {} timed out.".format(member))
-            return await member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-
-        if str(reaction.emoji) == '👍':
-            native_role = get(member.guild.roles, name=const.ROLE_NAME_NATIVE)
-            if not native_role:
-                self.warn_missing_role(member, const.ROLE_NAME_NATIVE)
-
-            await member.add_roles(native_role)
-            await member.send(_("Nice, I've assigned you the **{}** role!").format(native_role.name))
-
-            # Got a 👍, proceed to next step, native Dutch branch
-            await self.native_which_dialect(member)
-        else:
-            # Got a 👎, proceed to next step, non-native Dutch branch
-            await self.non_native_which_level(member)
-
-    async def native_which_dialect(self, member):
-        """
-        On-boarding process, step 2, native speaker branch: which Dutch dialect/variant?
-        Ask user which "dialect" of Dutch he speaks.
-        """
-
-        choices = ['🇳🇱', '🇧🇪', '🇸🇷']
-        text = _("""
-OK! Which Dutch do you speak?
-
-🇳🇱 The Netherlands
-🇧🇪 Belgium (Flanders)
-🇸🇷 Suriname, Sint-Maarten, Sint-Eustatius, Saba + ABC Islands
-""")
-        message = await member.send(text)
-        for c in choices:
-            await message.add_reaction(c)
-
-        def user_reacted_to_message(reaction, user):
-            return user == member and reaction.message.id == message.id and str(reaction.emoji) in choices
-
-        try:
-            reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
-        except asyncio.TimeoutError:
-            logging.info("Onboarding process for user {} timed out.".format(member))
-            return await member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-
-        if str(reaction.emoji) == '🇳🇱':
-            role_to_add = const.ROLE_NAME_NL
-        elif str(reaction.emoji) == '🇧🇪':
-            role_to_add = const.ROLE_NAME_BE
-        else:
-            role_to_add = const.ROLE_NAME_SA
-
-        dutch_dialect_role = get(member.guild.roles, name=role_to_add)
-        if not dutch_dialect_role:
-            self.warn_missing_role(member, role_to_add)
-
-        await member.add_roles(dutch_dialect_role)
-        await member.send(_("Okay. I've assigned you the **{}** role.").format(dutch_dialect_role.name))
-
-        await self.country(member)
-
-    async def non_native_which_level(self, member):
-        """
-        On-boarding process, step 2, non-native speaker branch: which Dutch level?
-        Ask user what his Dutch level is.
-        """
-
-        choices = ['🇴', '🇦', '🇧', '🇨']
-        text = _("""
-OK! What is your current Dutch level?
-Are you unsure, or need more info? Check https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages#Common_reference_levels.
-
-🇴: **Onbekend** (unknown), total beginner
-🇦: **Basic user**, corresponds to CEFR A1 (breakthrough) and A2 (waystage)
-🇧: **Independent user**, corresponds to CEFR B1 (threshold) and B2 (vantage)
-🇨: **Proficient user**, corresponds to CEFR C1 (advanced) and C2 (mastery)
-""")
-        message = await member.send(text)
-        for c in choices:
-            await message.add_reaction(c)
-
-        def user_reacted_to_message(reaction, user):
-            return user == member and reaction.message.id == message.id and str(reaction.emoji) in choices
-
-        try:
-            reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
-        except asyncio.TimeoutError:
-            logging.info("Onboarding process for user {} timed out.".format(member))
-            return await member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-
-        if str(reaction.emoji) == '🇴':
-            role_to_add = const.ROLE_NAME_LEVEL_O
-        elif str(reaction.emoji) == '🇦':
-            role_to_add = const.ROLE_NAME_LEVEL_A
-        elif str(reaction.emoji) == '🇧':
-            role_to_add = const.ROLE_NAME_LEVEL_B
-        else:
-            role_to_add = const.ROLE_NAME_LEVEL_C
-
-        dutch_level_role = get(member.guild.roles, name=role_to_add)
-        if not dutch_level_role:
-            self.warn_missing_role(member, role_to_add)
-
-        await member.add_roles(dutch_level_role)
-        await member.send(_("Okay. I've assigned you the **{}** role.").format(dutch_level_role.name))
-
-        await self.country(member)
-
-    async def country(self, member):
-        """
-        On-boarding process, step 3: which country?
-        Ask user which country he lives in.
-        """
-
-        text = _("""
-We're making progress! Now, if you want, you can tell me the name of the **country you live in**.
-
-I said earlier that we'd communicate via reactions, but there are far too many different options!
-For this time only, I am asking you to *type* the country name (in Dutch!)
-Send ⏩ to skip this step.
-
-Example: **Nederland**
-Note: you must use **VK** for Verenigd Koninkrijk, and **VS** for Verenigde Staten!
-
-If you don't know what yours is, here is a list of country names in Dutch:
-https://www.101languages.net/dutch/country-names-dutch/
-""")
-        message = await member.send(text)
-
-        def user_replied(message):
-            return message.author == member and (message.content == '⏩' or \
-                find(lambda r: r.name.lower() == message.content.lower(), member.guild.roles))
-
-        try:
-            country_name_message = await self.bot.wait_for('message', check=user_replied, timeout=const.EVENT_WAIT_TIMEOUT)
-        except asyncio.TimeoutError:
-            logging.info("Onboarding process for user {} timed out.".format(member))
-            return await member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-
-        if country_name_message.content == '⏩':
-            return await self.additional_roles(member)
-
-        country_role = get(member.guild.roles, name=country_name_message.content.lower().capitalize())
-        await member.add_roles(country_role)
-        await member.send(_("🌍 Great! I added the **{}** role to your profile!").format(country_role.name))
-
-        await self.additional_roles(member)
-
-    async def additional_roles(self, member):
-        """
-        On-boarding process, step 4, optional: additional roles
-        Let user know about additional and optional tags are there, and prompt him
-        """
-
-        be_role = get(member.roles, name=const.ROLE_NAME_BE)
-        choices = (['🇧🇪'] if not be_role else []) + ['📗', '🏫', '💪', '✅']
-        text = _("""
-Awesome, you're *almost* set! 🥳
-There are still a few optional roles you can decide to add to your profile.
-
-🇧🇪 **BN**: if you are interested in Belgian Dutch! Gives access to the #belgië channel. You won't see this option if you obtained `BE` or `België` role earlier, as people with those roles are automatically given access.
-📗 **Woord**: get a notification when a new *woord van de dag* (word of the day) is posted in #woord-vd-dag.
-🏫 **Sessies**: get a notification when members of this server organize impromptu / planned (voice) Dutch sessions.
-💪 **Verbeter mij**: this tag lets natives (or everyone) know that you'd like your mistakes to be corrected.
-
-You can "subscribe" to any of those roles, or just click ✅ if none of them interest you, or when you are done.
-""")
-        message = await member.send(text)
-        for c in choices:
-            await message.add_reaction(c)
-
-        def user_reacted_to_message(reaction, user):
-            return user == member and reaction.message.id == message.id and str(reaction.emoji) in choices
-
-        # TODO(thepib): creating multiple asyncio loops might be a performance nightmare?
-        while True:
-            try:
-                reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
-            except asyncio.TimeoutError:
-                logging.info("Onboarding process for user {} timed out.".format(member))
-                return await member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
-
-            if str(reaction.emoji) == '✅':
-                return await self.final_note(member)
-
-            if str(reaction.emoji) == '🇧🇪':
-                role_to_add = const.ROLE_NAME_BN
-            elif str(reaction.emoji) == '📗':
-                role_to_add = const.ROLE_NAME_WVDD
-            elif str(reaction.emoji) == '🏫':
-                role_to_add = const.ROLE_NAME_SESSIONS
-            else:
-                role_to_add = const.ROLE_NAME_CORRECT_ME
-
-            role = get(member.guild.roles, name=role_to_add)
-            if not role:
-                self.warn_missing_role(member, role_to_add)
-
-            await member.add_roles(role)
-            await member.send(_("👍 Gave you the **{}** role!").format(role.name))
-
-        await self.final_note(member)
-
-    async def final_note(self, member):
-        """
-        On-boarding process end
-        Give user a final note, and send a welcome message in the system channel!
-        """
-
-        text = _("""
-Phew, finally done!
-Take a look at #nederlands-leren, as I believe people there just gave you, or will give you, a warm welcome! (Let me know if they don't, though!)
-Make sure to read the rules in #informatie, too!
-Veel plezier!
-""")
-        await member.send(text)
-        await self.greet(member)
-
-    async def greet(self, member):
-        greet_channel = get(member.guild.channels, name=self.bot.config.get('greetChannel')) or member.guild.system_channel
+    async def greet(self):
+        greet_channel = get(self.member.guild.channels, name=self.bot.config.get('greetChannel')) or self.member.guild.system_channel
         greet_msg = self.bot.config.get('greetMessage')
         logging.debug("Greet message template: {}".format(greet_msg))
 
         if greet_channel and greet_msg:
-            await greet_channel.send(greet_msg.format(name=member.mention))
+            logging.info("User {} is done with the onboarding process".format(self.member))
+            if self.bot.log_channel:
+                await self.bot.log_channel.send(_("User {} is done with the onboarding process").format(self.member.mention))
+            await greet_channel.send(greet_msg.format(name=self.member.mention))
+
+    async def run(self):
+        await self.reset_roles()
+
+        [StepClass] = self.steps['root']
+        while StepClass is not None:
+            logging.debug("Current onboarding step class: {}".format(StepClass))
+            current_step = StepClass(self.bot, self.member)
+            await current_step.run()
+
+            next_step_classes = self.steps[StepClass]
+            # After the "native speaker?" step, there are two possible paths.
+            # Check if user has Native role or not to determine which one to follow.
+            if next_step_classes == [NativeDialect, NonNativeLevel]:
+                if get(self.member.roles, name=const.ROLE_NAME_NATIVE):
+                    StepClass = NativeDialect
+                else:
+                    StepClass = NonNativeLevel
+            # Just get the name of the class that corresponds to next step
+            else:
+                [StepClass] = self.steps[StepClass]
+
+        await self.member.send(const.ONBOARDING_FINAL_NOTE_TEXT)
+        await self.greet()
 
 class Onboarding(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.process = OnboardProcess(bot)
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        await self.process.introduction(member)
+        await OnboardProcess(self.bot, member).run()
 
     @commands.command(hidden=True)
     @commands.has_permissions(manage_roles=True)
@@ -347,7 +271,7 @@ class Onboarding(commands.Cog):
         member = member or ctx.author
         logging.info("Onboarding for user {} has been requested by {}.".format(member, ctx.author))
         await ctx.bot.log_channel.send(_("Started onboarding for user {}, as requested by {}").format(member.mention, ctx.author.mention))
-        await self.process.introduction(member)
+        await OnboardProcess(self.bot, member).run()
 
     @onboard.error
     async def onboard_error(self, ctx, error):
