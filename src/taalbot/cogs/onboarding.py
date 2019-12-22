@@ -210,9 +210,9 @@ class OnboardProcess:
         logging.debug("Greet message template: {}".format(greet_msg))
 
         if greet_channel and greet_msg:
-            logging.info("User {} is done with the onboarding process".format(self.member))
+            logging.info("User {} is done with the onboarding process.".format(self.member))
             if self.bot.log_channel:
-                await self.bot.log_channel.send(_("User {} is done with the onboarding process").format(self.member.mention))
+                await self.bot.log_channel.send(_("User {} is done with the onboarding process.").format(self.member.mention))
             await greet_channel.send(greet_msg.format(name=self.member.mention))
 
     async def run(self):
@@ -261,7 +261,7 @@ class Onboarding(commands.Cog):
         member = member or ctx.author
         logging.info("Onboarding for user {} has been requested by {}.".format(member, ctx.author))
         if ctx.bot.log_channel:
-            await ctx.bot.log_channel.send(_("Started onboarding for user {}, as requested by {}").format(member.mention, ctx.author.mention))
+            await ctx.bot.log_channel.send(_("Started onboarding for user {}, as requested by {}.").format(member.mention, ctx.author.mention))
         await OnboardProcess(self.bot, member).run()
 
     @onboard.error
