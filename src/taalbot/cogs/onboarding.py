@@ -226,6 +226,8 @@ class OnboardProcess:
                 await current_step.run()
             except asyncio.TimeoutError:
                 logging.info("Onboarding process for user {} timed out.".format(self.member))
+                if self.bot.log_channel:
+                    await self.bot.log_channel.send(_("Onboarding process for user {} timed out.").format(self.member.mention))
                 await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
                 return
 
