@@ -199,7 +199,7 @@ class OnboardProcess:
             const.ROLE_NAME_SESSIONS,
             const.ROLE_NAME_CORRECT_ME,
             const.ROLE_NAME_BN,
-        ]
+        ] + const.COUNTRIES
 
         resettable_roles = [r for rn in resettable_role_names for r in self.member.guild.roles if r.name == rn and r in self.member.roles]
         await self.member.remove_roles(*resettable_roles)
