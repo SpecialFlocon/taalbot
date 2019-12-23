@@ -137,7 +137,7 @@ ROLE_NAME_SESSIONS = "Sessies"
 ROLE_NAME_CORRECT_ME = "Verbeter mij"
 ROLE_NAME_BN = "BN"
 
-ONBOARDING_INTRO_CHOICES = [('▶️', None)]
+ONBOARDING_INTRO_CHOICES = {'▶️': None}
 ONBOARDING_INTRO_INSTRUCTIONS = _("""
 Hello, and welcome to **Nederlands Leren**! Let me introduce myself: I am taalbot, a bot that does things. I primarily live on this server.
 I would like to walk you through our introduction process, so that you can experience the server to its fullest in no time!
@@ -150,14 +150,14 @@ Shall we get started? React to this message with ▶️, like I just did! This w
 """)
 
 ONBOARDING_NATIVE_SPEAKER_ASSIGNED_ROLE = _("Nice, I've assigned you the **{}** role!")
-ONBOARDING_NATIVE_SPEAKER_CHOICES = [('👍', ROLE_NAME_NATIVE), ('👎', None)]
+ONBOARDING_NATIVE_SPEAKER_CHOICES = {'👍': ROLE_NAME_NATIVE, '👎': None}
 ONBOARDING_NATIVE_SPEAKER_INSTRUCTIONS = _("""
 Right, first things first, let's talk about your proficiency.
 Are you a **native Dutch speaker**?
 """)
 
 ONBOARDING_NATIVE_DIALECT_ASSIGNED_ROLE = _("Okay. I've assigned you the **{}** role.")
-ONBOARDING_NATIVE_DIALECT_CHOICES = [('🇳🇱', ROLE_NAME_NL), ('🇧🇪', ROLE_NAME_BE), ('🇸🇷', ROLE_NAME_SA)]
+ONBOARDING_NATIVE_DIALECT_CHOICES = {'🇳🇱': ROLE_NAME_NL, '🇧🇪': ROLE_NAME_BE, '🇸🇷': ROLE_NAME_SA}
 ONBOARDING_NATIVE_DIALECT_INSTRUCTIONS = _("""
 OK! Which Dutch do you speak?
 
@@ -167,7 +167,7 @@ OK! Which Dutch do you speak?
 """)
 
 ONBOARDING_NON_NATIVE_LEVEL_ASSIGNED_ROLE = _("Okay. I've assigned you the **{}** role.")
-ONBOARDING_NON_NATIVE_LEVEL_CHOICES = [('🇴', ROLE_NAME_LEVEL_O), ('🇦', ROLE_NAME_LEVEL_A), ('🇧', ROLE_NAME_LEVEL_B), ('🇨', ROLE_NAME_LEVEL_C)]
+ONBOARDING_NON_NATIVE_LEVEL_CHOICES = {'🇴': ROLE_NAME_LEVEL_O, '🇦': ROLE_NAME_LEVEL_A, '🇧': ROLE_NAME_LEVEL_B, '🇨': ROLE_NAME_LEVEL_C}
 ONBOARDING_NON_NATIVE_LEVEL_INSTRUCTIONS = _("""
 OK! What is your current Dutch level?
 Are you unsure, or need more info? Check https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages#Common_reference_levels.
@@ -194,7 +194,7 @@ https://www.101languages.net/dutch/country-names-dutch/
 """)
 
 ONBOARDING_ADDITIONAL_ROLES_ASSIGNED_ROLE = _("👍 Gave you the **{}** role!")
-ONBOARDING_ADDITIONAL_ROLES_MANDATORY_CHOICES = [('📗', ROLE_NAME_WVDD), ('🏫', ROLE_NAME_SESSIONS), ('💪', ROLE_NAME_CORRECT_ME), ('✅', None)]
+ONBOARDING_ADDITIONAL_ROLES_MANDATORY_CHOICES = {'📗': ROLE_NAME_WVDD, '🏫': ROLE_NAME_SESSIONS, '💪': ROLE_NAME_CORRECT_ME, '✅': None}
 ONBOARDING_ADDITIONAL_ROLES_INSTRUCTIONS = _("""
 Awesome, you're *almost* set! 🥳
 There are still a few optional roles you can decide to add to your profile.

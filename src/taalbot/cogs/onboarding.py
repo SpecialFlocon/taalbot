@@ -1,4 +1,5 @@
 from collections import defaultdict
+from copy import copy
 from discord.ext import commands
 from discord.utils import find, get
 
@@ -17,7 +18,7 @@ class OnboardStep:
     Can be subclassed to override message to send and possible choices.
     """
 
-    def __init__(self, bot, member, choices=[], instructions_text=None, role_assignation_text=None):
+    def __init__(self, bot, member, choices=dict(), instructions_text=None, role_assignation_text=None):
         self.bot = bot
         self.member = member
         self.choices = choices
@@ -34,7 +35,7 @@ One of them will probably re-initiate the process for you.
         raise exceptions.RoleDoesNotExist(name)
 
     async def run(self):
-        choices_emojis = [c[0] for c in self.choices]
+        choices_emojis = self.choices.keys()
         message = await self.member.send(self.instructions_text)
         for e in choices_emojis:
             await message.add_reaction(e)
@@ -44,15 +45,15 @@ One of them will probably re-initiate the process for you.
             return user == self.member and reaction.message.id == message.id and str(reaction.emoji) in choices_emojis
 
         reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
-        for c in self.choices:
-            if str(reaction.emoji) == c[0]:
+        for e, r in self.choices.items():
+            if str(reaction.emoji) == e:
                 break
 
         # If there is a role to assign, assign it.
-        if c[1] is not None:
-            role = get(self.member.guild.roles, name=c[1])
+        if r is not None:
+            role = get(self.member.guild.roles, name=r)
             if not role:
-                self.warn_missing_role(self.member, c[1])
+                self.warn_missing_role(self.member, r)
 
             await self.member.add_roles(role)
             await self.member.send(self.role_assignation_text.format(role.name))
@@ -127,11 +128,12 @@ class AdditionalRoles(OnboardStep):
 
     def __init__(self, bot, member):
         be_role = get(member.roles, name=const.ROLE_NAME_BE)
-        choices = ([('🇧🇪', const.ROLE_NAME_BE)] if not be_role else []) + const.ONBOARDING_ADDITIONAL_ROLES_MANDATORY_CHOICES
+        choices = {'🇧🇪': const.ROLE_NAME_BE} if not be_role else dict()
+        choices.update(copy(const.ONBOARDING_ADDITIONAL_ROLES_MANDATORY_CHOICES))
         super().__init__(bot, member, choices, const.ONBOARDING_ADDITIONAL_ROLES_INSTRUCTIONS, const.ONBOARDING_ADDITIONAL_ROLES_ASSIGNED_ROLE)
 
     async def run(self):
-        choices_emojis = [c[0] for c in self.choices]
+        choices_emojis = self.choices.keys()
         message = await self.member.send(self.instructions_text)
         for e in choices_emojis:
             await message.add_reaction(e)
@@ -144,15 +146,15 @@ class AdditionalRoles(OnboardStep):
             if str(reaction.emoji) == '✅':
                 return
 
-            for c in self.choices:
-                if str(reaction.emoji) == c[0]:
+            for e, r in self.choices.items():
+                if str(reaction.emoji) == e:
                     break
 
             # If there is a role to assign, assign it.
-            if c[1] is not None:
-                role = get(self.member.guild.roles, name=c[1])
+            if r is not None:
+                role = get(self.member.guild.roles, name=r)
                 if not role:
-                    self.warn_missing_role(self.member, c[1])
+                    self.warn_missing_role(self.member, r)
 
                 await self.member.add_roles(role)
                 await self.member.send(self.role_assignation_text.format(role.name))
