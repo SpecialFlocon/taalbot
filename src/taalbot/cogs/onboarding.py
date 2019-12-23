@@ -8,6 +8,7 @@ import asyncio
 import discord
 import functools
 import logging
+import traceback
 
 
 class OnboardStep:
