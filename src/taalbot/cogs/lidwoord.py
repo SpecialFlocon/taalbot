@@ -73,7 +73,7 @@ class LidwoordCog(commands.Cog):
                 if e.response.status_code == requests.codes.not_found:
                     return await ctx.send(_("""
 I couldn't find this word... 🙁
-You can set the article yourself, though! (cf. `{}help {}`)
+Ask a team member to set the article(s) for this noun! (cf. `{}help {}`)
 """).format(ctx.bot.command_prefix, ctx.invoked_with))
                 else:
                     raise e
@@ -85,7 +85,7 @@ You can set the article yourself, though! (cf. `{}help {}`)
             else:
                 output = _("""
 {0}... {1}? 🤔
-Something's off... If I'm wrong, you can correct me: `{2}{3} {1} de/het/{4}`
+Something's off... If I'm wrong, a team member can correct me: `{2}{3} {1} de/het/{4}`
 Don't forget that all plural nouns in Dutch are *de-words*!
 """).format(display_article, obj['woord'], ctx.bot.command_prefix, ctx.invoked_with, _('both'))
 
