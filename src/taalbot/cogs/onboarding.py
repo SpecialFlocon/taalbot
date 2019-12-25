@@ -128,7 +128,7 @@ class AdditionalRoles(OnboardStep):
 
     def __init__(self, bot, member):
         be_role = get(member.roles, name=const.ROLE_NAME_BE)
-        choices = {'🇧🇪': const.ROLE_NAME_BE} if not be_role else dict()
+        choices = {'🇧🇪': const.ROLE_NAME_BN} if not be_role else dict()
         choices.update(copy(const.ONBOARDING_ADDITIONAL_ROLES_MANDATORY_CHOICES))
         super().__init__(bot, member, choices, const.ONBOARDING_ADDITIONAL_ROLES_INSTRUCTIONS, const.ONBOARDING_ADDITIONAL_ROLES_ASSIGNED_ROLE)
 
