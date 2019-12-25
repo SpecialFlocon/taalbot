@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: taalbot 0.6.1\n"
+"Project-Id-Version: taalbot 0.6.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-25 09:04+0100\n"
+"POT-Creation-Date: 2019-12-25 23:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,13 @@ msgid ""
 "`@Admin`, `@Moderator`, `@Mentor`, `@Developer`\n"
 msgstr ""
 
-#: src/taalbot/const.py:141
+#: src/taalbot/const.py:120
+msgid ""
+"I haven't seen any activity for a while, so I'm going to assume you are done "
+"with additional roles!"
+msgstr ""
+
+#: src/taalbot/const.py:143
 msgid ""
 "\n"
 "Hello, and welcome to **Nederlands Leren**! Let me introduce myself: I am "
@@ -49,22 +55,22 @@ msgid ""
 "will be our main interaction method during the process.\n"
 msgstr ""
 
-#: src/taalbot/const.py:152
+#: src/taalbot/const.py:154
 msgid "Nice, I've assigned you the **{}** role!"
 msgstr ""
 
-#: src/taalbot/const.py:154
+#: src/taalbot/const.py:156
 msgid ""
 "\n"
 "Right, first things first, let's talk about your proficiency.\n"
 "Are you a **native Dutch speaker**?\n"
 msgstr ""
 
-#: src/taalbot/const.py:159 src/taalbot/const.py:169
+#: src/taalbot/const.py:161 src/taalbot/const.py:171
 msgid "Okay. I've assigned you the **{}** role."
 msgstr ""
 
-#: src/taalbot/const.py:161
+#: src/taalbot/const.py:163
 msgid ""
 "\n"
 "OK! Which Dutch do you speak?\n"
@@ -74,7 +80,7 @@ msgid ""
 "🇸🇷 Suriname, Sint-Maarten, Sint-Eustatius, Saba + ABC Islands\n"
 msgstr ""
 
-#: src/taalbot/const.py:171
+#: src/taalbot/const.py:173
 msgid ""
 "\n"
 "OK! What is your current Dutch level?\n"
@@ -88,11 +94,11 @@ msgid ""
 "🇨: **Proficient user**, corresponds to CEFR C1 (advanced) and C2 (mastery)\n"
 msgstr ""
 
-#: src/taalbot/const.py:181
+#: src/taalbot/const.py:183
 msgid "🌍 Great! I added the **{}** role to your profile!"
 msgstr ""
 
-#: src/taalbot/const.py:182
+#: src/taalbot/const.py:184
 msgid ""
 "\n"
 "We're making progress! Now, if you want, you can tell me the name of the "
@@ -111,11 +117,11 @@ msgid ""
 "https://www.101languages.net/dutch/country-names-dutch/\n"
 msgstr ""
 
-#: src/taalbot/const.py:196
+#: src/taalbot/const.py:198
 msgid "👍 Gave you the **{}** role!"
 msgstr ""
 
-#: src/taalbot/const.py:198
+#: src/taalbot/const.py:200
 msgid ""
 "\n"
 "Awesome, you're *almost* set! 🥳\n"
@@ -135,7 +141,7 @@ msgid ""
 "interest you, or **when you are done!**\n"
 msgstr ""
 
-#: src/taalbot/const.py:210
+#: src/taalbot/const.py:212
 msgid ""
 "\n"
 "Phew, finally done!\n"
@@ -245,23 +251,29 @@ msgid ""
 "One of them will probably re-initiate the process for you.\n"
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:220
+#: src/taalbot/cogs/onboarding.py:152
+msgid ""
+"Last step of the onboarding process for user {} timed out, wrapping up "
+"anyway."
+msgstr ""
+
+#: src/taalbot/cogs/onboarding.py:228
 msgid "User {} is done with the onboarding process."
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:235
+#: src/taalbot/cogs/onboarding.py:243
 msgid "Onboarding process for user {} timed out."
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:262
+#: src/taalbot/cogs/onboarding.py:270
 msgid "Onboarding for user {} started upon server join."
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:271
+#: src/taalbot/cogs/onboarding.py:279
 msgid "Started onboarding for user {}, as requested by {}."
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:278
+#: src/taalbot/cogs/onboarding.py:286
 msgid ""
 "{}, you are not allowed to run this command. If you'd like to go through on-"
 "boarding process again, ask a team member to initiate it for you."
