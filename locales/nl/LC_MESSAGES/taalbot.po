@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: taalbot 0.6.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-25 09:04+0100\n"
-"PO-Revision-Date: 2019-12-25 22:15+0000\n"
+"PO-Revision-Date: 2019-12-25 23:10+0000\n"
 "Last-Translator: Danielle <lievedanie@gmail.com>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
 "nl/>\n"
@@ -20,7 +20,6 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #: src/taalbot/__init__.py:68
-#, fuzzy
 msgid "A bot that helps you practicing languages"
 msgstr "Een bot die je helpt met het oefenen van talen"
 
@@ -44,6 +43,8 @@ msgid ""
 "I haven't seen any activity for a while, so I'm going to assume you are done "
 "with additional roles!"
 msgstr ""
+"Ik heb al een tijdje geen activiteit gezien, dus ik neem aan dat je klaar "
+"bent met de extra rollen!"
 
 #: src/taalbot/const.py:143
 msgid ""
@@ -162,10 +163,27 @@ msgid ""
 "If you don't know what yours is, here is a list of country names in Dutch:\n"
 "https://www.101languages.net/dutch/country-names-dutch/\n"
 msgstr ""
+"\n"
+"We maken vordering! Als je wil, kun je me nu vertellen **in welk land je "
+"woont**. \n"
+"\n"
+"Ik zei eerder dat we zouden communiceren door middel van reacties, maar er "
+"zijn veel te veel verschillende opties!\n"
+"Voor deze keer wil ik je vragen om de naam van je land (in het Nederlands!) "
+"te **typen**.\n"
+"Stuur ⏩ als je deze stap over wil slaan. \n"
+"\n"
+"Bijvoorbeeld: **Nederland**\n"
+"Let op: je moet **VK** gebruiken voor het Verenigd Koninkrijk en **VS** voor "
+"de Verenigde Staten!\n"
+"\n"
+"Als je de Nederlandse naam van je land niet weet, dan kun je hier even "
+"kijken:\n"
+"https://www.101languages.net/dutch/country-names-dutch/\n"
 
 #: src/taalbot/const.py:198
 msgid "👍 Gave you the **{}** role!"
-msgstr ""
+msgstr "👍 Ik heb je de **{}** rol gegeven!"
 
 #: src/taalbot/const.py:200
 msgid ""
@@ -186,6 +204,24 @@ msgid ""
 "You can \"subscribe\" to any of those roles, or just click ✅ if none of them "
 "interest you, or **when you are done!**\n"
 msgstr ""
+"\n"
+"Geweldig, je bent bijna klaar! 🥳\n"
+"Er zijn nog een paar optionele rollen die je toe kunt voegen aan je profiel: "
+"\n"
+"\n"
+"🇧🇪 **BN**: voor als je geïnteresseerd bent in Belgisch-Nederlands! Het geeft "
+"je toegang tot het #belgië kanaal. Deze optie zal je echter niet zien als je "
+"de 'BE' of 'België' rol hebt genomen, want deze rollen geven automatisch "
+"toegang tot dit kanaal. \n"
+"📗 **Woord**: ontvang een notificatie wanneer een nieuw *woord van de dag* is "
+"geplaatst in #woord-vd-dag.\n"
+"🏫 **Sessies**: ontvang een notificatie wanneer er een Nederlandstalige "
+"sessie wordt georganiseerd en gehouden.\n"
+"💪 **Verbeter mij**: deze rol laat iedereen weten dat je graag wil dat je "
+"fouten worden verbeterd. \n"
+"\n"
+"Je kunt jezelf naar wens één of meerdere rollen geven. Klik op ✅ als je geen "
+"interesse hebt in deze rollen of **als je klaar bent!**.\n"
 
 #: src/taalbot/const.py:212
 msgid ""
@@ -196,14 +232,21 @@ msgid ""
 "Make sure to read the rules in #informatie, too!\n"
 "Veel plezier!\n"
 msgstr ""
+"\n"
+"Zo, eindelijk klaar!\n"
+"Neem een kijkje in #nederlands-leren, aangezien ik denk dat er vast wel een "
+"paar mensen je al welkom hebben geheten of zullen gaan heten! (Laat het me "
+"weten als ze dat niet doen, overigens!) \n"
+"Zorg ervoor dat je ook nog even de regels in #informatie doorneemt!\n"
+"Veel plezier!\n"
 
 #: src/taalbot/help.py:20
 msgid "I don't have a command called `{}`. Type `{}help` for my commands list."
-msgstr "Ik heb geen command genaamd `{}`. Typ {}help voor mijn commandlijst."
+msgstr "Ik heb geen commando genaamd `{}`. Typ {}help voor mijn commandolijst."
 
 #: src/taalbot/help.py:26
 msgid "Commands"
-msgstr ""
+msgstr "Commando's"
 
 #: src/taalbot/help.py:27
 msgid ""
@@ -212,9 +255,9 @@ msgid ""
 "Type `{}help command` to get detailed help for given command.\n"
 msgstr ""
 "\n"
-"Hier is een lijst van commands die je kunt gebruiken en hun bedoeling\n"
-"Typ `{}help command` om gedetailleerde hulp te krijgen voor de gegeven "
-"command\n"
+"Hier is een lijst van commando's die je kunt gebruiken en hun bedoeling.\n"
+"Typ `{}help command` om gedetailleerde hulp te krijgen met de gegeven "
+"commando.\n"
 
 #: src/taalbot/help.py:40
 msgid "No description"
@@ -240,8 +283,7 @@ msgstr ""
 "\n"
 "Welk lidwoord heeft dit zelfstandig naamwoord nodig? Je kunt het proberen te "
 "raden, of je kunt het aan mij vragen!\n"
-"Tenzij het zelfstandig naamwoord meervoud is. In dat geval, is het "
-"**altijd** \"de\"."
+"Wanneer het zelfstandig naamwoord meervoud is, is het **altijd** \"de\"."
 
 #: src/taalbot/utils.py:15
 msgid "Which article?"
@@ -253,10 +295,9 @@ msgstr "Lidwoord plaatsen of vervangen"
 
 #: src/taalbot/cogs/lidwoord.py:68
 msgid "De or het? Use this command to find out!"
-msgstr "De of het? Gebruik deze command om het uit te vinden!"
+msgstr "De of het? Gebruik dit commando om het uit te vinden!"
 
 #: src/taalbot/cogs/lidwoord.py:76
-#, fuzzy
 msgid ""
 "\n"
 "I couldn't find this word... 🙁\n"
@@ -264,10 +305,10 @@ msgid ""
 msgstr ""
 "\n"
 "Ik kon dit woord niet vinden... 🙁\n"
-"Je kunt wel zelf het lidwoord plaatsen! (cf. `{}help {}`)\n"
+"Je kunt wel zelf het lidwoord toevoegen! (cf. `{}help {}`)\n"
 
 #: src/taalbot/cogs/lidwoord.py:88
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "\n"
 "{0}... {1}? 🤔\n"
@@ -284,11 +325,11 @@ msgstr ""
 
 #: src/taalbot/cogs/lidwoord.py:101
 msgid "Only admins, mods and mentors can change articles."
-msgstr "Alleen admins, mods en mentors kunnen lidwoorden veranderen"
+msgstr "Alleen admins, mods en mentors kunnen de lidwoorden aanpassen."
 
 #: src/taalbot/cogs/lidwoord.py:109
 msgid "So, it's {} {}. Noted!"
-msgstr "Het is {} {} dan. Genoteerd!"
+msgstr "Het is dus {} {}. Genoteerd!"
 
 #: src/taalbot/cogs/lidwoord.py:113
 #, python-brace-format
@@ -299,8 +340,9 @@ msgid ""
 "More info: `{0}help {1}`\n"
 msgstr ""
 "\n"
-"Om het lidwoord van een zelfstandig naamwoord te krijgen: `{0}{1} {2}`\n"
-"Om het lidwoord van een zelfstandig naamwoord te plaatsen: `{0}{1} {2} {3}`\n"
+"Om het lidwoord van een zelfstandig naamwoord te zien: `{0}{1} {2}`\n"
+"Om het lidwoord van een zelfstandig naamwoord toe te voegen: `{0}{1} {2} {3}`"
+"\n"
 "Meer informatie: `{0}help {1}`\n"
 
 #: src/taalbot/cogs/lidwoord.py:117
@@ -331,25 +373,30 @@ msgid ""
 "Last step of the onboarding process for user {} timed out, wrapping up "
 "anyway."
 msgstr ""
+"Laatste stap van het onboarding proces voor gebruiker {} is verlopen, "
+"evengoed afronden."
 
 #: src/taalbot/cogs/onboarding.py:228
 msgid "User {} is done with the onboarding process."
-msgstr ""
+msgstr "Gebruiker {} is klaar met het onboarding proces."
 
 #: src/taalbot/cogs/onboarding.py:243
 msgid "Onboarding process for user {} timed out."
-msgstr ""
+msgstr "Onboarding proces voor gebruiker {} is verlopen."
 
 #: src/taalbot/cogs/onboarding.py:270
 msgid "Onboarding for user {} started upon server join."
-msgstr ""
+msgstr "Onboarding voor gebruiker {} is gestart bij binnenkomst in de server."
 
 #: src/taalbot/cogs/onboarding.py:279
 msgid "Started onboarding for user {}, as requested by {}."
-msgstr ""
+msgstr "Gestart met onboarding voor gebruiker {}, verzocht door {}."
 
 #: src/taalbot/cogs/onboarding.py:286
 msgid ""
 "{}, you are not allowed to run this command. If you'd like to go through on-"
 "boarding process again, ask a team member to initiate it for you."
 msgstr ""
+"{}, je bent niet gemachtigd om dit commando te starten. Als je opnieuw door "
+"het onboarding proces wil gaan, kun je een teamlid vragen om dit voor jou te "
+"starten."
