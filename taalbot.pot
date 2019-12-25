@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.6.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-24 12:09+0100\n"
+"POT-Creation-Date: 2019-12-25 09:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,7 +132,7 @@ msgid ""
 "your mistakes to be corrected.\n"
 "\n"
 "You can \"subscribe\" to any of those roles, or just click ✅ if none of them "
-"interest you, or when you are done.\n"
+"interest you, or **when you are done!**\n"
 msgstr ""
 
 #: src/taalbot/const.py:210
@@ -145,28 +145,28 @@ msgid ""
 "Veel plezier!\n"
 msgstr ""
 
-#: src/taalbot/help.py:18
+#: src/taalbot/help.py:20
 msgid "I don't have a command called `{}`. Type `{}help` for my commands list."
 msgstr ""
 
-#: src/taalbot/help.py:24
+#: src/taalbot/help.py:26
 msgid "Commands"
 msgstr ""
 
-#: src/taalbot/help.py:25
+#: src/taalbot/help.py:27
 msgid ""
 "\n"
 "Here's a list of the commands you can run, and their purpose.\n"
 "Type `{}help command` to get detailed help for given command.\n"
 msgstr ""
 
-#: src/taalbot/help.py:38
+#: src/taalbot/help.py:40
 msgid "No description"
 msgstr ""
 
-#: src/taalbot/help.py:56 src/taalbot/cogs/lidwoord.py:42
-#: src/taalbot/cogs/lidwoord.py:57 src/taalbot/cogs/lidwoord.py:90
-#: src/taalbot/cogs/lidwoord.py:101
+#: src/taalbot/help.py:58 src/taalbot/cogs/lidwoord.py:44
+#: src/taalbot/cogs/lidwoord.py:59 src/taalbot/cogs/lidwoord.py:92
+#: src/taalbot/cogs/lidwoord.py:103
 msgid "both"
 msgstr ""
 
@@ -190,18 +190,18 @@ msgstr ""
 msgid "Set or replace article"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:66
+#: src/taalbot/cogs/lidwoord.py:68
 msgid "De or het? Use this command to find out!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:74
+#: src/taalbot/cogs/lidwoord.py:76
 msgid ""
 "\n"
 "I couldn't find this word... 🙁\n"
 "Ask a team member to set the article(s) for this noun! (cf. `{}help {}`)\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:86
+#: src/taalbot/cogs/lidwoord.py:88
 #, python-brace-format
 msgid ""
 "\n"
@@ -211,15 +211,15 @@ msgid ""
 "Don't forget that all plural nouns in Dutch are *de-words*!\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:99
+#: src/taalbot/cogs/lidwoord.py:101
 msgid "Only admins, mods and mentors can change articles."
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:107
+#: src/taalbot/cogs/lidwoord.py:109
 msgid "So, it's {} {}. Noted!"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:111
+#: src/taalbot/cogs/lidwoord.py:113
 #, python-brace-format
 msgid ""
 "\n"
@@ -228,15 +228,15 @@ msgid ""
 "More info: `{0}help {1}`\n"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:115
+#: src/taalbot/cogs/lidwoord.py:117
 msgid "word"
 msgstr ""
 
-#: src/taalbot/cogs/lidwoord.py:115
+#: src/taalbot/cogs/lidwoord.py:117
 msgid "article"
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:30
+#: src/taalbot/cogs/onboarding.py:32
 msgid ""
 "\n"
 "Beep boop derp, looks like I'm trying to assign a role that doesn't exist.\n"
@@ -245,23 +245,23 @@ msgid ""
 "One of them will probably re-initiate the process for you.\n"
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:218
+#: src/taalbot/cogs/onboarding.py:220
 msgid "User {} is done with the onboarding process."
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:233
+#: src/taalbot/cogs/onboarding.py:235
 msgid "Onboarding process for user {} timed out."
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:260
+#: src/taalbot/cogs/onboarding.py:262
 msgid "Onboarding for user {} started upon server join."
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:269
+#: src/taalbot/cogs/onboarding.py:271
 msgid "Started onboarding for user {}, as requested by {}."
 msgstr ""
 
-#: src/taalbot/cogs/onboarding.py:276
+#: src/taalbot/cogs/onboarding.py:278
 msgid ""
 "{}, you are not allowed to run this command. If you'd like to go through on-"
 "boarding process again, ask a team member to initiate it for you."
