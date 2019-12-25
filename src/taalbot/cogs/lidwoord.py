@@ -8,6 +8,8 @@ import logging
 import requests
 
 
+logger = logging.getLogger('taalbot.cogs.lidwoord')
+
 class LidwoordCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -94,8 +96,8 @@ Don't forget that all plural nouns in Dutch are *de-words*!
         elif len(args) == 2:
             author = ctx.message.author
             if all(not get(author.roles, name=r) for r in ['Admin', 'Moderator', 'Mentor']):
-                logging.info("User {} with insufficient permissions tried to change an article".format(author.name))
-                logging.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
+                logger.info("User {} with insufficient permissions tried to change an article".format(author.name))
+                logger.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
                 return await ctx.send(_("Only admins, mods and mentors can change articles."))
 
             if not args[1] in ['de', 'het', _('both')]:

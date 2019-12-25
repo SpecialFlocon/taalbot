@@ -7,6 +7,8 @@ import logging
 import traceback
 
 
+logger = logging.getLogger('taalbot.bot')
+
 class Taalbot(commands.Bot):
     def __init__(self, config, **kwargs):
         self.api_url = config.get('apiUrl') # For convenience
@@ -19,7 +21,7 @@ class Taalbot(commands.Bot):
     def get_log_channel(self):
         log_channel_name = self.config.get('logChannel')
         if not log_channel_name:
-            logging.info("No channel name was given in the configuration, disabling in-channel logs.")
+            logger.info("No channel name was given in the configuration, disabling in-channel logs.")
             return None
 
         for c in self.get_all_channels():
@@ -33,18 +35,18 @@ class Taalbot(commands.Bot):
 
             # Log then bail out if bot doesn't have enough permissions to send messages
             if not c.permissions_for(c.guild.me).send_messages:
-                logging.warning("Bot does not have the permission to send messages to #{}. Logs will only be available on stderr.".format(log_channel_name))
+                logger.warning("Bot does not have the permission to send messages to #{}. Logs will only be available on stderr.".format(log_channel_name))
                 return None
 
             return c
 
-        logging.warning("Channel #{} was not found anywhere. Logs will only be available on stderr.".format(log_channel_name))
+        logger.warning("Channel #{} was not found anywhere. Logs will only be available on stderr.".format(log_channel_name))
         return None
 
     async def on_ready(self):
         self.log_channel = self.get_log_channel()
-        logging.debug("log_channel = {}".format(self.log_channel))
-        logging.info("taalbot has joined the chat!")
+        logger.debug("log_channel = {}".format(self.log_channel))
+        logger.info("taalbot has joined the chat!")
 
     async def on_command_error(self, context, exception):
         if self.extra_events.get('on_command_error', None):
@@ -64,4 +66,4 @@ class Taalbot(commands.Bot):
         if self.log_channel:
             await self.log_channel.send(const.LOG_CHANNEL_MSG.format(exception))
 
-        logging.error(traceback.format_exception(type(exception), exception, exception.__traceback__))
+        logger.error(traceback.format_exception(type(exception), exception, exception.__traceback__))

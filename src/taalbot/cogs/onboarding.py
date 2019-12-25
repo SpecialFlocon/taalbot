@@ -12,6 +12,8 @@ import logging
 import traceback
 
 
+logger = logging.getLogger('taalbot.cogs.onboarding')
+
 class OnboardStep:
     """
     A class that represents a step in the onboarding process.
@@ -210,10 +212,10 @@ class OnboardProcess:
     async def greet(self):
         greet_channel = get(self.member.guild.channels, name=self.bot.config.get('greetChannel')) or self.member.guild.system_channel
         greet_msg = self.bot.config.get('greetMessage')
-        logging.debug("Greet message template: {}".format(greet_msg))
+        logger.debug("Greet message template: {}".format(greet_msg))
 
         if greet_channel and greet_msg:
-            logging.info("User {} is done with the onboarding process.".format(self.member))
+            logger.info("User {} is done with the onboarding process.".format(self.member))
             if self.bot.log_channel:
                 await self.bot.log_channel.send(_("User {} is done with the onboarding process.").format(self.member.mention))
             await greet_channel.send(greet_msg.format(name=self.member.mention))
@@ -223,12 +225,12 @@ class OnboardProcess:
 
         [StepClass] = self.steps['root']
         while StepClass is not None:
-            logging.debug("Onboarding user {}, current step class: {}".format(self.member, StepClass))
+            logger.debug("Onboarding user {}, current step class: {}".format(self.member, StepClass))
             current_step = StepClass(self.bot, self.member)
             try:
                 await current_step.run()
             except asyncio.TimeoutError:
-                logging.info("Onboarding process for user {} timed out.".format(self.member))
+                logger.info("Onboarding process for user {} timed out.".format(self.member))
                 if self.bot.log_channel:
                     await self.bot.log_channel.send(_("Onboarding process for user {} timed out.").format(self.member.mention))
                 await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
@@ -255,7 +257,7 @@ class Onboarding(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        logging.info("Onboarding for user {} started upon server join.".format(member))
+        logger.info("Onboarding for user {} started upon server join.".format(member))
         if self.bot.log_channel:
             await self.bot.log_channel.send(_("Onboarding for user {} started upon server join.").format(member.mention))
         await OnboardProcess(self.bot, member).run()
@@ -264,7 +266,7 @@ class Onboarding(commands.Cog):
     @commands.has_permissions(manage_roles=True)
     async def onboard(self, ctx, *, member: discord.Member=None):
         member = member or ctx.author
-        logging.info("Onboarding for user {} has been requested by {}.".format(member, ctx.author))
+        logger.info("Onboarding for user {} has been requested by {}.".format(member, ctx.author))
         if ctx.bot.log_channel:
             await ctx.bot.log_channel.send(_("Started onboarding for user {}, as requested by {}.").format(member.mention, ctx.author.mention))
         await OnboardProcess(self.bot, member).run()
@@ -282,12 +284,12 @@ User {} without sufficient permissions tried to start the on-boarding process by
 ```
 """.format(author.mention, ctx.message.content))
 
-            logging.info("Onboarding command invoked by user {} with insufficient permissions".format(author.name))
-            logging.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
+            logger.info("Onboarding command invoked by user {} with insufficient permissions".format(author.name))
+            logger.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
         else:
             if ctx.bot.log_channel:
                 await ctx.bot.log_channel.send(const.LOG_CHANNEL_MSG.format(error))
-            logging.error(traceback.format_exception(type(error), error, error.__traceback__))
+            logger.error(traceback.format_exception(type(error), error, error.__traceback__))
 
 def setup(bot):
     bot.add_cog(Onboarding(bot))

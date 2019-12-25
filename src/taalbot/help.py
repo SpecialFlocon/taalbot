@@ -8,6 +8,8 @@ import discord
 import logging
 
 
+logger = logging.getLogger('taalbot.help')
+
 class TaalbotHelpCommand(HelpCommand):
     def __init__(self, **options):
         self.embed = options.pop('embed', discord.Embed())
@@ -45,7 +47,7 @@ Type `{}help command` to get detailed help for given command.
         try:
             d = TAALBOT_CMD_BLUEPRINT[command.name]
         except KeyError:
-            logging.warning("Failed to load help data for command `{}`".format(command.name))
+            logger.warning("Failed to load help data for command `{}`".format(command.name))
             return
 
         cmd_blueprint = copy.deepcopy(d)
