@@ -204,7 +204,7 @@ There are still a few optional roles you can decide to add to your profile.
 🏫 **Sessies**: get a notification when members of this server organize impromptu / planned (voice) Dutch sessions.
 💪 **Verbeter mij**: this tag lets natives (or everyone) know that you'd like your mistakes to be corrected.
 
-You can "subscribe" to any of those roles, or just click ✅ if none of them interest you, or when you are done.
+You can "subscribe" to any of those roles, or just click ✅ if none of them interest you, or **when you are done!**
 """)
 
 ONBOARDING_FINAL_NOTE_TEXT = _("""
