@@ -2,20 +2,22 @@
 # Copyright (C) 2019 THE taalbot'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the taalbot package.
 # Théo Piboubès <theo@piboubes.me>, 2019.
-#
+# Danielle <lievedanie@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.6.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-25 09:04+0100\n"
-"PO-Revision-Date: 2019-12-12 00:13+0100\n"
-"Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
-"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"PO-Revision-Date: 2019-12-25 22:06+0000\n"
+"Last-Translator: Danielle <lievedanie@gmail.com>\n"
+"Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
+"nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #: src/taalbot/__init__.py:68
 #, fuzzy
@@ -30,6 +32,12 @@ msgid ""
 "channels to re-kick the process for you:\n"
 "`@Admin`, `@Moderator`, `@Mentor`, `@Developer`\n"
 msgstr ""
+"\n"
+"Het duurde lang voor je antwoordde, dus ik ben gestopt met wachten en heb "
+"het proces stopgezet.\n"
+"Je profiel is nog incompleet, je kunt een teamlid van de server vragen om "
+"het proces opnieuw in gang te zetten voor je:\n"
+"`@Admin`, `@Moderator`, `@Mentor`, `@Developer`\n"
 
 #: src/taalbot/const.py:141
 msgid ""
@@ -49,10 +57,26 @@ msgid ""
 "Shall we get started? React to this message with ▶️, like I just did! This "
 "will be our main interaction method during the process.\n"
 msgstr ""
+"\n"
+"Hallo en welkom in **Nederlands Leren**! Laat ik mezelf even voorstellen: Ik "
+"ben taalbot, een bot die dingen doet. In principe woon ik op deze server.\n"
+"Ik wil je graag meenemen in het introductieproces, zodat je binnen een paar "
+"ogenblikken complete toegang tot de server hebt!\n"
+"\n"
+"Op dit moment heb je enkel toegang tot een paar kanalen, maar er zijn er "
+"veel meer! \n"
+"Om alles uit je reis op deze server te halen, moeten we er eerst voor zorgen "
+"dat je wat rollen krijgt.\n"
+"Ze zullen je automatisch toegang geven tot de kanalen die voor nu nog "
+"onzichtbaar zijn. Ze laten ook zien op welk niveau je Nederlands spreekt, "
+"zodat de andere leden zich hieraan aan kunnen passen!\n"
+"\n"
+"Zullen we beginnen? Reageer op dit bericht met ▶️, net zoals ik net deed! "
+"Dit is hoofdzakelijk onze manier van communiceren gedurende het proces.\n"
 
 #: src/taalbot/const.py:152
 msgid "Nice, I've assigned you the **{}** role!"
-msgstr ""
+msgstr "Top, ik heb je de **{}** rol gegeven!"
 
 #: src/taalbot/const.py:154
 msgid ""
@@ -60,10 +84,13 @@ msgid ""
 "Right, first things first, let's talk about your proficiency.\n"
 "Are you a **native Dutch speaker**?\n"
 msgstr ""
+"\n"
+"Goed, laten we het allereerst even hebben over je niveau.\n"
+"Ben je een **moedertaalspreker van het Nederlands**?\n"
 
 #: src/taalbot/const.py:159 src/taalbot/const.py:169
 msgid "Okay. I've assigned you the **{}** role."
-msgstr ""
+msgstr "Oké, ik heb je de **{}** rol gegeven."
 
 #: src/taalbot/const.py:161
 msgid ""
