@@ -116,6 +116,8 @@ You took so long to answer, I gave up waiting and interrupted the process.
 Your profile is still incomplete, ask a team member in one of the server channels to re-kick the process for you:
 `@Admin`, `@Moderator`, `@Mentor`, `@Developer`
 """)
+EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT = 120 # seconds
+EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT_MESSAGE = _("I haven't seen any activity for a while, so I'm going to assume you are done with additional roles!")
 
 LOG_CHANNEL_MSG = """
 **Error report**

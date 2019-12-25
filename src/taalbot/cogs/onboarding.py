@@ -144,7 +144,15 @@ class AdditionalRoles(OnboardStep):
             return user == self.member and reaction.message.id == message.id and str(reaction.emoji) in choices_emojis
 
         while True:
-            reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_TIMEOUT)
+            try:
+                reaction, user = await self.bot.wait_for('reaction_add', check=user_reacted_to_message, timeout=const.EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT)
+            except asyncio.TimeoutError:
+                logger.info("Last step of the onboarding process for user {} timed out, wrapping up anyway.".format(self.member))
+                if self.bot.log_channel:
+                    await self.bot.log_channel.send(_("Last step of the onboarding process for user {} timed out, wrapping up anyway.").format(self.member.mention))
+                await self.member.send(const.EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT_MESSAGE)
+                return
+
             if str(reaction.emoji) == '✅':
                 return
 
