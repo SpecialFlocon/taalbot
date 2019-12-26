@@ -110,14 +110,14 @@ class Country(OnboardStep):
         message = await self.member.send(self.instructions_text)
 
         def user_replied_with_country_name(message):
-            return message.author == self.member and (message.content == '⏩' or message.content.lower().capitalize() in const.COUNTRIES)
+            return message.author == self.member and (message.content == '⏩' or message.content in const.COUNTRIES)
 
         country_name_message = await self.bot.wait_for('message', check=user_replied_with_country_name, timeout=const.EVENT_WAIT_TIMEOUT)
         if country_name_message.content == '⏩':
             return
 
         logger.debug("Country name message content: {}".format(country_name_message.content))
-        country_role = get(self.member.guild.roles, name=country_name_message.content.lower().capitalize())
+        country_role = get(self.member.guild.roles, name=country_name_message.content)
         await self.member.add_roles(country_role)
         await self.member.send(self.role_assignation_text.format(country_role.name))
 
