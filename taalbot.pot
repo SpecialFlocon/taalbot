@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: taalbot 0.6.2\n"
+"Project-Id-Version: taalbot 0.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-25 23:13+0100\n"
+"POT-Creation-Date: 2019-12-27 00:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,18 +110,16 @@ msgid ""
 "Send ⏩ to skip this step.\n"
 "\n"
 "Example: **Nederland**\n"
-"Note: you must use **VK** for Verenigd Koninkrijk, and **VS** for Verenigde "
-"Staten!\n"
 "\n"
 "If you don't know what yours is, here is a list of country names in Dutch:\n"
 "https://www.101languages.net/dutch/country-names-dutch/\n"
 msgstr ""
 
-#: src/taalbot/const.py:198
+#: src/taalbot/const.py:197
 msgid "👍 Gave you the **{}** role!"
 msgstr ""
 
-#: src/taalbot/const.py:200
+#: src/taalbot/const.py:199
 msgid ""
 "\n"
 "Awesome, you're *almost* set! 🥳\n"
@@ -141,7 +139,7 @@ msgid ""
 "interest you, or **when you are done!**\n"
 msgstr ""
 
-#: src/taalbot/const.py:212
+#: src/taalbot/const.py:211
 msgid ""
 "\n"
 "Phew, finally done!\n"
