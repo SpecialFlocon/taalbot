@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: taalbot 0.6.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-25 09:04+0100\n"
-"PO-Revision-Date: 2019-12-25 23:10+0000\n"
+"PO-Revision-Date: 2019-12-26 19:58+0000\n"
 "Last-Translator: Danielle <lievedanie@gmail.com>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
 "nl/>\n"
@@ -291,11 +291,11 @@ msgstr "Welk lidwoord?"
 
 #: src/taalbot/utils.py:23
 msgid "Set or replace article"
-msgstr "Lidwoord plaatsen of vervangen"
+msgstr "Lidwoord toevoegen of vervangen"
 
 #: src/taalbot/cogs/lidwoord.py:68
 msgid "De or het? Use this command to find out!"
-msgstr "De of het? Gebruik dit commando om het uit te vinden!"
+msgstr "De of het? Gebruik dit commando om erachter te komen!"
 
 #: src/taalbot/cogs/lidwoord.py:76
 msgid ""
@@ -318,14 +318,14 @@ msgid ""
 msgstr ""
 "\n"
 "{0}... {1}? 🤔\n"
-"Er klopt iets niet... Als ik me vergis, kun je mij verbeteren: `{2}{3} {1} "
-"de/het/{4}`\n"
-"Niet vergeten: De meervoudsvormen van de zelfstandig naamwoorden zijn altijd "
-"*de-woorden*!\n"
+"Er klopt iets niet... Als ik me vergis kan een teamlid mij verbeteren: "
+"`{2}{3} {1} de/het/{4}`\n"
+"Niet vergeten: Meervoudige zelfstandige naamwoorden zijn altijd *de-woorden*!"
+"\n"
 
 #: src/taalbot/cogs/lidwoord.py:101
 msgid "Only admins, mods and mentors can change articles."
-msgstr "Alleen admins, mods en mentors kunnen de lidwoorden aanpassen."
+msgstr "Alleen admins, mods en mentoren kunnen de lidwoorden aanpassen."
 
 #: src/taalbot/cogs/lidwoord.py:109
 msgid "So, it's {} {}. Noted!"
@@ -366,7 +366,7 @@ msgstr ""
 "bestaat.\n"
 "Geen zorgen, het is niet jouw schuld, maar wel van het serverteam, dus ik "
 "heb ze al de schuld gegeven.\n"
-"Één van hen zal waarschijnlijk wel het proces opnieuw starten voor je.\n"
+"Eén van hen zal waarschijnlijk het proces opnieuw starten voor je.\n"
 
 #: src/taalbot/cogs/onboarding.py:152
 msgid ""
