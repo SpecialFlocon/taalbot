@@ -60,6 +60,7 @@ One of them will probably re-initiate the process for you.
             role = get(self.member.guild.roles, name=r)
             if not role:
                 self.warn_missing_role(r)
+                return
 
             await self.member.add_roles(role)
             await self.member.send(self.role_assignation_text.format(role.name))
