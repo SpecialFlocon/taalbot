@@ -252,7 +252,7 @@ class OnboardProcess:
                 await self.restricted_dm_greet_fallback()
                 return
             except asyncio.TimeoutError:
-                logger.info("Onboarding process for user {} timed out.".format(self.member))
+                logger.warning("Onboarding process for user {} timed out.".format(self.member))
                 if self.bot.log_channel:
                     await self.bot.log_channel.send(_("Onboarding process for user {} timed out.").format(self.member.mention))
                 await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
