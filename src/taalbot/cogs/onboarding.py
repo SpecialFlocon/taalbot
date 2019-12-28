@@ -27,9 +27,8 @@ class OnboardStep:
         self.instructions_text = instructions_text
         self.role_assignation_text = role_assignation_text
 
-    @staticmethod
-    async def warn_missing_role(member, name):
-        await member.send(_("""
+    async def warn_missing_role(self, role_name):
+        await self.member.send(_("""
 Beep boop derp, looks like I'm trying to assign a role that doesn't exist.
 Don't worry, it's not your fault, it's the server team's, and I've already blamed them.
 One of them will probably re-initiate the process for you.
@@ -60,7 +59,7 @@ One of them will probably re-initiate the process for you.
         if r is not None:
             role = get(self.member.guild.roles, name=r)
             if not role:
-                self.warn_missing_role(self.member, r)
+                self.warn_missing_role(r)
 
             await self.member.add_roles(role)
             await self.member.send(self.role_assignation_text.format(role.name))
