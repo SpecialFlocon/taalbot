@@ -119,6 +119,17 @@ Your profile is still incomplete, ask a team member in one of the server channel
 EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT = 120 # seconds
 EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT_MESSAGE = _("I haven't seen any activity for a while, so I'm going to assume you are done with additional roles!")
 
+GREET_NEW_MEMBER_MESSAGE = _("""
+Hello {}, welcome to **Nederlands Leren**!
+
+As a new member, you need to get some roles before anything else.
+I will shortly send you a DM to walk you through the introduction process!
+""")
+GREET_NEW_MEMBER_RESTRICTED_DM_MESSAGE = _("""
+Hmm… Since you won't accept DMs from strangers, we'll have to do it the old-fashioned way.
+Please read #informatie and get yourself some roles in #botplezier, so that you get access to the other channels of this server.
+""")
+
 LOG_CHANNEL_MSG = """
 **Error report**
 ```

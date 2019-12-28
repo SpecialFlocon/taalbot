@@ -33,3 +33,18 @@ class RoleDoesNotExist(Error):
 
     def __str__(self):
         return "Role does not exist on the server: {}".format(self.parameter)
+
+class RestrictedDMPolicy(Error):
+    """
+    Exception raised when trying to send a DM to a user who explicitely
+    restricted DMs to friends only
+
+    Attributes:
+      user -- user to which DM sending was attempted
+    """
+
+    def __init__(self, user):
+        self.user = user
+
+    def __str__(self):
+        return "Could not send DM to the following user: {}".format(self.user)

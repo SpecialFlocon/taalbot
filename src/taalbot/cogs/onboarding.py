@@ -38,7 +38,12 @@ One of them will probably re-initiate the process for you.
 
     async def run(self):
         choices_emojis = self.choices.keys()
-        message = await self.member.send(self.instructions_text)
+        try:
+            message = await self.member.send(self.instructions_text)
+        except discord.Forbidden:
+            raise exceptions.RestrictedDMPolicy(self.member)
+            return
+
         for e in choices_emojis:
             await message.add_reaction(e)
 
@@ -107,7 +112,11 @@ class Country(OnboardStep):
         super().__init__(bot, member, instructions_text=const.ONBOARDING_COUNTRY_INSTRUCTIONS, role_assignation_text=const.ONBOARDING_COUNTRY_ASSIGNED_ROLE)
 
     async def run(self):
-        message = await self.member.send(self.instructions_text)
+        try:
+            message = await self.member.send(self.instructions_text)
+        except discord.Forbidden:
+            raise exceptions.RestrictedDMPolicy(self.member)
+            return
 
         def user_replied_with_country_name(message):
             return message.author == self.member and (message.content == '⏩' or message.content in const.COUNTRIES)
@@ -136,7 +145,12 @@ class AdditionalRoles(OnboardStep):
 
     async def run(self):
         choices_emojis = self.choices.keys()
-        message = await self.member.send(self.instructions_text)
+        try:
+            message = await self.member.send(self.instructions_text)
+        except discord.Forbidden:
+            raise exceptions.RestrictedDMPolicy(self.member)
+            return
+
         for e in choices_emojis:
             await message.add_reaction(e)
 
@@ -217,16 +231,13 @@ class OnboardProcess:
         resettable_roles = [r for rn in resettable_role_names for r in self.member.guild.roles if r.name == rn and r in self.member.roles]
         await self.member.remove_roles(*resettable_roles)
 
-    async def greet(self):
+    async def restricted_dm_greet_fallback(self):
         greet_channel = get(self.member.guild.channels, name=self.bot.config.get('greetChannel')) or self.member.guild.system_channel
-        greet_msg = self.bot.config.get('greetMessage')
-        logger.debug("Greet message template: {}".format(greet_msg))
 
-        if greet_channel and greet_msg:
-            logger.info("User {} is done with the onboarding process.".format(self.member))
-            if self.bot.log_channel:
-                await self.bot.log_channel.send(_("User {} is done with the onboarding process.").format(self.member.mention))
-            await greet_channel.send(greet_msg.format(name=self.member.mention))
+        logger.error("Cannot send DMs to user {}, aborted auto onboarding.".format(self.member))
+        if self.bot.log_channel:
+            await self.bot.log_channel.send(_("{} doesn't allow DMs from server members, no auto onboarding for him/her.").format(self.member.mention))
+        await greet_channel.send(const.GREET_NEW_MEMBER_RESTRICTED_DM_MESSAGE.format(self.member.mention))
 
     async def run(self):
         await self.reset_roles()
@@ -237,6 +248,9 @@ class OnboardProcess:
             current_step = StepClass(self.bot, self.member)
             try:
                 await current_step.run()
+            except exceptions.RestrictedDMPolicy:
+                await self.restricted_dm_greet_fallback()
+                return
             except asyncio.TimeoutError:
                 logger.info("Onboarding process for user {} timed out.".format(self.member))
                 if self.bot.log_channel:
@@ -256,18 +270,25 @@ class OnboardProcess:
             else:
                 [StepClass] = self.steps[StepClass]
 
+        logger.info("User {} is done with the onboarding process.".format(self.member))
+        if self.bot.log_channel:
+            await self.bot.log_channel.send(_("User {} is done with the onboarding process.").format(self.member.mention))
         await self.member.send(const.ONBOARDING_FINAL_NOTE_TEXT)
-        await self.greet()
 
 class Onboarding(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+    async def greet(self, member):
+        greet_channel = get(member.guild.channels, name=self.bot.config.get('greetChannel')) or member.guild.system_channel
+        await greet_channel.send(const.GREET_NEW_MEMBER_MESSAGE.format(member.mention))
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
         logger.info("Onboarding for user {} started upon server join.".format(member))
         if self.bot.log_channel:
             await self.bot.log_channel.send(_("Onboarding for user {} started upon server join.").format(member.mention))
+        await self.greet(member)
         await OnboardProcess(self.bot, member).run()
 
     @commands.command(hidden=True)
