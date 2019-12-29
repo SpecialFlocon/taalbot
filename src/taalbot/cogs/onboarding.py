@@ -7,12 +7,15 @@ from .. import const, exceptions
 
 import asyncio
 import discord
-import functools
+import gettext
 import logging
 import traceback
 
 
 logger = logging.getLogger('taalbot.cogs.onboarding')
+
+nt = gettext.NullTranslations()
+g = nt.gettext
 
 class OnboardStep:
     """
@@ -38,7 +41,7 @@ One of them will probably re-initiate the process for you.
     async def run(self):
         choices_emojis = self.choices.keys()
         try:
-            message = await self.member.send(self.instructions_text)
+            message = await self.member.send(g(self.instructions_text))
         except discord.Forbidden:
             raise exceptions.RestrictedDMPolicy(self.member)
             return
@@ -63,7 +66,7 @@ One of them will probably re-initiate the process for you.
                 return
 
             await self.member.add_roles(role)
-            await self.member.send(self.role_assignation_text.format(role.name))
+            await self.member.send(g(self.role_assignation_text).format(role.name))
 
 class Introduction(OnboardStep):
     """
@@ -113,7 +116,7 @@ class Country(OnboardStep):
 
     async def run(self):
         try:
-            message = await self.member.send(self.instructions_text)
+            message = await self.member.send(g(self.instructions_text))
         except discord.Forbidden:
             raise exceptions.RestrictedDMPolicy(self.member)
             return
@@ -128,7 +131,7 @@ class Country(OnboardStep):
         logger.debug("Country name message content: {}".format(country_name_message.content))
         country_role = get(self.member.guild.roles, name=country_name_message.content)
         await self.member.add_roles(country_role)
-        await self.member.send(self.role_assignation_text.format(country_role.name))
+        await self.member.send(g(self.role_assignation_text).format(country_role.name))
 
 class AdditionalRoles(OnboardStep):
     """
@@ -146,7 +149,7 @@ class AdditionalRoles(OnboardStep):
     async def run(self):
         choices_emojis = self.choices.keys()
         try:
-            message = await self.member.send(self.instructions_text)
+            message = await self.member.send(g(self.instructions_text))
         except discord.Forbidden:
             raise exceptions.RestrictedDMPolicy(self.member)
             return
@@ -164,7 +167,7 @@ class AdditionalRoles(OnboardStep):
                 logger.info("Last step of the onboarding process for user {} timed out, wrapping up anyway.".format(self.member))
                 if self.bot.log_channel:
                     await self.bot.log_channel.send(_("Last step of the onboarding process for user {} timed out, wrapping up anyway.").format(self.member.mention))
-                await self.member.send(const.EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT_MESSAGE)
+                await self.member.send(g(const.EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT_MESSAGE))
                 return
 
             if str(reaction.emoji) == '✅':
@@ -181,7 +184,7 @@ class AdditionalRoles(OnboardStep):
                     self.warn_missing_role(self.member, r)
 
                 await self.member.add_roles(role)
-                await self.member.send(self.role_assignation_text.format(role.name))
+                await self.member.send(g(self.role_assignation_text).format(role.name))
 
 class OnboardProcess:
     """
@@ -255,7 +258,7 @@ class OnboardProcess:
                 logger.warning("Onboarding process for user {} timed out.".format(self.member))
                 if self.bot.log_channel:
                     await self.bot.log_channel.send(_("Onboarding process for user {} timed out.").format(self.member.mention))
-                await self.member.send(const.EVENT_WAIT_TIMEOUT_MESSAGE)
+                await self.member.send(g(const.EVENT_WAIT_TIMEOUT_MESSAGE))
                 return
 
             next_step_classes = self.steps[StepClass]
@@ -273,7 +276,7 @@ class OnboardProcess:
         logger.info("User {} is done with the onboarding process.".format(self.member))
         if self.bot.log_channel:
             await self.bot.log_channel.send(_("User {} is done with the onboarding process.").format(self.member.mention))
-        await self.member.send(const.ONBOARDING_FINAL_NOTE_TEXT)
+        await self.member.send(g(const.ONBOARDING_FINAL_NOTE_TEXT))
 
 class Onboarding(commands.Cog):
     def __init__(self, bot):
