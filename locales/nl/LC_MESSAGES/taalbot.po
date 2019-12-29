@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-29 11:47+0100\n"
+"POT-Creation-Date: 2019-12-29 12:08+0100\n"
 "PO-Revision-Date: 2019-12-26 23:37+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
@@ -293,22 +293,23 @@ msgid "De or het? Use this command to find out!"
 msgstr "De of het? Gebruik dit commando om erachter te komen!"
 
 #: src/taalbot/cogs/lidwoord.py:76
+#, fuzzy
 msgid ""
 "\n"
-"I couldn't find this word... 🙁\n"
-"Ask a team member to set the article(s) for this noun! (cf. `{}help {}`)\n"
+"I couldn't find this word… 🙁\n"
+"Ask a team member to set the article for this noun! (cf. `{}help {}`)\n"
 msgstr ""
 "\n"
 "Ik kon dit woord niet vinden... 🙁\n"
 "Je kunt wel zelf het lidwoord toevoegen! (cf. `{}help {}`)\n"
 
 #: src/taalbot/cogs/lidwoord.py:88
-#, python-brace-format
+#, fuzzy, python-brace-format
 msgid ""
 "\n"
-"{0}... {1}? 🤔\n"
-"Something's off... If I'm wrong, a team member can correct me: `{2}{3} {1} "
-"de/het/{4}`\n"
+"{0}… {1}? 🤔\n"
+"Something's off… If I'm wrong, a team member can correct me: `{2}{3} {1} de/"
+"het/{4}`\n"
 "Don't forget that all plural nouns in Dutch are *de-words*!\n"
 msgstr ""
 "\n"
