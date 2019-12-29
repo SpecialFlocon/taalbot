@@ -46,8 +46,8 @@ One of them will probably re-initiate the process for you.
             raise exceptions.RestrictedDMPolicy(self.member)
             return
 
-        for e in choices_emojis:
-            await message.add_reaction(e)
+        reaction_coros = [message.add_reaction(e) for e in choices_emojis]
+        await asyncio.gather(*reaction_coros)
 
         def user_reacted_to_message(reaction, user):
             # user: the user who reacted to the message, member: the user we sent the DM to
@@ -154,8 +154,8 @@ class AdditionalRoles(OnboardStep):
             raise exceptions.RestrictedDMPolicy(self.member)
             return
 
-        for e in choices_emojis:
-            await message.add_reaction(e)
+        reaction_coros = [message.add_reaction(e) for e in choices_emojis]
+        await asyncio.gather(*reaction_coros)
 
         def user_reacted_to_message(reaction, user):
             return user == self.member and reaction.message.id == message.id and str(reaction.emoji) in choices_emojis
