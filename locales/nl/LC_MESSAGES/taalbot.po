@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: taalbot 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-29 12:08+0100\n"
-"PO-Revision-Date: 2019-12-26 23:37+0000\n"
+"PO-Revision-Date: 2019-12-29 17:22+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
 "nl/>\n"
@@ -142,7 +142,7 @@ msgstr ""
 
 #: src/taalbot/const.py:195
 msgid "🌍 Great! I added the **{}** role to your profile!"
-msgstr "🌍 Super! Ik heb de **{}** rol aan je profiel toegevoegd!"
+msgstr "🌍 Super! Ik heb de rol \"**{}**\" aan je profiel toegevoegd!"
 
 #: src/taalbot/const.py:196
 msgid ""
@@ -237,7 +237,8 @@ msgstr ""
 
 #: src/taalbot/help.py:20
 msgid "I don't have a command called `{}`. Type `{}help` for my commands list."
-msgstr "Ik heb geen commando genaamd `{}`. Typ {}help voor mijn commandolijst."
+msgstr ""
+"Ik heb geen commando genaamd `{}`. Typ `{}help` voor mijn commandolijst."
 
 #: src/taalbot/help.py:26
 msgid "Commands"
@@ -300,11 +301,11 @@ msgid ""
 "Ask a team member to set the article for this noun! (cf. `{}help {}`)\n"
 msgstr ""
 "\n"
-"Ik kon dit woord niet vinden... 🙁\n"
+"Ik kon dit woord niet vinden… 🙁\n"
 "Je kunt wel zelf het lidwoord toevoegen! (cf. `{}help {}`)\n"
 
 #: src/taalbot/cogs/lidwoord.py:88
-#, fuzzy, python-brace-format
+#, python-brace-format
 msgid ""
 "\n"
 "{0}… {1}? 🤔\n"
@@ -313,11 +314,11 @@ msgid ""
 "Don't forget that all plural nouns in Dutch are *de-words*!\n"
 msgstr ""
 "\n"
-"{0}... {1}? 🤔\n"
-"Er klopt iets niet... Als ik me vergis kan een teamlid mij verbeteren: `{2}"
-"{3} {1} de/het/{4}`\n"
-"Niet vergeten: Meervoudige zelfstandige naamwoorden zijn altijd *de-"
-"woorden*!\n"
+"{0}… {1}? 🤔\n"
+"Er klopt iets niet… Als ik me vergis kan een teamlid mij verbeteren: `{2}{3} "
+"{1} de/het/{4}`\n"
+"Niet vergeten: Meervoudige zelfstandige naamwoorden zijn altijd *de-woorden*!"
+"\n"
 
 #: src/taalbot/cogs/lidwoord.py:101
 msgid "Only admins, mods and mentors can change articles."
@@ -383,7 +384,7 @@ msgstr "Onboarding proces voor gebruiker {} is verlopen."
 
 #: src/taalbot/cogs/onboarding.py:278
 msgid "User {} is done with the onboarding process."
-msgstr "Gebruiker {} is klaar met het onboarding proces."
+msgstr "Gebruiker {} is klaar met het onboardingproces."
 
 #: src/taalbot/cogs/onboarding.py:293
 msgid "Onboarding for user {} started upon server join."
