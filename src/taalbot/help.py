@@ -27,7 +27,7 @@ class TaalbotHelpCommand(HelpCommand):
         self.embed.description = _("""
 Here's a list of the commands you can run, and their purpose.
 Type `{}help command` to get detailed help for given command.
-""".format(bot.command_prefix))
+""").format(bot.command_prefix)
         self.embed.colour = discord.Colour.blue()
 
         filtered = await self.filter_commands(bot.commands, sort=True)
