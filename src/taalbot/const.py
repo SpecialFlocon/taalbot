@@ -138,6 +138,9 @@ LOG_CHANNEL_MSG = """
 ```
 """
 
+ROLE_NAME_ADMIN = "Admin"
+ROLE_NAME_MOD = "Moderator"
+ROLE_NAME_MENTOR = "Mentor"
 ROLE_NAME_NATIVE = "Native"
 ROLE_NAME_NL = "NL"
 ROLE_NAME_BE = "BE"
