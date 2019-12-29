@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: taalbot 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-29 18:29+0100\n"
-"PO-Revision-Date: 2019-12-29 17:22+0000\n"
-"Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
+"PO-Revision-Date: 2019-12-29 18:21+0000\n"
+"Last-Translator: Danielle <lievedanie@gmail.com>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
 "nl/>\n"
 "Language: nl\n"
@@ -24,7 +24,6 @@ msgid "A bot that helps you practicing languages"
 msgstr "Een bot die je helpt met het oefenen van talen"
 
 #: src/taalbot/const.py:116
-#, fuzzy
 msgid ""
 "\n"
 "You took so long to answer, I gave up waiting and interrupted the process.\n"
@@ -34,9 +33,8 @@ msgstr ""
 "\n"
 "Het duurde lang voor je antwoordde, dus ik ben gestopt met wachten en heb "
 "het proces stopgezet.\n"
-"Je profiel is nog incompleet, je kunt een teamlid van de server vragen om "
-"het proces opnieuw in gang te zetten voor je:\n"
-"`@Admin`, `@Moderator`, `@Mentor`, `@Developer`\n"
+"Je profiel is nog incompleet. Een teamlid kan het proces opnieuw voor je "
+"starten.\n"
 
 #: src/taalbot/const.py:121
 msgid ""
@@ -294,7 +292,6 @@ msgid "De or het? Use this command to find out!"
 msgstr "De of het? Gebruik dit commando om erachter te komen!"
 
 #: src/taalbot/cogs/lidwoord.py:76
-#, fuzzy
 msgid ""
 "\n"
 "I couldn't find this word… 🙁\n"
@@ -302,7 +299,7 @@ msgid ""
 msgstr ""
 "\n"
 "Ik kon dit woord niet vinden… 🙁\n"
-"Je kunt wel zelf het lidwoord toevoegen! (cf. `{}help {}`)\n"
+"Vraag een teamlid om het lidwoord toe te voegen! (cf. `{}help {}`)\n"
 
 #: src/taalbot/cogs/lidwoord.py:88
 #, python-brace-format
@@ -377,6 +374,8 @@ msgstr ""
 msgid ""
 "{} doesn't allow DMs from server members, no auto onboarding for him/her."
 msgstr ""
+"{} accepteert geen DMs van serverleden, geen automatische onboarding voor "
+"hem/haar."
 
 #: src/taalbot/cogs/onboarding.py:260
 msgid "Onboarding process for user {} timed out."
