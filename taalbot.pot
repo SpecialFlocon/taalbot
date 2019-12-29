@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-29 12:08+0100\n"
+"POT-Creation-Date: 2019-12-29 18:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid ""
 "with additional roles!"
 msgstr ""
 
-#: src/taalbot/const.py:155
+#: src/taalbot/const.py:158
 msgid ""
 "\n"
 "Hello, and welcome to **Nederlands Leren**! Let me introduce myself: I am "
@@ -54,22 +54,22 @@ msgid ""
 "will be our main interaction method during the process.\n"
 msgstr ""
 
-#: src/taalbot/const.py:166
+#: src/taalbot/const.py:169
 msgid "Nice, I've assigned you the **{}** role!"
 msgstr ""
 
-#: src/taalbot/const.py:168
+#: src/taalbot/const.py:171
 msgid ""
 "\n"
 "Right, first things first, let's talk about your proficiency.\n"
 "Are you a **native Dutch speaker**?\n"
 msgstr ""
 
-#: src/taalbot/const.py:173 src/taalbot/const.py:183
+#: src/taalbot/const.py:176 src/taalbot/const.py:186
 msgid "Okay. I've assigned you the **{}** role."
 msgstr ""
 
-#: src/taalbot/const.py:175
+#: src/taalbot/const.py:178
 msgid ""
 "\n"
 "OK! Which Dutch do you speak?\n"
@@ -79,7 +79,7 @@ msgid ""
 "🇸🇷 Suriname, Sint-Maarten, Sint-Eustatius, Saba + ABC Islands\n"
 msgstr ""
 
-#: src/taalbot/const.py:185
+#: src/taalbot/const.py:188
 msgid ""
 "\n"
 "OK! What is your current Dutch level?\n"
@@ -93,11 +93,11 @@ msgid ""
 "🇨: **Proficient user**, corresponds to CEFR C1 (advanced) and C2 (mastery)\n"
 msgstr ""
 
-#: src/taalbot/const.py:195
+#: src/taalbot/const.py:198
 msgid "🌍 Great! I added the **{}** role to your profile!"
 msgstr ""
 
-#: src/taalbot/const.py:196
+#: src/taalbot/const.py:199
 msgid ""
 "\n"
 "We're making progress! Now, if you want, you can tell me the name of the "
@@ -114,11 +114,11 @@ msgid ""
 "https://www.101languages.net/dutch/country-names-dutch/\n"
 msgstr ""
 
-#: src/taalbot/const.py:209
+#: src/taalbot/const.py:212
 msgid "👍 Gave you the **{}** role!"
 msgstr ""
 
-#: src/taalbot/const.py:211
+#: src/taalbot/const.py:214
 msgid ""
 "\n"
 "Awesome, you're *almost* set! 🥳\n"
@@ -138,7 +138,7 @@ msgid ""
 "interest you, or **when you are done!**\n"
 msgstr ""
 
-#: src/taalbot/const.py:223
+#: src/taalbot/const.py:226
 msgid ""
 "\n"
 "Phew, finally done!\n"

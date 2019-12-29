@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-29 12:08+0100\n"
+"POT-Creation-Date: 2019-12-29 18:29+0100\n"
 "PO-Revision-Date: 2019-12-29 17:22+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
@@ -46,7 +46,7 @@ msgstr ""
 "Ik heb al een tijdje geen activiteit gezien, dus ik neem aan dat je klaar "
 "bent met de extra rollen!"
 
-#: src/taalbot/const.py:155
+#: src/taalbot/const.py:158
 msgid ""
 "\n"
 "Hello, and welcome to **Nederlands Leren**! Let me introduce myself: I am "
@@ -81,11 +81,11 @@ msgstr ""
 "Zullen we beginnen? Reageer op dit bericht met ▶️, net zoals ik net deed! Dit "
 "is hoofdzakelijk onze manier van communiceren gedurende het proces.\n"
 
-#: src/taalbot/const.py:166
+#: src/taalbot/const.py:169
 msgid "Nice, I've assigned you the **{}** role!"
 msgstr "Top, ik heb je de **{}** rol gegeven!"
 
-#: src/taalbot/const.py:168
+#: src/taalbot/const.py:171
 msgid ""
 "\n"
 "Right, first things first, let's talk about your proficiency.\n"
@@ -95,11 +95,11 @@ msgstr ""
 "Goed, laten we het allereerst even hebben over je niveau.\n"
 "Ben je een **moedertaalspreker van het Nederlands**?\n"
 
-#: src/taalbot/const.py:173 src/taalbot/const.py:183
+#: src/taalbot/const.py:176 src/taalbot/const.py:186
 msgid "Okay. I've assigned you the **{}** role."
 msgstr "Oké, ik heb je de **{}** rol gegeven."
 
-#: src/taalbot/const.py:175
+#: src/taalbot/const.py:178
 msgid ""
 "\n"
 "OK! Which Dutch do you speak?\n"
@@ -114,7 +114,7 @@ msgstr ""
 "🇧🇪 België\n"
 "🇸🇷 Suriname, Sint Maarten, Sint Eustatius, Saba + de ABC-eilanden\n"
 
-#: src/taalbot/const.py:185
+#: src/taalbot/const.py:188
 msgid ""
 "\n"
 "OK! What is your current Dutch level?\n"
@@ -140,11 +140,11 @@ msgstr ""
 "🇨: **Vaardige gebruiker**, past bij CEFR C1 (Effectieve operationele "
 "vaardigheid) en C2 (beheersing)\n"
 
-#: src/taalbot/const.py:195
+#: src/taalbot/const.py:198
 msgid "🌍 Great! I added the **{}** role to your profile!"
 msgstr "🌍 Super! Ik heb de rol \"**{}**\" aan je profiel toegevoegd!"
 
-#: src/taalbot/const.py:196
+#: src/taalbot/const.py:199
 msgid ""
 "\n"
 "We're making progress! Now, if you want, you can tell me the name of the "
@@ -176,11 +176,11 @@ msgstr ""
 "kijken:\n"
 "https://www.101languages.net/dutch/country-names-dutch/\n"
 
-#: src/taalbot/const.py:209
+#: src/taalbot/const.py:212
 msgid "👍 Gave you the **{}** role!"
 msgstr "👍 Ik heb je de **{}** rol gegeven!"
 
-#: src/taalbot/const.py:211
+#: src/taalbot/const.py:214
 msgid ""
 "\n"
 "Awesome, you're *almost* set! 🥳\n"
@@ -218,7 +218,7 @@ msgstr ""
 "Je kunt jezelf naar wens één of meerdere rollen geven. Klik op ✅ als je geen "
 "interesse hebt in deze rollen of **als je klaar bent!**.\n"
 
-#: src/taalbot/const.py:223
+#: src/taalbot/const.py:226
 msgid ""
 "\n"
 "Phew, finally done!\n"
@@ -317,8 +317,8 @@ msgstr ""
 "{0}… {1}? 🤔\n"
 "Er klopt iets niet… Als ik me vergis kan een teamlid mij verbeteren: `{2}{3} "
 "{1} de/het/{4}`\n"
-"Niet vergeten: Meervoudige zelfstandige naamwoorden zijn altijd *de-woorden*!"
-"\n"
+"Niet vergeten: Meervoudige zelfstandige naamwoorden zijn altijd *de-"
+"woorden*!\n"
 
 #: src/taalbot/cogs/lidwoord.py:101
 msgid "Only admins, mods and mentors can change articles."
