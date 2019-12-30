@@ -122,7 +122,9 @@ class Country(OnboardStep):
             return
 
         def user_replied_with_country_name(message):
-            return message.author == self.member and (message.content == '⏩' or message.content in const.COUNTRIES)
+            country_role_color = discord.Colour(const.COUNTRY_ROLE_COLOR)
+            country_names = [r.name for r in self.member.guild.roles if r.colour == country_role_color]
+            return message.author == self.member and (message.content == '⏩' or message.content in country_names)
 
         country_name_message = await self.bot.wait_for('message', check=user_replied_with_country_name, timeout=const.EVENT_WAIT_TIMEOUT)
         if country_name_message.content == '⏩':
@@ -216,6 +218,7 @@ class OnboardProcess:
         Reset all applicable roles prior to onboarding process.
         """
 
+        country_role_color = discord.Colour(const.COUNTRY_ROLE_COLOR)
         resettable_role_names = [
             const.ROLE_NAME_NATIVE,
             const.ROLE_NAME_NL,
@@ -229,9 +232,10 @@ class OnboardProcess:
             const.ROLE_NAME_SESSIONS,
             const.ROLE_NAME_CORRECT_ME,
             const.ROLE_NAME_BN,
-        ] + const.COUNTRIES
+        ]
 
         resettable_roles = [r for rn in resettable_role_names for r in self.member.guild.roles if r.name == rn and r in self.member.roles]
+        resettable_roles.extend([r for r in self.member.guild.roles if r.colour == country_role_color and r in self.member.roles])
         await self.member.remove_roles(*resettable_roles)
 
     async def restricted_dm_greet_fallback(self):
