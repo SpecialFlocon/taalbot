@@ -47,6 +47,8 @@ class Taalbot(commands.Bot):
         self.log_channel = self.get_log_channel()
         logger.debug("log_channel = {}".format(self.log_channel))
         logger.info("taalbot has joined the chat!")
+        if self.log_channel:
+            await self.log_channel.send("I'm here, ready to serve requests! 🤖")
 
     async def on_command_error(self, context, exception):
         if self.extra_events.get('on_command_error', None):
