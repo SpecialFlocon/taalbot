@@ -9,7 +9,7 @@ TAALBOT_CMD_BLUEPRINT = {
         'description': _("""
 Which article does this noun need? You could try to guess, or you could ask me!
 Unless the noun is in plural, in which case it's **always** \"de\"."""),
-        'color': 3447003, # 0x3498db, blue
+        'color': 0x3498db,
         'fields': [
             {
                 'name': _("Which article?"),
