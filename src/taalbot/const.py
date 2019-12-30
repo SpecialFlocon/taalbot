@@ -127,3 +127,6 @@ Take a look at #nederlands-leren, as I believe people there just gave you, or wi
 Make sure to read the rules in #informatie, too!
 Veel plezier!
 """)
+
+FORVO_SEARCH_BASE_URL = "https://nl.forvo.com/search"
+VANDALE_SEARCH_BASE_URL = "https://www.vandale.nl/gratis-woordenboek/nederlands/betekenis"

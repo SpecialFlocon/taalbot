@@ -29,5 +29,39 @@ Unless the noun is in plural, in which case it's **always** \"de\"."""),
                 'inline': False,
             }
         ]
+    },
+    'vandale': {
+        'title': _("Van Dale free online dictionary search"),
+        'description': _("Use this command to get a link to a word entry in Van Dale free online dictionary."),
+        'color': 0x3498db,
+        'fields': [
+            {
+                'name': _("Usage"),
+                'value': "`${prefix}${cmd} <word>`",
+                'inline': False,
+            },
+            {
+                'name': _("Example"),
+                'value': "`${prefix}${cmd} geschiedenis`",
+                'inline': False,
+            }
+        ]
+    },
+    'forvo': {
+        'title': _("Word pronuncation samples on Forvo"),
+        'description': _("Use this command to get a link to word pronuncation recordings on Forvo."),
+        'color': 0x3498db,
+        'fields': [
+            {
+                'name': _("Usage"),
+                'value': "`${prefix}${cmd} <word>`",
+                'inline': False,
+            },
+            {
+                'name': _("Example"),
+                'value': "`${prefix}${cmd} aansprakelijkheidswaardevaststellingsver`",
+                'inline': False,
+            }
+        ]
     }
 }
