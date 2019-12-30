@@ -5,9 +5,9 @@
 # Danielle <lievedanie@gmail.com>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: taalbot 0.8.0\n"
+"Project-Id-Version: taalbot 0.9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-29 18:29+0100\n"
+"POT-Creation-Date: 2019-12-30 18:06+0100\n"
 "PO-Revision-Date: 2019-12-29 18:21+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "A bot that helps you practicing languages"
 msgstr "Een bot die je talen helpt oefenen"
 
-#: src/taalbot/const.py:116
+#: src/taalbot/const.py:14
 msgid ""
 "\n"
 "You took so long to answer, I gave up waiting and interrupted the process.\n"
@@ -36,7 +36,7 @@ msgstr ""
 "Je profiel is nog incompleet. Een teamlid kan het proces opnieuw voor je "
 "starten.\n"
 
-#: src/taalbot/const.py:121
+#: src/taalbot/const.py:19
 msgid ""
 "I haven't seen any activity for a while, so I'm going to assume you are done "
 "with additional roles!"
@@ -44,7 +44,7 @@ msgstr ""
 "Ik heb al een tijdje geen activiteit gezien, dus ik neem aan dat je klaar "
 "bent met de extra rollen!"
 
-#: src/taalbot/const.py:158
+#: src/taalbot/const.py:56
 msgid ""
 "\n"
 "Hello, and welcome to **Nederlands Leren**! Let me introduce myself: I am "
@@ -76,14 +76,14 @@ msgstr ""
 "Ze laten ook zien op welk niveau je Nederlands spreekt, zodat de andere "
 "leden zich hieraan aan kunnen passen.\n"
 "\n"
-"Zullen we beginnen? Reageer op dit bericht met ▶️, net zoals ik net deed. "
-"Dat is in hoofdzaak hoe we zullen communiceren.\n"
+"Zullen we beginnen? Reageer op dit bericht met ▶️, net zoals ik net deed. Dat "
+"is in hoofdzaak hoe we zullen communiceren.\n"
 
-#: src/taalbot/const.py:169
+#: src/taalbot/const.py:67
 msgid "Nice, I've assigned you the **{}** role!"
 msgstr "Top, ik heb je de rol \"**{}**\" gegeven!"
 
-#: src/taalbot/const.py:171
+#: src/taalbot/const.py:69
 msgid ""
 "\n"
 "Right, first things first, let's talk about your proficiency.\n"
@@ -93,11 +93,11 @@ msgstr ""
 "Goed, laten we het allereerst even hebben over je niveau.\n"
 "Is **Nederlands je moedertaal**?\n"
 
-#: src/taalbot/const.py:176 src/taalbot/const.py:186
+#: src/taalbot/const.py:74 src/taalbot/const.py:84
 msgid "Okay. I've assigned you the **{}** role."
 msgstr "Oké, ik heb je de rol \"**{}**\" gegeven."
 
-#: src/taalbot/const.py:178
+#: src/taalbot/const.py:76
 msgid ""
 "\n"
 "OK! Which Dutch do you speak?\n"
@@ -112,7 +112,7 @@ msgstr ""
 "🇧🇪 België\n"
 "🇸🇷 Suriname, Sint Maarten, Sint Eustatius, Saba + de ABC-eilanden\n"
 
-#: src/taalbot/const.py:188
+#: src/taalbot/const.py:86
 msgid ""
 "\n"
 "OK! What is your current Dutch level?\n"
@@ -129,21 +129,20 @@ msgstr ""
 "Oké! Hoe goed is je Nederlands?\n"
 "Weet je het niet zeker of heb je meer informatie nodig? Kijk eens op\n"
 "https://en.wikipedia.org/wiki/"
-"Common_European_Framework_of_Reference_for_Languages#Common_reference_levels."
-"\n"
+"Common_European_Framework_of_Reference_for_Languages#Common_reference_levels.\n"
 "\n"
 "🇴: **Onbekend**, complete beginner\n"
 "🇦: **Basisgebruiker**, past bij CEFR A1 (doorbraak) en A2 (tussenstap)\n"
-"🇧: **Onafhankelijke gebruiker**, past bij CEFR B1 (drempel) en A2 (uitzicht)"
-"\n"
+"🇧: **Onafhankelijke gebruiker**, past bij CEFR B1 (drempel) en A2 "
+"(uitzicht)\n"
 "🇨: **Vaardige gebruiker**, past bij CEFR C1 (Effectieve operationele "
 "vaardigheid) en C2 (beheersing)\n"
 
-#: src/taalbot/const.py:198
+#: src/taalbot/const.py:96
 msgid "🌍 Great! I added the **{}** role to your profile!"
 msgstr "🌍 Super! Ik heb de rol \"**{}**\" aan je profiel toegevoegd!"
 
-#: src/taalbot/const.py:199
+#: src/taalbot/const.py:97
 msgid ""
 "\n"
 "We're making progress! Now, if you want, you can tell me the name of the "
@@ -175,11 +174,11 @@ msgstr ""
 "kijken:\n"
 "https://www.101languages.net/dutch/country-names-dutch/\n"
 
-#: src/taalbot/const.py:212
+#: src/taalbot/const.py:110
 msgid "👍 Gave you the **{}** role!"
 msgstr "👍 Ik heb je de rol \"**{}**\" gegeven!"
 
-#: src/taalbot/const.py:214
+#: src/taalbot/const.py:112
 msgid ""
 "\n"
 "Awesome, you're *almost* set! 🥳\n"
@@ -215,7 +214,7 @@ msgstr ""
 "Je kunt jezelf naar wens één of meerdere rollen geven. Klik op ✅ als je geen "
 "interesse hebt in deze rollen of **als je klaar bent!**\n"
 
-#: src/taalbot/const.py:226
+#: src/taalbot/const.py:124
 msgid ""
 "\n"
 "Phew, finally done!\n"
@@ -285,6 +284,33 @@ msgstr "Welk lidwoord?"
 #: src/taalbot/utils.py:23
 msgid "Set or replace article"
 msgstr "Lidwoord toevoegen of vervangen"
+
+#: src/taalbot/utils.py:34
+msgid "Van Dale free online dictionary search"
+msgstr ""
+
+#: src/taalbot/utils.py:35
+msgid ""
+"Use this command to get a link to a word entry in Van Dale free online "
+"dictionary."
+msgstr ""
+
+#: src/taalbot/utils.py:39 src/taalbot/utils.py:56
+msgid "Usage"
+msgstr ""
+
+#: src/taalbot/utils.py:44 src/taalbot/utils.py:61
+msgid "Example"
+msgstr ""
+
+#: src/taalbot/utils.py:51
+msgid "Word pronuncation samples on Forvo"
+msgstr ""
+
+#: src/taalbot/utils.py:52
+msgid ""
+"Use this command to get a link to word pronuncation recordings on Forvo."
+msgstr ""
 
 #: src/taalbot/cogs/lidwoord.py:68
 msgid "De or het? Use this command to find out!"
@@ -361,7 +387,7 @@ msgstr ""
 "heb ze al de schuld gegeven.\n"
 "Eén van hen zal waarschijnlijk het proces opnieuw voor je opstarten.\n"
 
-#: src/taalbot/cogs/onboarding.py:169
+#: src/taalbot/cogs/onboarding.py:171
 msgid ""
 "Last step of the onboarding process for user {} timed out, wrapping up "
 "anyway."
@@ -369,30 +395,30 @@ msgstr ""
 "Laatste stap van het onboardingproces voor gebruiker {} duurde te lang, maar "
 "we waren toch al klaar."
 
-#: src/taalbot/cogs/onboarding.py:242
+#: src/taalbot/cogs/onboarding.py:246
 msgid ""
 "{} doesn't allow DMs from server members, no auto onboarding for him/her."
 msgstr ""
 "{} accepteert geen DMs van serverleden, geen automatische onboarding voor "
 "hem/haar."
 
-#: src/taalbot/cogs/onboarding.py:260
+#: src/taalbot/cogs/onboarding.py:264
 msgid "Onboarding process for user {} timed out."
 msgstr "Onboardingproces voor gebruiker {}: time-out."
 
-#: src/taalbot/cogs/onboarding.py:278
+#: src/taalbot/cogs/onboarding.py:282
 msgid "User {} is done with the onboarding process."
 msgstr "Gebruiker {} is klaar met het onboardingproces."
 
-#: src/taalbot/cogs/onboarding.py:293
+#: src/taalbot/cogs/onboarding.py:297
 msgid "Onboarding for user {} started upon server join."
 msgstr "Onboarding voor gebruiker {} is gestart bij binnenkomst in de server."
 
-#: src/taalbot/cogs/onboarding.py:303
+#: src/taalbot/cogs/onboarding.py:307
 msgid "Started onboarding for user {}, as requested by {}."
 msgstr "Gestart met onboarding voor gebruiker {} op aanvraag van {}."
 
-#: src/taalbot/cogs/onboarding.py:310
+#: src/taalbot/cogs/onboarding.py:314
 msgid ""
 "{}, you are not allowed to run this command. If you'd like to go through on-"
 "boarding process again, ask a team member to initiate it for you."
@@ -400,3 +426,11 @@ msgstr ""
 "{}, je bent niet gemachtigd om dit commando te starten. Als je opnieuw door "
 "het onboardingproces wilt gaan, kun je een teamlid vragen om het voor jou op "
 "te starten."
+
+#: src/taalbot/cogs/shortcuts.py:14
+msgid "Search for a word in Van Dale free online dictionary"
+msgstr ""
+
+#: src/taalbot/cogs/shortcuts.py:18
+msgid "Listen to natives pronouncing a certain word"
+msgstr ""
