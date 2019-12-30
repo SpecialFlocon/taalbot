@@ -17,7 +17,7 @@ class Shortcuts(commands.Cog):
 
     @commands.command(aliases=['uitspraak'], brief=_("Listen to natives pronouncing a certain word"))
     async def forvo(self, ctx, word):
-        await ctx.send("{}/{}/".format(const.FORVO_SEARCH_BASE_URL, word))
+        await ctx.send("{}/{}/nl/".format(const.FORVO_SEARCH_BASE_URL, word))
 
 def setup(bot):
     bot.add_cog(Shortcuts(bot))
