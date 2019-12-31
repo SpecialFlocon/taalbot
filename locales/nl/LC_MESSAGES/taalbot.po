@@ -5,9 +5,9 @@
 # Danielle <lievedanie@gmail.com>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: taalbot 0.9.0\n"
+"Project-Id-Version: taalbot 0.9.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-30 18:06+0100\n"
+"POT-Creation-Date: 2019-12-31 11:33+0100\n"
 "PO-Revision-Date: 2019-12-30 17:31+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
@@ -369,8 +369,8 @@ msgstr ""
 "Meer informatie: `{0}help {1}`\n"
 
 #: src/taalbot/cogs/lidwoord.py:117
-msgid "word"
-msgstr "woord"
+msgid "noun"
+msgstr ""
 
 #: src/taalbot/cogs/lidwoord.py:117
 msgid "article"
@@ -438,3 +438,6 @@ msgstr "Zoeken naar een woord in Van Dale gratis woordenboek"
 #: src/taalbot/cogs/shortcuts.py:18
 msgid "Listen to natives pronouncing a certain word"
 msgstr "Luisteren naar moedertaalsprekers die een bepaalde woord uitspreken"
+
+#~ msgid "word"
+#~ msgstr "woord"
