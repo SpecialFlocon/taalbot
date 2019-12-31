@@ -436,6 +436,3 @@ msgstr "Zoeken naar een woord in Van Dale gratis woordenboek"
 #: src/taalbot/cogs/shortcuts.py:18
 msgid "Listen to natives pronouncing a certain word"
 msgstr "Luister naar hoe moedertaalsprekers een bepaald woord uitspreken"
-
-#~ msgid "word"
-#~ msgstr "woord"
