@@ -114,7 +114,7 @@ Don't forget that all plural nouns in Dutch are *de-words*!
 To get the article of a noun: `{0}{1} {2}`
 To set the article of a noun: `{0}{1} {2} {3}`
 More info: `{0}help {1}`
-""").format(ctx.bot.command_prefix, ctx.invoked_with, _('word'), _('article')))
+""").format(ctx.bot.command_prefix, ctx.invoked_with, _('noun'), _('article')))
 
 def setup(bot):
     bot.add_cog(LidwoordCog(bot))
