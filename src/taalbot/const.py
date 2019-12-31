@@ -117,8 +117,7 @@ There are still a few optional roles you can decide to add to your profile.
 📗 **Woord**: get a notification when a new *woord van de dag* (word of the day) is posted in #woord-vd-dag.
 🏫 **Sessies**: get a notification when members of this server organize impromptu / planned (voice) Dutch sessions.
 💪 **Verbeter mij**: this tag lets natives (or everyone) know that you'd like your mistakes to be corrected.
-
-You can "subscribe" to any of those roles, or just click ✅ if none of them interest you, or **when you are done!**
+✅ **Finished**: when you're satisfied with your choices. Don't worry, these roles can be obtained later, too!
 """)
 
 ONBOARDING_FINAL_NOTE_TEXT = _("""
