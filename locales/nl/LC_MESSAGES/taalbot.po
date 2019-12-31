@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: taalbot 0.9.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-31 11:33+0100\n"
-"PO-Revision-Date: 2019-12-30 17:31+0000\n"
+"PO-Revision-Date: 2019-12-31 10:39+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
 "nl/>\n"
@@ -287,7 +287,7 @@ msgstr "Lidwoord toevoegen of vervangen"
 
 #: src/taalbot/utils.py:34
 msgid "Van Dale free online dictionary search"
-msgstr "Van Dale gratis woordenboek zoeken"
+msgstr "Van Dale gratis woordenboek doorzoeken"
 
 #: src/taalbot/utils.py:35
 msgid ""
@@ -312,9 +312,7 @@ msgstr "Woorduitspraak voorbeelden op Forvo"
 #: src/taalbot/utils.py:52
 msgid ""
 "Use this command to get a link to word pronuncation recordings on Forvo."
-msgstr ""
-"Gebruik dit commando om een link naar woorduitspraak opnames op Forvo te "
-"krijgen."
+msgstr "Gebruik dit commando voor een link naar uitspraakopnames op Forvo."
 
 #: src/taalbot/cogs/lidwoord.py:68
 msgid "De or het? Use this command to find out!"
@@ -370,7 +368,7 @@ msgstr ""
 
 #: src/taalbot/cogs/lidwoord.py:117
 msgid "noun"
-msgstr ""
+msgstr "znw"
 
 #: src/taalbot/cogs/lidwoord.py:117
 msgid "article"
@@ -437,7 +435,7 @@ msgstr "Zoeken naar een woord in Van Dale gratis woordenboek"
 
 #: src/taalbot/cogs/shortcuts.py:18
 msgid "Listen to natives pronouncing a certain word"
-msgstr "Luisteren naar moedertaalsprekers die een bepaalde woord uitspreken"
+msgstr "Luister naar hoe moedertaalsprekers een bepaald woord uitspreken"
 
 #~ msgid "word"
 #~ msgstr "woord"
