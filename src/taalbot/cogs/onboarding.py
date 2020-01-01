@@ -123,15 +123,15 @@ class Country(OnboardStep):
 
         def user_replied_with_country_name(message):
             country_role_color = discord.Colour(const.COUNTRY_ROLE_COLOR)
-            country_names = [r.name for r in self.member.guild.roles if r.colour == country_role_color]
-            return message.author == self.member and (message.content == '⏩' or message.content in country_names)
+            country_names = [r.name.lower() for r in self.member.guild.roles if r.colour == country_role_color]
+            return message.author == self.member and (message.content == '⏩' or message.content.lower() in country_names)
 
         country_name_message = await self.bot.wait_for('message', check=user_replied_with_country_name, timeout=const.EVENT_WAIT_TIMEOUT)
         if country_name_message.content == '⏩':
             return
 
         logger.debug("Country name message content: {}".format(country_name_message.content))
-        country_role = get(self.member.guild.roles, name=country_name_message.content)
+        country_role = find(lambda r: r.name.lower() == country_name_message.content.lower(), self.member.guild.roles)
         await self.member.add_roles(country_role)
         await self.member.send(g(self.role_assignation_text).format(country_role.name))
 
