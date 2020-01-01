@@ -112,12 +112,13 @@ ONBOARDING_ADDITIONAL_ROLES_MANDATORY_CHOICES = {'📗': ROLE_NAME_WVDD, '🏫':
 ONBOARDING_ADDITIONAL_ROLES_INSTRUCTIONS = _("""
 Awesome, you're *almost* set! 🥳
 There are still a few optional roles you can decide to add to your profile.
+*Note*: these roles can also be obtained later, should you ever change your mind.
 
 🇧🇪 **BN**: if you are interested in Belgian Dutch! Gives access to the #belgië channel. You won't see this option if you obtained `BE` or `België` role earlier, as people with those roles are automatically given access.
 📗 **Woord**: get a notification when a new *woord van de dag* (word of the day) is posted in #woord-vd-dag.
 🏫 **Sessies**: get a notification when members of this server organize impromptu / planned (voice) Dutch sessions.
 💪 **Verbeter mij**: this tag lets natives (or everyone) know that you'd like your mistakes to be corrected.
-✅ **Finished**: when you're satisfied with your choices. Don't worry, these roles can be obtained later, too!
+✅ When you're satisfied with your choices.
 """)
 
 ONBOARDING_FINAL_NOTE_TEXT = _("""
