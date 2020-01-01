@@ -1,14 +1,14 @@
 # Dutch translations for taalbot package.
 # Copyright (C) 2019 THE taalbot'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the taalbot package.
-# Théo Piboubès <theo@piboubes.me>, 2019.
+# Théo Piboubès <theo@piboubes.me>, 2019, 2020.
 # Danielle <lievedanie@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-01 20:18+0100\n"
-"PO-Revision-Date: 2019-12-31 10:39+0000\n"
+"PO-Revision-Date: 2020-01-01 19:45+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
 "nl/>\n"
@@ -179,7 +179,6 @@ msgid "👍 Gave you the **{}** role!"
 msgstr "👍 Ik heb je de rol \"**{}**\" gegeven!"
 
 #: src/taalbot/const.py:112
-#, fuzzy
 msgid ""
 "\n"
 "Awesome, you're *almost* set! 🥳\n"
@@ -200,7 +199,10 @@ msgid ""
 msgstr ""
 "\n"
 "Geweldig, je bent *bijna* klaar! 🥳\n"
-"Er zijn nog een paar optionele rollen: \n"
+"Er zijn nog een paar optionele rollen dat je kan naar jouw profiel toevoegen."
+"\n"
+"*Let op*: die rollen kunnen ook later worden verkregen, als je van gedachten "
+"verandert.\n"
 "\n"
 "🇧🇪 **BN**: voor als je geïnteresseerd bent in Belgisch-Nederlands! Het geeft "
 "je toegang tot het kanaal #belgië. De rollen 'BE' of 'België' geven "
@@ -211,9 +213,7 @@ msgstr ""
 "gehouden wordt.\n"
 "💪 **Verbeter mij**: deze rol laat iedereen weten dat je graag wilt dat je "
 "fouten worden verbeterd. \n"
-"\n"
-"Je kunt jezelf naar wens één of meerdere rollen geven. Klik op ✅ als je geen "
-"interesse hebt in deze rollen of **als je klaar bent!**\n"
+"✅ Wanneer je tevreden bent met jouw keuzes.\n"
 
 #: src/taalbot/const.py:124
 msgid ""
