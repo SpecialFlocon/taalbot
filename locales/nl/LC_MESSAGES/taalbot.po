@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the taalbot package.
 # Théo Piboubès <theo@piboubes.me>, 2019, 2020.
 # Danielle <lievedanie@gmail.com>, 2019.
+# Monti <michiel_vandegucht@hotmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-01 20:18+0100\n"
-"PO-Revision-Date: 2020-01-01 19:45+0000\n"
-"Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
+"PO-Revision-Date: 2020-01-03 19:40+0000\n"
+"Last-Translator: Monti <michiel_vandegucht@hotmail.com>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
 "nl/>\n"
 "Language: nl\n"
@@ -308,7 +309,7 @@ msgstr "Voorbeeld"
 
 #: src/taalbot/utils.py:51
 msgid "Word pronuncation samples on Forvo"
-msgstr "Woorduitspraak voorbeelden op Forvo"
+msgstr "Voorbeelden uitspraak op Forvo"
 
 #: src/taalbot/utils.py:52
 msgid ""
@@ -347,7 +348,7 @@ msgstr ""
 
 #: src/taalbot/cogs/lidwoord.py:101
 msgid "Only admins, mods and mentors can change articles."
-msgstr "Alleen admins, mods en mentoren kunnen de lidwoorden aanpassen."
+msgstr "Alleen admins, mods en mentoren kunnen lidwoorden aanpassen."
 
 #: src/taalbot/cogs/lidwoord.py:109
 msgid "So, it's {} {}. Noted!"
@@ -369,7 +370,7 @@ msgstr ""
 
 #: src/taalbot/cogs/lidwoord.py:117
 msgid "noun"
-msgstr "znw"
+msgstr "zelfstandig naamwoord"
 
 #: src/taalbot/cogs/lidwoord.py:117
 msgid "article"
@@ -388,7 +389,7 @@ msgstr ""
 "bestaat.\n"
 "Geen zorgen, het is niet jouw schuld, maar wel van het serverteam, dus ik "
 "heb ze al de schuld gegeven.\n"
-"Eén van hen zal waarschijnlijk het proces opnieuw voor je opstarten.\n"
+"Eén van hen zal het proces waarschijnlijk opnieuw voor je opstarten.\n"
 
 #: src/taalbot/cogs/onboarding.py:171
 msgid ""
