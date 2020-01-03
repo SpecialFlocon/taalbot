@@ -74,7 +74,7 @@ class LidwoordCog(commands.Cog):
             except requests.HTTPError as e:
                 if e.response.status_code == requests.codes.not_found:
                     return await ctx.send(_("""
-I couldn't find this word… 🙁
+I couldn't find this noun… 🙁
 Ask a team member to set the article for this noun! (cf. `{}help {}`)
 """).format(ctx.bot.command_prefix, ctx.invoked_with))
                 else:
@@ -111,8 +111,8 @@ Don't forget that all plural nouns in Dutch are *de-words*!
             await ctx.send(output)
         else:
             await ctx.send(_("""
-To get the article of a noun: `{0}{1} {2}`
-To set the article of a noun: `{0}{1} {2} {3}`
+To get the article of a noun: `{0}{1} <{2}>`
+To set the article of a noun: `{0}{1} <{2}> <{3}>`
 More info: `{0}help {1}`
 """).format(ctx.bot.command_prefix, ctx.invoked_with, _('noun'), _('article')))
 
