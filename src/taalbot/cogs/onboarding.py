@@ -296,6 +296,7 @@ class Onboarding(commands.Cog):
         if self.bot.log_channel:
             await self.bot.log_channel.send(_("Onboarding for user {} started upon server join.").format(member.mention))
         await self.greet(member)
+        await asyncio.sleep(const.GREET_NEW_MEMBER_DM_BACKOFF)
         await OnboardProcess(self.bot, member).run()
 
     @commands.command(hidden=True)

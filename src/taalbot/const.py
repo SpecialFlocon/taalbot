@@ -18,6 +18,7 @@ Your profile is still incomplete. A team member can re-initiate the process for 
 EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT = 120 # seconds
 EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT_MESSAGE = _("I haven't seen any activity for a while, so I'm going to assume you are done with additional roles!")
 
+GREET_NEW_MEMBER_DM_BACKOFF = 3 # seconds
 GREET_NEW_MEMBER_MESSAGE = """
 Hallo {}, welkom op **Nederlands Leren**!
 
