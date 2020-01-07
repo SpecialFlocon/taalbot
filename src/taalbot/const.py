@@ -19,16 +19,8 @@ EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT = 120 # seconds
 EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT_MESSAGE = _("I haven't seen any activity for a while, so I'm going to assume you are done with additional roles!")
 
 GREET_NEW_MEMBER_DM_BACKOFF = 3 # seconds
-GREET_NEW_MEMBER_MESSAGE = """
-Hallo {}, welkom op **Nederlands Leren**!
-
-As a new member, you need to get some roles before anything else.
-I will shortly send you a DM to walk you through the introduction process!
-"""
-GREET_NEW_MEMBER_RESTRICTED_DM_MESSAGE = """
-Hmm… Since you won't accept DMs from strangers, we'll have to do it the old-fashioned way.
-Please read #informatie and get yourself some roles in #botplezier, so that you get access to the other channels of this server.
-"""
+GREET_NEW_MEMBER_MESSAGE = "Hallo {}, welkom op **Nederlands Leren**! I'll send you a DM to help you getting the right roles."
+GREET_NEW_MEMBER_RESTRICTED_DM_MESSAGE = "Couldn't send you a DM ➡️ please read {} and assign yourself appropriate roles in {}!"
 
 LOG_CHANNEL_MSG = """
 **Error report**

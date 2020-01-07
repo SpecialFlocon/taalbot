@@ -241,10 +241,15 @@ class OnboardProcess:
     async def restricted_dm_greet_fallback(self):
         greet_channel = get(self.member.guild.channels, name=self.bot.config.get('greetChannel')) or self.member.guild.system_channel
 
+        server_information_channel = get(self.member.guild.channels, name="informatie")
+        server_information_channel_mention = getattr(server_information_channel, 'mention', "#informatie")
+        bot_playground_channel = get(self.member.guild.channels, name="botplezier")
+        bot_playground_channel_mention = getattr(bot_playground_channel, 'mention', "#botplezier")
+
         logger.error("Cannot send DMs to user {}, aborted auto onboarding.".format(self.member))
         if self.bot.log_channel:
             await self.bot.log_channel.send(_("{} doesn't allow DMs from server members, no auto onboarding for him/her.").format(self.member.mention))
-        await greet_channel.send(const.GREET_NEW_MEMBER_RESTRICTED_DM_MESSAGE.format(self.member.mention))
+        await greet_channel.send(const.GREET_NEW_MEMBER_RESTRICTED_DM_MESSAGE.format(server_information_channel_mention, bot_playground_channel_mention))
 
     async def run(self):
         await self.reset_roles()
