@@ -304,6 +304,12 @@ class Onboarding(commands.Cog):
         await asyncio.sleep(const.GREET_NEW_MEMBER_DM_BACKOFF)
         await OnboardProcess(self.bot, member).run()
 
+    @commands.Cog.listener()
+    async def on_member_remove(self, member):
+        logger.info("Member {} has left the server.".format(member))
+        if self.bot.log_channel:
+            await self.bot.log_channel.send(_("Member **{}** has left the server 👋").format(member))
+
     @commands.command(hidden=True)
     @commands.has_permissions(manage_roles=True)
     async def onboard(self, ctx, *, member: discord.Member=None):
