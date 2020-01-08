@@ -19,7 +19,7 @@ EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT = 120 # seconds
 EVENT_WAIT_ADDITIONAL_ROLES_TIMEOUT_MESSAGE = _("I haven't seen any activity for a while, so I'm going to assume you are done with additional roles!")
 
 GREET_NEW_MEMBER_DM_BACKOFF = 3 # seconds
-GREET_NEW_MEMBER_MESSAGE = "Hallo {}, welkom op **Nederlands Leren**! I'll send you a DM to help you getting the right roles."
+GREET_NEW_MEMBER_MESSAGE = "Hallo {}, welkom op **Nederlands Leren**! I'll send you a DM to help you get the right roles."
 GREET_NEW_MEMBER_RESTRICTED_DM_MESSAGE = "Couldn't send you a DM ➡️ please read {} and assign yourself appropriate roles in {}!"
 
 LOG_CHANNEL_MSG = """

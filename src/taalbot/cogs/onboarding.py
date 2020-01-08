@@ -308,7 +308,7 @@ class Onboarding(commands.Cog):
     async def on_member_remove(self, member):
         logger.info("Member {} has left the server.".format(member))
         if self.bot.log_channel:
-            await self.bot.log_channel.send(_("Member **{}** has left the server 👋").format(member))
+            await self.bot.log_channel.send(_("**{}** left the server 👋").format(member))
 
     @commands.command(hidden=True)
     @commands.has_permissions(manage_roles=True)
