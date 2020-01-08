@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: taalbot 0.10.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-08 17:31+0100\n"
-"PO-Revision-Date: 2020-01-03 20:26+0000\n"
+"PO-Revision-Date: 2020-01-08 16:44+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
 "nl/>\n"
@@ -420,7 +420,7 @@ msgstr "Onboarding voor gebruiker {} is gestart bij binnenkomst in de server."
 
 #: src/taalbot/cogs/onboarding.py:311
 msgid "**{}** left the server 👋"
-msgstr ""
+msgstr "**{}** verliet de server 👋"
 
 #: src/taalbot/cogs/onboarding.py:319
 msgid "Started onboarding for user {}, as requested by {}."
