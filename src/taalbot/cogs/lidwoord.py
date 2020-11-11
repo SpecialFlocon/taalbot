@@ -95,10 +95,10 @@ Don't forget that all plural nouns in Dutch are *de-words*!
         # Two arguments: the user is setting the article of a word
         elif len(args) == 2:
             author = ctx.message.author
-            if all(not get(author.roles, name=r) for r in [const.ROLE_NAME_ADMIN, const.ROLE_NAME_MOD, const.ROLE_NAME_MENTOR]):
+            if all(not get(author.roles, name=r) for r in [const.ROLE_NAME_STAFF]):
                 logger.info("User {} with insufficient permissions tried to change an article".format(author.name))
                 logger.debug("Permissions for user {}: {}".format(author.name, ctx.channel.permissions_for(author)))
-                return await ctx.send(_("Only admins, mods and mentors can change articles."))
+                return await ctx.send(_("Only team members can change articles."))
 
             if not args[1] in ['de', 'het', _('both')]:
                 return await ctx.send_help('dehet')

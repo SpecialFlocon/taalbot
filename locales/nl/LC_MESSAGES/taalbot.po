@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: taalbot 0.10.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-08 17:31+0100\n"
+"POT-Creation-Date: 2020-04-07 12:44+0200\n"
 "PO-Revision-Date: 2020-01-08 16:44+0000\n"
 "Last-Translator: Théo Piboubès <theo@piboubes.me>\n"
 "Language-Team: Dutch <https://localize.piboubes.me/projects/taalabc/taalbot/"
@@ -45,7 +45,7 @@ msgstr ""
 "Ik heb al een tijdje geen activiteit gezien, dus ik neem aan dat je klaar "
 "bent met de extra rollen!"
 
-#: src/taalbot/const.py:49
+#: src/taalbot/const.py:47
 msgid ""
 "\n"
 "Hello, and welcome to **Nederlands Leren**! Let me introduce myself: I am "
@@ -80,11 +80,11 @@ msgstr ""
 "Zullen we beginnen? Reageer op dit bericht met ▶️, net zoals ik net deed. Dat "
 "is in hoofdzaak hoe we zullen communiceren.\n"
 
-#: src/taalbot/const.py:60
+#: src/taalbot/const.py:58
 msgid "Nice, I've assigned you the **{}** role!"
 msgstr "Top, ik heb je de rol \"**{}**\" gegeven!"
 
-#: src/taalbot/const.py:62
+#: src/taalbot/const.py:60
 msgid ""
 "\n"
 "Right, first things first, let's talk about your proficiency.\n"
@@ -94,11 +94,11 @@ msgstr ""
 "Goed, laten we het allereerst even hebben over je niveau.\n"
 "Is **Nederlands je moedertaal**?\n"
 
-#: src/taalbot/const.py:67 src/taalbot/const.py:77
+#: src/taalbot/const.py:65 src/taalbot/const.py:75
 msgid "Okay. I've assigned you the **{}** role."
 msgstr "Oké, ik heb je de rol \"**{}**\" gegeven."
 
-#: src/taalbot/const.py:69
+#: src/taalbot/const.py:67
 msgid ""
 "\n"
 "OK! Which Dutch do you speak?\n"
@@ -113,7 +113,7 @@ msgstr ""
 "🇧🇪 België\n"
 "🇸🇷 Suriname, Sint Maarten, Sint Eustatius, Saba + de ABC-eilanden\n"
 
-#: src/taalbot/const.py:79
+#: src/taalbot/const.py:77
 msgid ""
 "\n"
 "OK! What is your current Dutch level?\n"
@@ -139,11 +139,11 @@ msgstr ""
 "🇨: **Vaardige gebruiker**, past bij CEFR C1 (Effectieve operationele "
 "vaardigheid) en C2 (beheersing)\n"
 
-#: src/taalbot/const.py:89
+#: src/taalbot/const.py:87
 msgid "🌍 Great! I added the **{}** role to your profile!"
 msgstr "🌍 Super! Ik heb de rol \"**{}**\" aan je profiel toegevoegd!"
 
-#: src/taalbot/const.py:90
+#: src/taalbot/const.py:88
 msgid ""
 "\n"
 "We're making progress! Now, if you want, you can tell me the name of the "
@@ -175,11 +175,11 @@ msgstr ""
 "kijken:\n"
 "https://www.101languages.net/dutch/country-names-dutch/\n"
 
-#: src/taalbot/const.py:103
+#: src/taalbot/const.py:101
 msgid "👍 Gave you the **{}** role!"
 msgstr "👍 Ik heb je de rol \"**{}**\" gegeven!"
 
-#: src/taalbot/const.py:105
+#: src/taalbot/const.py:103
 msgid ""
 "\n"
 "Awesome, you're *almost* set! 🥳\n"
@@ -216,21 +216,21 @@ msgstr ""
 "fouten worden verbeterd. \n"
 "✅ Wanneer je tevreden bent met jouw keuzes.\n"
 
-#: src/taalbot/const.py:117
+#: src/taalbot/const.py:115
 msgid ""
 "\n"
 "Phew, finally done!\n"
-"Take a look at #nederlands-leren, as I believe people there just gave you, "
-"or will give you, a warm welcome! (Let me know if they don't, though!)\n"
-"Make sure to read the rules in #informatie, too!\n"
+"Take a look at <#238393894969147392>, as I believe people there just gave "
+"you, or will give you, a warm welcome! (Let me know if they don't, though!)\n"
+"Make sure to read the rules in <#238393736478851074>, too!\n"
 "Veel plezier!\n"
 msgstr ""
 "\n"
 "Zo, eindelijk klaar!\n"
-"Neem een kijkje in #nederlands-leren, aangezien ik denk dat er vast wel een "
+"Neem een kijkje in <#238393894969147392>, aangezien ik denk dat er vast wel een "
 "paar mensen je al welkom hebben geheten of zullen gaan heten! (Trouwens, "
 "laat het me weten als ze dat niet doen.) \n"
-"Vergeet niet om de regels in #informatie door te nemen.\n"
+"Vergeet niet om de regels in <#238393736478851074> door te nemen.\n"
 "Veel plezier!\n"
 
 #: src/taalbot/help.py:20
@@ -347,8 +347,8 @@ msgstr ""
 "woorden*!\n"
 
 #: src/taalbot/cogs/lidwoord.py:101
-msgid "Only admins, mods and mentors can change articles."
-msgstr "Alleen admins, mods en mentoren kunnen lidwoorden aanpassen."
+msgid "Only team members can change articles."
+msgstr "Alleen teamleden kunnen lidwoorden aanpassen."
 
 #: src/taalbot/cogs/lidwoord.py:109
 msgid "So, it's {} {}. Noted!"

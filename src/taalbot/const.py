@@ -29,9 +29,7 @@ LOG_CHANNEL_MSG = """
 ```
 """
 
-ROLE_NAME_ADMIN = "Admin"
-ROLE_NAME_MOD = "Moderator"
-ROLE_NAME_MENTOR = "Mentor"
+ROLE_NAME_STAFF = "Staff"
 ROLE_NAME_NATIVE = "Native"
 ROLE_NAME_NL = "NL"
 ROLE_NAME_BE = "BE"
@@ -116,8 +114,8 @@ There are still a few optional roles you can decide to add to your profile.
 
 ONBOARDING_FINAL_NOTE_TEXT = _("""
 Phew, finally done!
-Take a look at #nederlands-leren, as I believe people there just gave you, or will give you, a warm welcome! (Let me know if they don't, though!)
-Make sure to read the rules in #informatie, too!
+Take a look at <#238393894969147392>, as I believe people there just gave you, or will give you, a warm welcome! (Let me know if they don't, though!)
+Make sure to read the rules in <#238393736478851074>, too!
 Veel plezier!
 """)
 
