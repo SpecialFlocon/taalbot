@@ -1,5 +1,5 @@
 # Build stage
-FROM python:3
+FROM python:3.8
 
 RUN groupadd -g 500 taalbot && \
     useradd -d /home/taalbot -g taalbot -m -N -u 500 taalbot
@@ -14,7 +14,7 @@ RUN pip install -U pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # Runtime stage
-FROM python:3-slim
+FROM python:3.8-slim
 
 RUN groupadd -g 500 taalbot && \
     useradd -d /home/taalbot -g taalbot -m -N -u 500 taalbot && \
