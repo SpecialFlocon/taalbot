@@ -62,9 +62,11 @@ def main(argv=None, test=False):
     from .bot import Taalbot
     from .help import TaalbotHelpCommand
 
+    from discord import Intents
     taalbot = Taalbot(
         config,
         help_command=TaalbotHelpCommand(),
+        intents=Intents.all(),
         description=_("A bot that helps you practicing languages")
     )
 
